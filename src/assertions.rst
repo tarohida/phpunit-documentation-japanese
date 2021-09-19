@@ -20,11 +20,7 @@ PHPUnit のアサーションの実装は、 ``PHPUnit\Framework\Assert``
 ``PHPUnit\Framework\Assert::assertTrue()`` などのように使えます。
 また、 ``PHPUnit\Framework\TestCase`` を継承したクラスの中では
 ``$this->assertTrue()`` や ``self::assertTrue()`` などとしても使えます。
-
-さらに、PHPUnit に含まれるファイル :file:`src/Framework/Assert/Functions.php`
-を (手動で) インクルードしてしまえば、グローバルなラッパー関数 ``assertTrue()``
-などを使うことさえできてしまいます。これは、 ``PHPUnit\Framework\TestCase``
-を継承したクラスを含めてあらゆるコンテキストで使えます。
+さらに ``assertTrue()`` など、グローバルなラッパー関数として使うことさえできてしまいます。
 
 PHPUnit を使い始めたばかりの開発者の多くは、たとえばアサーションを実行するときに
 ``$this->assertTrue()`` と ``self::assertTrue()``
@@ -55,21 +51,21 @@ assertArrayHasKey()
     :caption: assertArrayHasKey() の使用法
     :name: appendixes.assertions.assertArrayHasKey.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class ArrayHasKeyTest extends TestCase
+    final class ArrayHasKeyTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
             $this->assertArrayHasKey('foo', ['bar' => 'baz']);
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
     $ phpunit ArrayHasKeyTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
     F
 
@@ -100,21 +96,21 @@ assertClassHasAttribute()
     :caption: assertClassHasAttribute() の使用法
     :name: appendixes.assertions.assertClassHasAttribute.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class ClassHasAttributeTest extends TestCase
+    final class ClassHasAttributeTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
             $this->assertClassHasAttribute('foo', stdClass::class);
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
     $ phpunit ClassHasAttributeTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
     F
 
@@ -126,56 +122,6 @@ assertClassHasAttribute()
     Failed asserting that class "stdClass" has attribute "foo".
 
     /home/sb/ClassHasAttributeTest.php:6
-
-    FAILURES!
-    Tests: 1, Assertions: 1, Failures: 1.
-
-.. _appendixes.assertions.assertArraySubset:
-
-assertArraySubset()
-###################
-
-``assertArraySubset(array $subset, array $array[, bool $strict = false, string $message = ''])``
-
-``$array`` が ``$subset`` を含まない場合にエラー ``$message`` を報告します。
-
-``$strict`` フラグを使うと、配列内のオブジェクトの比較にその識別子を利用します。
-
-.. code-block:: php
-    :caption: assertArraySubset() の使用法
-    :name: appendixes.assertions.assertArraySubset.example
-
-    <?php
-    use PHPUnit\Framework\TestCase;
-
-    class ArraySubsetTest extends TestCase
-    {
-        public function testFailure()
-        {
-            $this->assertArraySubset(['config' => ['key-a', 'key-b']], ['config' => ['key-a']]);
-        }
-    }
-
-.. code-block:: bash
-
-    $ phpunit ArraySubsetTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
-
-    F
-
-    Time: 0 seconds, Memory: 5.00Mb
-
-    There was 1 failure:
-
-    1) Epilog\EpilogTest::testNoFollowOption
-    Failed asserting that an array has the subset Array &0 (
-        'config' => Array &1 (
-            0 => 'key-a'
-            1 => 'key-b'
-        )
-    ).
-
-    /home/sb/ArraySubsetTest.php:6
 
     FAILURES!
     Tests: 1, Assertions: 1, Failures: 1.
@@ -195,21 +141,21 @@ assertClassHasStaticAttribute()
     :caption: assertClassHasStaticAttribute() の使用法
     :name: appendixes.assertions.assertClassHasStaticAttribute.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class ClassHasStaticAttributeTest extends TestCase
+    final class ClassHasStaticAttributeTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
             $this->assertClassHasStaticAttribute('foo', stdClass::class);
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
     $ phpunit ClassHasStaticAttributeTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
     F
 
@@ -236,27 +182,25 @@ assertContains()
 
 ``assertNotContains()`` はこのアサーションの逆で、同じ引数をとります。
 
-``assertAttributeContains()`` と ``assertAttributeNotContains()`` は便利なラッパーで、クラスやオブジェクトの ``public``、``protected``、``private`` 属性を haystack として使用することができます。
-
 .. code-block:: php
     :caption: assertContains() の使用法
     :name: appendixes.assertions.assertContains.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class ContainsTest extends TestCase
+    final class ContainsTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
             $this->assertContains(4, [1, 2, 3]);
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
     $ phpunit ContainsTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
     F
 
@@ -272,84 +216,93 @@ assertContains()
     FAILURES!
     Tests: 1, Assertions: 1, Failures: 1.
 
-``assertContains(string $needle, string $haystack[, string $message = '', boolean $ignoreCase = false])``
+assertStringContainsString()
+#############################
+
+``assertStringContainsString(string $needle, string $haystack[, string $message = ''])``
 
 ``$needle`` が ``$haystack`` の部分文字列でない場合にエラー ``$message`` を報告します。
 
-``$ignoreCase`` が ``true`` の場合、テストで大文字小文字を区別しなくなります。
+``assertStringNotContainsString()`` はこのアサーションの逆で、同じ引数を取ります。
 
 .. code-block:: php
-    :caption: assertContains() の使用法
-    :name: appendixes.assertions.assertContains.example2
+    :caption: assertStringContainsString() の使用法
+    :name: appendixes.assertions.assertStringContainsString.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class ContainsTest extends TestCase
+    final class StringContainsStringTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
-            $this->assertContains('baz', 'foobar');
+            $this->assertStringContainsString('foo', 'bar');
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
-    $ phpunit ContainsTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    $ phpunit StringContainsStringTest
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
-    F
+    F                                                                   1 / 1 (100%)
 
-    Time: 0 seconds, Memory: 5.00Mb
+    Time: 37 ms, Memory: 6.00 MB
 
     There was 1 failure:
 
-    1) ContainsTest::testFailure
-    Failed asserting that 'foobar' contains "baz".
+    1) StringContainsStringTest::testFailure
+    Failed asserting that 'bar' contains "foo".
 
-    /home/sb/ContainsTest.php:6
+    /home/sb/StringContainsStringTest.php:8
 
     FAILURES!
     Tests: 1, Assertions: 1, Failures: 1.
 
-.. code-block:: php
-    :caption: assertContains() で $ignoreCase を使う方法
-    :name: appendixes.assertions.assertContains.example3
+assertStringContainsStringIgnoringCase()
+########################################
 
-    <?php
+``assertStringContainsStringIgnoringCase(string $needle, string $haystack[, string $message = ''])``
+
+``$needle`` が ``$haystack`` の部分文字列でない場合にエラー ``$message`` を報告します。
+
+テストにおいて、大文字小文字の違いは無視されます。
+
+``assertStringNotContainsStringIgnoringCase()`` はこのアサーションの逆で、同じ引数を取ります。
+
+.. code-block:: php
+    :caption: assertStringContainsStringIgnoringCase() の使用法
+    :name: appendixes.assertions.assertStringContainsStringIgnoringCase.example
+
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class ContainsTest extends TestCase
+    final class StringContainsStringIgnoringCaseTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
-            $this->assertContains('foo', 'FooBar');
-        }
-
-        public function testOK()
-        {
-            $this->assertContains('foo', 'FooBar', '', true);
+            $this->assertStringContainsStringIgnoringCase('foo', 'bar');
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
-    $ phpunit ContainsTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    $ phpunit StringContainsStringIgnoringCaseTest
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
-    F.
+    F                                                                   1 / 1 (100%)
 
-    Time: 0 seconds, Memory: 2.75Mb
+    Time: 40 ms, Memory: 6.00 MB
 
     There was 1 failure:
 
-    1) ContainsTest::testFailure
-    Failed asserting that 'FooBar' contains "foo".
+    1) StringContainsStringTest::testFailure
+    Failed asserting that 'bar' contains "foo".
 
-    /home/sb/ContainsTest.php:6
+    /home/sb/StringContainsStringIgnoringCaseTest.php:8
 
     FAILURES!
-    Tests: 2, Assertions: 2, Failures: 1.
+    Tests: 1, Assertions: 1, Failures: 1.
 
 .. _appendixes.assertions.assertContainsOnly:
 
@@ -364,27 +317,25 @@ assertContainsOnly()
 
 ``assertNotContainsOnly()`` はこのアサーションの逆で、同じ引数をとります。
 
-``assertAttributeContainsOnly()`` と ``assertAttributeNotContainsOnly()`` は便利なラッパーで、クラスやオブジェクトの ``public``、``protected``、``private`` 属性を haystack として使用することができます。
-
 .. code-block:: php
     :caption: assertContainsOnly() の使用法
     :name: appendixes.assertions.assertContainsOnly.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class ContainsOnlyTest extends TestCase
+    final class ContainsOnlyTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
             $this->assertContainsOnly('string', ['1', '2', 3]);
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
     $ phpunit ContainsOnlyTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
     F
 
@@ -417,12 +368,12 @@ assertContainsOnlyInstancesOf()
     :caption: assertContainsOnlyInstancesOf() の使用法
     :name: appendixes.assertions.assertContainsOnlyInstancesOf.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class ContainsOnlyInstancesOfTest extends TestCase
+    final class ContainsOnlyInstancesOfTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
             $this->assertContainsOnlyInstancesOf(
                 Foo::class,
@@ -431,10 +382,10 @@ assertContainsOnlyInstancesOf()
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
     $ phpunit ContainsOnlyInstancesOfTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
     F
 
@@ -465,21 +416,21 @@ assertCount()
     :caption: assertCount() の使用法
     :name: appendixes.assertions.assertCount.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class CountTest extends TestCase
+    final class CountTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
             $this->assertCount(0, ['foo']);
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
     $ phpunit CountTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
     F
 
@@ -504,27 +455,27 @@ assertDirectoryExists()
 
 ``$directory`` で指定したディレクトリが存在しない場合にエラー ``$message`` を報告します。
 
-``assertDirectoryNotExists()`` はこのアサーションの逆で、同じ引数をとります。
+``assertDirectoryDoesNotExist()`` はこのアサーションの逆で、同じ引数をとります。
 
 .. code-block:: php
     :caption: assertDirectoryExists() の使用法
     :name: appendixes.assertions.assertDirectoryExists.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class DirectoryExistsTest extends TestCase
+    final class DirectoryExistsTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
             $this->assertDirectoryExists('/path/to/directory');
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
     $ phpunit DirectoryExistsTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
     F
 
@@ -549,27 +500,27 @@ assertDirectoryIsReadable()
 
 ``$directory`` で指定したディレクトリが読み込み可能でない場合にエラー ``$message`` を報告します。
 
-``assertDirectoryNotIsReadable()`` はこのアサーションの逆で、同じ引数をとります。
+``assertDirectoryIsNotReadable()`` はこのアサーションの逆で、同じ引数をとります。
 
 .. code-block:: php
     :caption: assertDirectoryIsReadable() の使用法
     :name: appendixes.assertions.assertDirectoryIsReadable.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class DirectoryIsReadableTest extends TestCase
+    final class DirectoryIsReadableTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
             $this->assertDirectoryIsReadable('/path/to/directory');
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
     $ phpunit DirectoryIsReadableTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
     F
 
@@ -594,27 +545,27 @@ assertDirectoryIsWritable()
 
 ``$directory`` で指定したディレクトリが書き込み可能でない場合にエラー ``$message`` を報告します。
 
-``assertDirectoryNotIsWritable()`` はこのアサーションの逆で、同じ引数をとります。
+``assertDirectoryIsNotWritable()`` はこのアサーションの逆で、同じ引数をとります。
 
 .. code-block:: php
     :caption: assertDirectoryIsWritable() の使用法
     :name: appendixes.assertions.assertDirectoryIsWritable.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class DirectoryIsWritableTest extends TestCase
+    final class DirectoryIsWritableTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
             $this->assertDirectoryIsWritable('/path/to/directory');
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
     $ phpunit DirectoryIsWritableTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
     F
 
@@ -629,7 +580,6 @@ assertDirectoryIsWritable()
 
     FAILURES!
     Tests: 1, Assertions: 1, Failures: 1.
-
 .. _appendixes.assertions.assertEmpty:
 
 assertEmpty()
@@ -641,27 +591,25 @@ assertEmpty()
 
 ``assertNotEmpty()`` はこのアサーションの逆で、同じ引数をとります。
 
-``assertAttributeEmpty()`` および ``assertAttributeNotEmpty()`` は便利なラッパーで、クラスやオブジェクトの ``public``、``protected``、``private`` 属性に対して使えます。
-
 .. code-block:: php
     :caption: assertEmpty() の使用法
     :name: appendixes.assertions.assertEmpty.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class EmptyTest extends TestCase
+    final class EmptyTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
             $this->assertEmpty(['foo']);
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
     $ phpunit EmptyTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
     F
 
@@ -677,118 +625,6 @@ assertEmpty()
     FAILURES!
     Tests: 1, Assertions: 1, Failures: 1.
 
-.. _appendixes.assertions.assertEqualXMLStructure:
-
-assertEqualXMLStructure()
-#########################
-
-``assertEqualXMLStructure(DOMElement $expectedElement, DOMElement $actualElement[, boolean $checkAttributes = false, string $message = ''])``
-
-``$actualElement`` の DOMElement の XML 構造が ``$expectedElement`` の DOMElement の XML 構造と等しくない場合にエラー ``$message`` を報告します。
-
-.. code-block:: php
-    :caption: assertEqualXMLStructure() の使用法
-    :name: appendixes.assertions.assertEqualXMLStructure.example
-
-    <?php
-    use PHPUnit\Framework\TestCase;
-
-    class EqualXMLStructureTest extends TestCase
-    {
-        public function testFailureWithDifferentNodeNames()
-        {
-            $expected = new DOMElement('foo');
-            $actual = new DOMElement('bar');
-
-            $this->assertEqualXMLStructure($expected, $actual);
-        }
-
-        public function testFailureWithDifferentNodeAttributes()
-        {
-            $expected = new DOMDocument;
-            $expected->loadXML('<foo bar="true" />');
-
-            $actual = new DOMDocument;
-            $actual->loadXML('<foo/>');
-
-            $this->assertEqualXMLStructure(
-              $expected->firstChild, $actual->firstChild, true
-            );
-        }
-
-        public function testFailureWithDifferentChildrenCount()
-        {
-            $expected = new DOMDocument;
-            $expected->loadXML('<foo><bar/><bar/><bar/></foo>');
-
-            $actual = new DOMDocument;
-            $actual->loadXML('<foo><bar/></foo>');
-
-            $this->assertEqualXMLStructure(
-              $expected->firstChild, $actual->firstChild
-            );
-        }
-
-        public function testFailureWithDifferentChildren()
-        {
-            $expected = new DOMDocument;
-            $expected->loadXML('<foo><bar/><bar/><bar/></foo>');
-
-            $actual = new DOMDocument;
-            $actual->loadXML('<foo><baz/><baz/><baz/></foo>');
-
-            $this->assertEqualXMLStructure(
-              $expected->firstChild, $actual->firstChild
-            );
-        }
-    }
-
-.. code-block:: bash
-
-    $ phpunit EqualXMLStructureTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
-
-    FFFF
-
-    Time: 0 seconds, Memory: 5.75Mb
-
-    There were 4 failures:
-
-    1) EqualXMLStructureTest::testFailureWithDifferentNodeNames
-    Failed asserting that two strings are equal.
-    --- Expected
-    +++ Actual
-    @@ @@
-    -'foo'
-    +'bar'
-
-    /home/sb/EqualXMLStructureTest.php:9
-
-    2) EqualXMLStructureTest::testFailureWithDifferentNodeAttributes
-    Number of attributes on node "foo" does not match
-    Failed asserting that 0 matches expected 1.
-
-    /home/sb/EqualXMLStructureTest.php:22
-
-    3) EqualXMLStructureTest::testFailureWithDifferentChildrenCount
-    Number of child nodes of "foo" differs
-    Failed asserting that 1 matches expected 3.
-
-    /home/sb/EqualXMLStructureTest.php:35
-
-    4) EqualXMLStructureTest::testFailureWithDifferentChildren
-    Failed asserting that two strings are equal.
-    --- Expected
-    +++ Actual
-    @@ @@
-    -'bar'
-    +'baz'
-
-    /home/sb/EqualXMLStructureTest.php:48
-
-    FAILURES!
-    Tests: 4, Assertions: 8, Failures: 4.
-
 .. _appendixes.assertions.assertEquals:
 
 assertEquals()
@@ -800,37 +636,35 @@ assertEquals()
 
 ``assertNotEquals()`` はこのアサーションの逆で、同じ引数をとります。
 
-``assertAttributeEquals()`` と ``assertAttributeNotEquals()`` は便利なラッパーで、クラスやオブジェクトの ``public``、``protected``、``private`` 属性を実際の値として使用することができます。
-
 .. code-block:: php
     :caption: assertEquals() の使用法
     :name: appendixes.assertions.assertEquals.example
 
-    <?php
+    <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
 
-    class EqualsTest extends TestCase
+    final class EqualsTest extends TestCase
     {
-        public function testFailure()
+        public function testFailure(): void
         {
             $this->assertEquals(1, 0);
         }
 
-        public function testFailure2()
+        public function testFailure2(): void
         {
             $this->assertEquals('bar', 'baz');
         }
 
-        public function testFailure3()
+        public function testFailure3(): void
         {
             $this->assertEquals("foo\nbar\nbaz\n", "foo\nbah\nbaz\n");
         }
     }
 
-.. code-block:: bash
+.. parsed-literal::
 
     $ phpunit EqualsTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
+    PHPUnit |version|.0 by Sebastian Bergmann and contributors.
 
     FFF
 
@@ -870,51 +704,6 @@ assertEquals()
     Tests: 3, Assertions: 3, Failures: 3.
 
 引数 ``$expected`` と ``$actual`` の型により特化した比較については、以下を参照ください。
-
-``assertEquals(float $expected, float $actual[, string $message = '', float $delta = 0])``
-
-2 つの float 値 ``$expected`` と ``$actual`` の絶対差が ``$delta`` より大きい場合にエラー ``$message`` を報告します。2 つの float 値 ``$expected`` と ``$actual`` の絶対差が ``$delta`` *以下* である場合はアサーションに成功します。
-
-なぜ ``$delta`` が必要となるのかについては "`What Every Computer Scientist Should Know About Floating-Point Arithmetic <http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`_" を参照ください。
-
-.. code-block:: php
-    :caption: float 値での assertEquals() の使用法
-    :name: appendixes.assertions.assertEquals.example2
-
-    <?php
-    use PHPUnit\Framework\TestCase;
-
-    class EqualsTest extends TestCase
-    {
-        public function testSuccess()
-        {
-            $this->assertEquals(1.0, 1.1, '', 0.1);
-        }
-
-        public function testFailure()
-        {
-            $this->assertEquals(1.0, 1.1);
-        }
-    }
-
-.. code-block:: bash
-
-    $ phpunit EqualsTest
-    PHPUnit 7.0.0 by Sebastian Bergmann and contributors.
-
-    .F
-
-    Time: 0 seconds, Memory: 5.75Mb
-
-    There was 1 failure:
-
-    1) EqualsTest::testFailure
-    Failed asserting that 1.1 matches expected 1.0.
-
-    /home/sb/EqualsTest.php:11
-
-    FAILURES!
-    Tests: 2, Assertions: 2, Failures: 1.
 
 ``assertEquals(DOMDocument $expected, DOMDocument $actual[, string $message = ''])``
 
