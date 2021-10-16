@@ -867,11 +867,11 @@ assertEqualsCanonicalizing()
 
 ``assertEqualsCanonicalizing(mixed $expected, mixed $actual[, string $message = ''])``
 
-Reports an error identified by ``$message`` if the two variables ``$expected`` and ``$actual`` are not equal.
+2 つの変数 ``$expected`` と ``$actual`` が等しくない場合にエラー ``$message`` を報告します。
 
-The contents of ``$expected`` and ``$actual`` are canonicalized before they are compared. For instance, when the two variables ``$expected`` and ``$actual`` are arrays, then these arrays are sorted before they are compared. When ``$expected`` and ``$actual`` are objects, each object is converted to an array containing all private, protected and public attributes.
+``$expected`` と ``$actual`` の内容は，比較される前に正規化されます。例えば，2つの変数 ``$expected`` と ``$actual`` が配列である場合には，これらの配列は比較される前にソートされます．また， ``$expected`` と ``$actual`` がオブジェクトである場合，各オブジェクトは，すべての private, protected, public 属性を含む配列に変換されます．
 
-``assertNotEqualsCanonicalizing()`` is the inverse of this assertion and takes the same arguments.
+``assertNotEqualsCanonicalizing()`` はこのアサーションの逆で、同じ引数をとります。
 
 .. code-block:: php
     :caption: Usage of assertEqualsCanonicalizing()
@@ -924,11 +924,12 @@ assertEqualsIgnoringCase()
 
 ``assertEqualsIgnoringCase(mixed $expected, mixed $actual[, string $message = ''])``
 
-Reports an error identified by ``$message`` if the two variables ``$expected`` and ``$actual`` are not equal.
+2 つの変数 ``$expected`` と ``$actual`` が等しくない場合にエラー ``$message`` を報告します。
 
 Differences in casing are ignored for the comparison of ``$expected`` and ``$actual``.
+``$expected`` と ``$actual`` の比較において、大文字小文字の違いは無視されます。
 
-``assertNotEqualsIgnoringCase()`` is the inverse of this assertion and takes the same arguments.
+``assertNotEqualsIgnoringCase()`` はこのアサーションの逆で、同じ引数をとります。
 
 .. code-block:: php
     :caption: Usage of assertEqualsIgnoringCase()
@@ -974,11 +975,12 @@ assertEqualsWithDelta()
 
 ``assertEqualsWithDelta(mixed $expected, mixed $actual, float $delta[, string $message = ''])``
 
-Reports an error identified by ``$message`` if the absolute difference between ``$expected`` and ``$actual`` is greater than ``$delta``.
+2 つの変数 ``$expected`` と ``$actual`` の差の絶対値が ``$delta`` よりも大きい場合にエラー ``$message`` を報告します。
 
-Please read "`What Every Computer Scientist Should Know About Floating-Point Arithmetic <http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`_" to understand why ``$delta`` is necessary.
+なぜ ``$delta`` が必要なのかについては、 "`What Every Computer Scientist Should Know About Floating-Point Arithmetic <http://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html>`_"
+を参照してください。
 
-``assertNotEqualsWithDelta()`` is the inverse of this assertion and takes the same arguments.
+``assertNotEqualsWithDelta()`` はこのアサーションの逆で、同じ引数をとります。
 
 .. code-block:: php
     :caption: Usage of assertEqualsWithDelta()
@@ -1021,7 +1023,7 @@ assertObjectEquals()
 
 ``assertObjectEquals(object $expected, object $actual, string $method = 'equals', string $message = ''])``
 
-Reports an error identified by ``$message`` if ``$actual`` is not equal to ``$expected`` according to ``$actual->$method($expected)``.
+``$actual->$method($expected)`` の結果から、 ``$actual`` と ``$expected`` が等しくない場合にエラー ``$message`` を報告します。
 
 It is a bad practice to use ``assertEquals()`` (and its inverse, ``assertNotEquals()``) on objects without registering a custom comparator that customizes how objects are compared. Unfortunately, though, implementing custom comparators for each and every object you want to assert in your tests is inconvenient at best.
 
