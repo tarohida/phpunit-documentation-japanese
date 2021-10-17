@@ -1027,8 +1027,11 @@ assertObjectEquals()
 
 It is a bad practice to use ``assertEquals()`` (and its inverse, ``assertNotEquals()``) on objects without registering a custom comparator that customizes how objects are compared. Unfortunately, though, implementing custom comparators for each and every object you want to assert in your tests is inconvenient at best.
 
+``assertEquals()`` (およびこのアサーションの逆である ``assertNotEquals()``) を、自身の比較方法をカスタマイズする custom comparator を用意していないオブジェクトに使うのは推奨されません。しかし、アサートを行いたい全てのオブジェクトにそれぞれ、 costom comparator を実装していくのは非常に不便でしょう。
+
 The most common use case for custom comparators are Value Objects. These objects usually have an ``equals(self $other): bool`` method (or a method just like that but with a different name) for comparing two instances of the Value Object's type. ``assertObjectEquals()`` makes custom comparison of objects convenient for this common use case:
 
+custom comparator の最も一般的な使用例は、Value Objects です。これらのオブジェクトは通常、値オブジェクトの型の2つのインスタンスを比較するための ``equals(self $other): bool`` メソッド(または似たような名前のメソッド)を持っています。assertObjectEquals()``は、この一般的なユースケースにおいて、オブジェクトの比較を簡単に行えるようにします。
 .. code-block:: php
     :caption: Usage of assertObjectEquals()
     :name: appendixes.assertions.assertObjectEquals.example
