@@ -1107,15 +1107,21 @@ custom comparator の最も一般的な使用例は、Value Objects です。こ
     FAILURES!
     Tests: 1, Assertions: 2, Failures: 1.
 
-Please note:
+注意点:
 
 * A method with name ``$method`` must exist on the ``$actual`` object
+* ``$method`` という名称のメソッドが、 ``$actual`` のオブジェクトに存在する必要があります。
 * The method must accept exactly one argument
+* そのメソッドは、引数をひとつだけ取ります。
 * The respective parameter must have a declared type
+* それぞれのパラメータは、宣言された型を持っている必要があります。
 * The ``$expected`` object must be compatible with this declared type
+* ``$expected`` オブジェクトはその宣言された型に一致する必要があります。
 * The method must have a declared ``bool`` return type
+* そのメソッドは、返り値の型として ``bool`` が宣言されている必要があります。
 
 If any of the aforementioned assumptions is not fulfilled or if ``$actual->$method($expected)`` returns ``false`` then the assertion fails.
+上記の前提が満たされていない場合、 ``$actual->$method($expected)`` は ``false`` を返し、 アサーションは失敗します。
 
 .. _appendixes.assertions.assertFalse:
 
