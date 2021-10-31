@@ -1024,7 +1024,7 @@ assertObjectEquals()
 
 ``$actual->$method($expected)`` の結果から、 ``$actual`` と ``$expected`` が等しくない場合にエラー ``$message`` を報告します。
 
-``assertEquals()`` (およびこのアサーションの逆である ``assertNotEquals()``) を、自身の比較方法をカスタマイズする custom comparator を用意していないオブジェクトに使うのは推奨されません。しかし、アサートを行いたい全てのオブジェクトにそれぞれ、 costom comparator を実装していくのは非常に不便でしょう。
+``assertEquals()`` (およびこのアサーションの逆である ``assertNotEquals()``) を、自身の比較方法をカスタマイズする custom comparator を用意していないオブジェクトに使うのは推奨されません。しかし、アサートを行いたい全てのオブジェクトにそれぞれ、 custom comparator を実装していくのは非常に不便でしょう。
 
 custom comparator の最も一般的な使用例は、Value Objects です。これらのオブジェクトは通常、値オブジェクトの型の2つのインスタンスを比較するための ``equals(self $other): bool`` メソッド(または似たような名前のメソッド)を持っています。assertObjectEquals()``は、この一般的なユースケースにおいて、オブジェクトの比較を簡単に行えるようにします。
 
