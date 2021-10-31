@@ -926,7 +926,6 @@ assertEqualsIgnoringCase()
 
 2 つの変数 ``$expected`` と ``$actual`` が等しくない場合にエラー ``$message`` を報告します。
 
-Differences in casing are ignored for the comparison of ``$expected`` and ``$actual``.
 ``$expected`` と ``$actual`` の比較において、大文字小文字の違いは無視されます。
 
 ``assertNotEqualsIgnoringCase()`` はこのアサーションの逆で、同じ引数をとります。
@@ -1025,13 +1024,10 @@ assertObjectEquals()
 
 ``$actual->$method($expected)`` の結果から、 ``$actual`` と ``$expected`` が等しくない場合にエラー ``$message`` を報告します。
 
-It is a bad practice to use ``assertEquals()`` (and its inverse, ``assertNotEquals()``) on objects without registering a custom comparator that customizes how objects are compared. Unfortunately, though, implementing custom comparators for each and every object you want to assert in your tests is inconvenient at best.
-
 ``assertEquals()`` (およびこのアサーションの逆である ``assertNotEquals()``) を、自身の比較方法をカスタマイズする custom comparator を用意していないオブジェクトに使うのは推奨されません。しかし、アサートを行いたい全てのオブジェクトにそれぞれ、 costom comparator を実装していくのは非常に不便でしょう。
 
-The most common use case for custom comparators are Value Objects. These objects usually have an ``equals(self $other): bool`` method (or a method just like that but with a different name) for comparing two instances of the Value Object's type. ``assertObjectEquals()`` makes custom comparison of objects convenient for this common use case:
-
 custom comparator の最も一般的な使用例は、Value Objects です。これらのオブジェクトは通常、値オブジェクトの型の2つのインスタンスを比較するための ``equals(self $other): bool`` メソッド(または似たような名前のメソッド)を持っています。assertObjectEquals()``は、この一般的なユースケースにおいて、オブジェクトの比較を簡単に行えるようにします。
+
 .. code-block:: php
     :caption: Usage of assertObjectEquals()
     :name: appendixes.assertions.assertObjectEquals.example
@@ -1109,18 +1105,12 @@ custom comparator の最も一般的な使用例は、Value Objects です。こ
 
 注意点:
 
-* A method with name ``$method`` must exist on the ``$actual`` object
 * ``$method`` という名称のメソッドが、 ``$actual`` のオブジェクトに存在する必要があります。
-* The method must accept exactly one argument
-* そのメソッドは、引数をひとつだけ取ります。
-* The respective parameter must have a declared type
-* それぞれのパラメータは、宣言された型を持っている必要があります。
-* The ``$expected`` object must be compatible with this declared type
+* そのメソッドは、引数をひとつだけ取る必要があります。
+* それぞれのパラメータは、型を宣言されている必要があります。
 * ``$expected`` オブジェクトはその宣言された型に一致する必要があります。
-* The method must have a declared ``bool`` return type
 * そのメソッドは、返り値の型として ``bool`` が宣言されている必要があります。
 
-If any of the aforementioned assumptions is not fulfilled or if ``$actual->$method($expected)`` returns ``false`` then the assertion fails.
 上記の前提が満たされていない場合、 ``$actual->$method($expected)`` は ``false`` を返し、 アサーションは失敗します。
 
 .. _appendixes.assertions.assertFalse:
