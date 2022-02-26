@@ -20,7 +20,7 @@ PHPUnit のアサーションの実装は、 ``PHPUnit\Framework\Assert``
 ``PHPUnit\Framework\Assert::assertTrue()`` などのように使えます。
 また、 ``PHPUnit\Framework\TestCase`` を継承したクラスの中では
 ``$this->assertTrue()`` や ``self::assertTrue()`` などとしても使えます。
-さらに ``assertTrue()`` など、グローバルなラッパー関数として使うことさえできてしまいます。
+さらに ``assertTrue()`` のような形でグローバルなラッパー関数として使うことさえできてしまいます。
 
 PHPUnit を使い始めたばかりの開発者の多くは、たとえばアサーションを実行するときに
 ``$this->assertTrue()`` と ``self::assertTrue()``
@@ -580,6 +580,7 @@ assertDirectoryIsWritable()
 
     FAILURES!
     Tests: 1, Assertions: 1, Failures: 1.
+
 .. _appendixes.assertions.assertEmpty:
 
 assertEmpty()
@@ -1024,9 +1025,9 @@ assertObjectEquals()
 
 ``$actual->$method($expected)`` の結果から、 ``$actual`` と ``$expected`` が等しくない場合にエラー ``$message`` を報告します。
 
-``assertEquals()`` (およびこのアサーションの逆である ``assertNotEquals()``) を、自身の比較方法をカスタマイズする custom comparator を用意していないオブジェクトに使うのは推奨されません。しかし、アサートを行いたい全てのオブジェクトにそれぞれ、 custom comparator を実装していくのは非常に不便でしょう。
+``assertEquals()`` (およびこのアサーションの逆である ``assertNotEquals()``) を、自身の比較方法をカスタマイズする custom comparator を用意していないオブジェクトに使うのは推奨されません。手間はかかりますが、アサートを行いたい全てのオブジェクトにそれぞれ custom comparator を実装するのがベストです。
 
-custom comparator の最も一般的な使用例は、Value Objects です。これらのオブジェクトは通常、値オブジェクトの型の2つのインスタンスを比較するための ``equals(self $other): bool`` メソッド(または似たような名前のメソッド)を持っています。assertObjectEquals()``は、この一般的なユースケースにおいて、オブジェクトの比較を簡単に行えるようにします。
+custom comparator の最も一般的なユースケースは、Value Objects です。これらのオブジェクトは通常、2つの値オブジェクト同士を比較するための ``equals(self $other): bool`` メソッド(または似たような名前のメソッド)を持っています。 ``assertObjectEquals()`` はこのようなユースケースにおいて、オブジェクトの比較を簡単に行えるようにします。
 
 .. code-block:: php
     :caption: Usage of assertObjectEquals()
@@ -1105,9 +1106,9 @@ custom comparator の最も一般的な使用例は、Value Objects です。こ
 
 注意点:
 
-* ``$method`` という名称のメソッドが、 ``$actual`` のオブジェクトに存在する必要があります。
-* そのメソッドは、引数をひとつだけ取る必要があります。
-* それぞれのパラメータは、型を宣言されている必要があります。
+* ``$method`` という名称のメソッドが、 ``$actual`` のオブジェクトに定義されている必要があります。
+* その定義されたメソッドは、引数をひとつだけ取るよう定義されている必要があります。
+* 引数や返り値は、型を宣言されている必要があります。
 * ``$expected`` オブジェクトはその宣言された型に一致する必要があります。
 * そのメソッドは、返り値の型として ``bool`` が宣言されている必要があります。
 
@@ -2447,10 +2448,10 @@ assertObjectHasAttribute()
     FAILURES!
     Tests: 1, Assertions: 1, Failures: 1.
 
-.. _appendixes.assertions.assertRegExp:
+.. _appendixes.assertions.assertMatchesRegularExpression:
 
 assertMatchesRegularExpression()
-##############
+################################
 
 ``assertMatchesRegularExpression(string $pattern, string $string[, string $message = ''])``
 
