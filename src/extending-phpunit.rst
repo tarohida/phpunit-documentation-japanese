@@ -210,9 +210,5 @@ XML から TestRunner の拡張の設定値を受け渡す場合は、 ``extensi
 ``arguments`` の設定方法の詳細については、
 :ref:`appendixes.configuration.extensions.extension.arguments` を参照してください。
 
-Remember: all configuration is optional, so make sure your extension either has
-sane defaults in place, or that it disables itself in case configuration is
-missing.
-
 注意: 全ての設定値が必ず設定されるとは限りません。 TestRunner の拡張を作成するときは、設定値が設定されていない場合にデフォルト値を利用して動作する、
 もしくは自身を無効化するなど、異常が発生しないように取り計らってください。
