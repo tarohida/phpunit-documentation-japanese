@@ -105,9 +105,11 @@ PHPUnit などのアプリケーションでは、
 @backupGlobals
 ##############
 
-PHPUnit can optionally backup all global and super-global variables before each test and restore this backup after each test.
+PHPUnit では、グローバル変数やスーパーグローバル変数の値をバックアップしてからテストを始め、
+テストが終わった後でそれらの値を復元することができます。
 
-The ``@backupGlobals enabled`` annotation can be used on the class level to enable this operation for all tests of a test case class:
+``@backupGlobals enabled`` アノテーションはクラスレベルで使うことができます。
+この場合、テストケースクラスのすべてのテストでグローバル変数の保存と復元が行われます。
 
 .. code-block:: php
 
@@ -122,7 +124,7 @@ The ``@backupGlobals enabled`` annotation can be used on the class level to enab
         // ...
     }
 
-``@backupGlobals`` アノテーションは、テストメソッドレベルで使うこともできます。
+``@backupGlobals`` アノテーションをテストメソッドレベルで使うこともできます。
 これによって、保存と復元の操作をより細やかに制御できるようになります。
 
 .. code-block:: php
@@ -154,11 +156,14 @@ The ``@backupGlobals enabled`` annotation can be used on the class level to enab
 @backupStaticAttributes
 #######################
 
-PHPUnit can optionally backup all static attributes in all declared classes before each test and restore this backup after each test.
+PHPUnit では、宣言されたクラス内のすべての static 属性の値をバックアップしてからテストを始め、
+テストが終わった後でそれらの値を復元することができます。
 
-The ``@backupStaticAttributes enabled`` annotation can be used on the class level to enable this operation for all tests of a test case class:
+``@backupStaticAttributes enabled`` アノテーションはクラスレベルで使うことができます。
+この場合、テストケースクラスのすべてのテストで static 属性の保存と復元が行われます。
 
 .. code-block:: php
+
     <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
     /**
@@ -168,9 +173,9 @@ The ``@backupStaticAttributes enabled`` annotation can be used on the class leve
     {
         // ...
     }
-The ``@backupStaticAttributes`` annotation can also be used on the
-test method level. This allows for a fine-grained configuration of the
-backup and restore operations:
+
+``@backupStaticAttributes`` アノテーションをテストメソッドレベルで使うこともできます。
+これによって、保存と復元の操作をより細やかに制御できるようになります。
 
 .. code-block:: php
 
@@ -300,31 +305,27 @@ backup and restore operations:
         $this->assertSame(0, $this->ba->getBalance());
     }
 
-If provided, this effectively filters the code coverage report
-to include executed code from the referenced code parts only.
-This will make sure that code is only marked as covered if there
-are dedicated tests for it, but not if it used indirectly by the
-tests for a different class, thus avoiding false positives for code
-coverage.
+``@covers`` アノテーションが利用された場合、出力されるコードカバレッジの算出方法が変わります。
+アノテーションで自身を指定するテストから実行された場合のみ、「covered」と判定されます。
+アノテーションで自身を指定していないテストから間接的に利用されたとしても、「covered」とは判定されません。
+これによって、コードカバレッジが実際よりも高く出る false positive を避けることができます。
 
-This annotation can be added to the docblock of the test class or the individual
-test methods. The recommended way is to add the annotation to the docblock
-of the test class, not to the docblock of the test methods.
+このアノテーションはテストクラスの docblock に記載することも、個別のテストメソッドの
+docblock に記載することもできますが、
+テストクラスの docblock に記載することが推奨され、個別のテストメソッドの docblock に記載することは推奨されません。
 
-When the ``forceCoversAnnotation`` configuration option in the
-:ref:`configuration file <appendixes.configuration>` is set to ``true``,
-every test method needs to have an associated ``@covers`` annotation
-(either on the test class or the individual test method).
+:ref:`XML 設定ファイル <appendixes.configuration>` の ``forceCoversAnnotation`` オプションを ``true`` に設定した場合、
+全てのテストメソッドにおいて ``covers`` アノテーションを設定しなければなりません
+(テストクラス単位で設定しても、それぞれのテストメソッドを個別に設定しても構いません)
 
 :numref:`appendixes.annotations.covers.tables.annotations`
 に ``@covers`` アノテーションの構文を示します。
 
-The section :ref:`code-coverage-analysis.specifying-covered-parts`
-provides longer examples for using the annotation.
+:ref:`code-coverage-analysis.specifying-covered-parts` のセクションでは、このアノテーションを使うより詳細な例を紹介しています。
 
-Please note that this annotation requires a fully-qualified class name (FQCN).
-To make this more obvious to the reader, it is recommended to use a leading
-backslash (even if this not required for the annotation to work correctly).
+このアノテーションは、完全修飾クラス名を必要とすることに注意してください。
+完全修飾クラス名の先頭のバックスラッシュは省略しても動作に問題ありませんが、読み手に完全修飾クラス名であることを伝えるために
+先頭にバックスラッシュをつける形式で記載することが推奨されます。
 
 .. rst-class:: table
 .. list-table:: カバーするメソッドを指定するためのアノテーション
@@ -366,9 +367,9 @@ backslash (even if this not required for the annotation to work correctly).
 :numref:`appendixes.annotations.examples.CoversDefaultClassTest.php`
 を参照ください。
 
-Please note that this annotation requires a fully-qualified class name (FQCN).
-To make this more obvious to the reader, it is recommended to use a leading
-backslash (even if this not required for the annotation to work correctly).
+このアノテーションは、完全修飾クラス名を必要とすることに注意してください。
+完全修飾クラス名の先頭のバックスラッシュは省略しても動作に問題ありませんが、読み手に完全修飾クラス名であることを伝えるために
+先頭にバックスラッシュをつける形式で記載することが推奨されます。
 
 .. code-block:: php
     :caption: @coversDefaultClass を使ったアノテーションの短縮
@@ -646,7 +647,6 @@ small テストは実行時間が 1 秒を超えたら失敗します。
 
 .. code-block:: php
 
-    <?php declare(strict_types=1);
     /**
      * @test
      */
@@ -668,6 +668,7 @@ small テストは実行時間が 1 秒を超えたら失敗します。
 
     <?php declare(strict_types=1);
     use PHPUnit\Framework\TestCase;
+
     /**
      * @testdox A bank account
      */
@@ -688,7 +689,7 @@ small テストは実行時間が 1 秒を超えたら失敗します。
    ``@testdox`` アノテーションを指定すると自動的に
    ``@test`` アノテーションも指定したものとみなされます。
 
-When using the ``@testdox`` annotation at method level with a ``@dataProvider`` you may use the method parameters as placeholders in your alternative description.
+メソッドレベルで ``@testdox`` アノテーションを ``@dataProvider`` アノテーションと一緒に利用する場合、別の説明の中でメソッドの引数をプレースホルダとして使えます。
 
 .. code-block:: php
     /**
@@ -777,14 +778,14 @@ JSONのオブジェクト形式で書いた場合は、連想配列として扱�
     }
 
 :numref:`code-coverage-analysis.specifying-covered-parts.examples.InvoiceTest.php`
-shows another example.
+にて、他の使用例を確認することができます。
 
-In addition to being helpful for persons reading the code,
-this annotation is useful in strict coverage mode
-where unintentionally covered code will cause a test to fail.
-See :ref:`risky-tests.unintentionally-covered-code` for more
-information regarding strict coverage mode.
+このアノテーションはコードを読む人の助けになることに加え、
+意図せずコードをカバーしていた場合にテストを失敗させる厳密なカバレッジモードで使うと特に有用です。
+厳密なカバレッジモードに関する詳細な情報は
+ref:`risky-tests.unintentionally-covered-code`
+を参照してください。
 
-Please note that this annotation requires a fully-qualified class name (FQCN).
-To make this more obvious to the reader, it is recommended to use a leading
-backslash (even if this is not required for the annotation to work correctly).
+このアノテーションは、完全修飾クラス名を必要とすることに注意してください。
+完全修飾クラス名の先頭のバックスラッシュは省略しても動作に問題ありませんが、読み手に完全修飾クラス名であることを伝えるために
+先頭にバックスラッシュをつける形式で記載することが推奨されます。
