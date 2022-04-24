@@ -1,0 +1,1339 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Sebastian Bergmann
+# This file is distributed under the same license as the PHPUnit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPUnit feature/configuration-rst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-24 18:09+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../src/configuration.rst:7
+msgid "The XML Configuration File"
+msgstr ""
+
+#: ../../src/configuration.rst:12
+msgid "The ``<phpunit>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:17
+msgid "The ``backupGlobals`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:19 ../../src/configuration.rst:30
+#: ../../src/configuration.rst:64 ../../src/configuration.rst:124
+#: ../../src/configuration.rst:149 ../../src/configuration.rst:158
+#: ../../src/configuration.rst:167 ../../src/configuration.rst:176
+#: ../../src/configuration.rst:185 ../../src/configuration.rst:194
+#: ../../src/configuration.rst:203 ../../src/configuration.rst:212
+#: ../../src/configuration.rst:221 ../../src/configuration.rst:230
+#: ../../src/configuration.rst:239 ../../src/configuration.rst:248
+#: ../../src/configuration.rst:257 ../../src/configuration.rst:275
+#: ../../src/configuration.rst:284 ../../src/configuration.rst:293
+#: ../../src/configuration.rst:361 ../../src/configuration.rst:370
+#: ../../src/configuration.rst:379 ../../src/configuration.rst:388
+#: ../../src/configuration.rst:424 ../../src/configuration.rst:431
+#: ../../src/configuration.rst:518 ../../src/configuration.rst:525
+#: ../../src/configuration.rst:532 ../../src/configuration.rst:541
+#: ../../src/configuration.rst:759 ../../src/configuration.rst:764
+msgid "Possible values: ``true`` or ``false`` (default: ``false``)"
+msgstr ""
+
+#: ../../src/configuration.rst:21
+msgid ""
+"PHPUnit can optionally backup all global and super-global variables "
+"before each test and restore this backup after each test."
+msgstr ""
+
+#: ../../src/configuration.rst:23
+msgid ""
+"This attribute configures this operation for all tests. This "
+"configuration can be overridden using the ``@backupGlobals`` annotation "
+"on the test case class and test method level."
+msgstr ""
+
+#: ../../src/configuration.rst:28
+msgid "The ``backupStaticAttributes`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:32
+msgid ""
+"PHPUnit can optionally backup all static attributes in all declared "
+"classes before each test and restore this backup after each test."
+msgstr ""
+
+#: ../../src/configuration.rst:34
+msgid ""
+"This attribute configures this operation for all tests. This "
+"configuration can be overridden using the ``@backupStaticAttributes`` "
+"annotation on the test case class and test method level."
+msgstr ""
+
+#: ../../src/configuration.rst:39
+msgid "The ``bootstrap`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:41
+msgid ""
+"This attribute configures the bootstrap script that is loaded before the "
+"tests are executed. This script usually only registers the autoloader "
+"callback that is used to load the code under test."
+msgstr ""
+
+#: ../../src/configuration.rst:46
+msgid "The ``cacheResult`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:48 ../../src/configuration.rst:88
+#: ../../src/configuration.rst:97 ../../src/configuration.rst:106
+#: ../../src/configuration.rst:115 ../../src/configuration.rst:266
+#: ../../src/configuration.rst:415 ../../src/configuration.rst:511
+msgid "Possible values: ``true`` or ``false`` (default: ``true``)"
+msgstr ""
+
+#: ../../src/configuration.rst:50
+msgid ""
+"This attribute configures the caching of test results. This caching is "
+"required for certain other features to work."
+msgstr ""
+
+#: ../../src/configuration.rst:55
+msgid "The ``cacheResultFile`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:57
+msgid ""
+"This attribute configures the file in which the test result cache (see "
+"above) is stored."
+msgstr ""
+
+#: ../../src/configuration.rst:62
+msgid "The ``colors`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:66
+msgid "This attribute configures whether colors are used in PHPUnit's output."
+msgstr ""
+
+#: ../../src/configuration.rst:68
+msgid ""
+"Setting this attribute to ``true`` is equivalent to using the "
+"``--colors=auto`` CLI option."
+msgstr ""
+
+#: ../../src/configuration.rst:70
+msgid ""
+"Setting this attribute to ``false`` is equivalent to using the "
+"``--colors=never`` CLI option."
+msgstr ""
+
+#: ../../src/configuration.rst:75
+msgid "The ``columns`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:77
+msgid "Possible values: integer or string ``max`` (default: ``80``)"
+msgstr ""
+
+#: ../../src/configuration.rst:79
+msgid ""
+"This attribute configures the number of columns to use for progress "
+"output."
+msgstr ""
+
+#: ../../src/configuration.rst:81
+msgid ""
+"If ``max`` is defined as value, the number of columns will be maximum of "
+"the current terminal."
+msgstr ""
+
+#: ../../src/configuration.rst:86
+msgid "The ``convertDeprecationsToExceptions`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:90
+msgid ""
+"This attribute configures whether ``E_DEPRECATED`` and "
+"``E_USER_DEPRECATED`` events triggered by the code under test are "
+"converted to an exception (and mark the test as error)."
+msgstr ""
+
+#: ../../src/configuration.rst:95
+msgid "The ``convertErrorsToExceptions`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:99
+msgid ""
+"This attribute configures whether ``E_ERROR`` and ``E_USER_ERROR`` events"
+" triggered by the code under test are converted to an exception (and mark"
+" the test as error)."
+msgstr ""
+
+#: ../../src/configuration.rst:104
+msgid "The ``convertNoticesToExceptions`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:108
+msgid ""
+"This attribute configures whether ``E_STRICT``, ``E_NOTICE``, and "
+"``E_USER_NOTICE`` events triggered by the code under test are converted "
+"to an exception (and mark the test as error)."
+msgstr ""
+
+#: ../../src/configuration.rst:113
+msgid "The ``convertWarningsToExceptions`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:117
+msgid ""
+"This attribute configures whether ``E_WARNING`` and ``E_USER_WARNING`` "
+"events triggered by the code under test are converted to an exception "
+"(and mark the test as error)."
+msgstr ""
+
+#: ../../src/configuration.rst:122
+msgid "The ``forceCoversAnnotation`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:126
+msgid ""
+"This attribute configures whether a test will be marked as risky (see "
+":ref:`risky-tests.unintentionally-covered-code`) when it does not have a "
+":ref:`@covers <appendixes.annotations.covers>` annotation."
+msgstr ""
+
+#: ../../src/configuration.rst:131
+msgid "The ``printerClass`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:133
+msgid "Default: ``PHPUnit\\TextUI\\ResultPrinter``"
+msgstr ""
+
+#: ../../src/configuration.rst:135
+msgid ""
+"This attribute configures the name of a class that either is "
+"``PHPUnit\\TextUI\\ResultPrinter`` or that extends "
+"``PHPUnit\\TextUI\\ResultPrinter``. An object of this class is used to "
+"print progress and test results."
+msgstr ""
+
+#: ../../src/configuration.rst:140
+msgid "The ``printerFile`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:142
+msgid ""
+"This attribute can be used to configure the path to the sourcecode file "
+"that declares the class configured with ``printerClass`` in case that "
+"class cannot be autoloaded."
+msgstr ""
+
+#: ../../src/configuration.rst:147
+msgid "The ``processIsolation`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:151
+msgid ""
+"This attribute configures whether each test should be run in a separate "
+"PHP process for increased isolation."
+msgstr ""
+
+#: ../../src/configuration.rst:156
+msgid "The ``stopOnError`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:160
+msgid ""
+"This attribute configures whether the test suite execution should be "
+"stopped after the first test finished with status \"error\"."
+msgstr ""
+
+#: ../../src/configuration.rst:165
+msgid "The ``stopOnFailure`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:169
+msgid ""
+"This attribute configures whether the test suite execution should be "
+"stopped after the first test finished with status \"failure\"."
+msgstr ""
+
+#: ../../src/configuration.rst:174
+msgid "The ``stopOnIncomplete`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:178
+msgid ""
+"This attribute configures whether the test suite execution should be "
+"stopped after the first test finished with status \"incomplete\"."
+msgstr ""
+
+#: ../../src/configuration.rst:183
+msgid "The ``stopOnRisky`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:187
+msgid ""
+"This attribute configures whether the test suite execution should be "
+"stopped after the first test finished with status \"risky\"."
+msgstr ""
+
+#: ../../src/configuration.rst:192
+msgid "The ``stopOnSkipped`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:196
+msgid ""
+"This attribute configures whether the test suite execution should be "
+"stopped after the first test finished with status \"skipped\"."
+msgstr ""
+
+#: ../../src/configuration.rst:201
+msgid "The ``stopOnWarning`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:205
+msgid ""
+"This attribute configures whether the test suite execution should be "
+"stopped after the first test finished with status \"warning\"."
+msgstr ""
+
+#: ../../src/configuration.rst:210
+msgid "The ``stopOnDefect`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:214
+msgid ""
+"This attribute configures whether the test suite execution should be "
+"stopped after the first test finished with a status \"error\", "
+"\"failure\", \"risky\" or \"warning\"."
+msgstr ""
+
+#: ../../src/configuration.rst:219
+msgid "The ``failOnRisky`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:223
+msgid ""
+"This attribute configures whether the PHPUnit test runner should exit "
+"with a shell exit code that indicates failure when all tests are "
+"successful but there are tests that were marked as risky."
+msgstr ""
+
+#: ../../src/configuration.rst:228
+msgid "The ``failOnWarning`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:232
+msgid ""
+"This attribute configures whether the PHPUnit test runner should exit "
+"with a shell exit code that indicates failure when all tests are "
+"successful but there are tests that had warnings."
+msgstr ""
+
+#: ../../src/configuration.rst:237
+msgid "The ``beStrictAboutChangesToGlobalState`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:241
+msgid ""
+"This attribute configures whether PHPUnit should mark a test as risky "
+"when global state is manipulated by the code under test (or the test "
+"code)."
+msgstr ""
+
+#: ../../src/configuration.rst:246
+msgid "The ``beStrictAboutOutputDuringTests`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:250
+msgid ""
+"This attribute configures whether PHPUnit should mark a test as risky "
+"when the code under test (or the test code) prints output."
+msgstr ""
+
+#: ../../src/configuration.rst:255
+msgid "The ``beStrictAboutResourceUsageDuringSmallTests`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:259
+msgid ""
+"This attribute configures whether PHPUnit should mark a test that is "
+"annotated with ``@small`` as risky when it invokes a PHP built-in "
+"function or method that operates on ``resource`` variables."
+msgstr ""
+
+#: ../../src/configuration.rst:264
+msgid "The ``beStrictAboutTestsThatDoNotTestAnything`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:268
+msgid ""
+"This attribute configures whether PHPUnit should mark a test as risky "
+"when no assertions are performed (expectations are also considered)."
+msgstr ""
+
+#: ../../src/configuration.rst:273
+msgid "The ``beStrictAboutTodoAnnotatedTests`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:277
+msgid ""
+"This attribute configures whether PHPUnit should mark a test as risky "
+"when it is annotated with ``@todo``."
+msgstr ""
+
+#: ../../src/configuration.rst:282
+msgid "The ``beStrictAboutCoversAnnotation`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:286
+msgid ""
+"This attribute configures whether PHPUnit should mark a test as risky "
+"when it executes code that is not specified using ``@covers`` or "
+"``@uses``."
+msgstr ""
+
+#: ../../src/configuration.rst:291
+msgid "The ``enforceTimeLimit`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:295
+msgid "This attribute configures whether time limits should be enforced."
+msgstr ""
+
+#: ../../src/configuration.rst:300
+msgid "The ``defaultTimeLimit`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:302
+msgid "Possible values: integer (default: ``0``)"
+msgstr ""
+
+#: ../../src/configuration.rst:304
+msgid "This attribute configures the default time limit (in seconds)."
+msgstr ""
+
+#: ../../src/configuration.rst:309
+msgid "The ``timeoutForSmallTests`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:311
+msgid "Possible values: integer (default: ``1``)"
+msgstr ""
+
+#: ../../src/configuration.rst:313
+msgid ""
+"This attribute configures the time limit for tests annotated with "
+"``@small`` (in seconds)."
+msgstr ""
+
+#: ../../src/configuration.rst:318
+msgid "The ``timeoutForMediumTests`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:320
+msgid "Possible values: integer (default: ``10``)"
+msgstr ""
+
+#: ../../src/configuration.rst:322
+msgid ""
+"This attribute configures the time limit for tests annotated with "
+"``@medium`` (in seconds)."
+msgstr ""
+
+#: ../../src/configuration.rst:327
+msgid "The ``timeoutForLargeTests`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:329
+msgid "Possible values: integer (default: ``60``)"
+msgstr ""
+
+#: ../../src/configuration.rst:331
+msgid ""
+"This attribute configures the time limit for tests annotated with "
+"``@large`` (in seconds)."
+msgstr ""
+
+#: ../../src/configuration.rst:336
+msgid "The ``testSuiteLoaderClass`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:338
+msgid "Default: ``PHPUnit\\Runner\\StandardTestSuiteLoader``"
+msgstr ""
+
+#: ../../src/configuration.rst:340
+msgid ""
+"This attribute configures the name of a class that implements the "
+"``PHPUnit\\Runner\\TestSuiteLoader`` interface. An object of this class "
+"is used to load the test suite."
+msgstr ""
+
+#: ../../src/configuration.rst:345
+msgid "The ``testSuiteLoaderFile`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:347
+msgid ""
+"This attribute can be used to configure the path to the sourcecode file "
+"that declares the class configured with ``testSuiteLoaderClass`` in case "
+"that class cannot be autoloaded."
+msgstr ""
+
+#: ../../src/configuration.rst:352
+msgid "The ``defaultTestSuite`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:354
+msgid "This attribute configures the name of the default test suite."
+msgstr ""
+
+#: ../../src/configuration.rst:359
+msgid "The ``verbose`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:363
+msgid "This attribute configures whether more verbose output should be printed."
+msgstr ""
+
+#: ../../src/configuration.rst:368
+msgid "The ``stderr`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:372
+msgid ""
+"This attribute configures whether PHPUnit should print its output to "
+"``stderr`` instead of ``stdout``."
+msgstr ""
+
+#: ../../src/configuration.rst:377
+msgid "The ``reverseDefectList`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:381
+msgid ""
+"This attribute configures whether tests that are not successful should be"
+" printed in reverse order."
+msgstr ""
+
+#: ../../src/configuration.rst:386
+msgid "The ``registerMockObjectsFromTestArgumentsRecursively`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:390
+msgid ""
+"This attribute configures whether arrays and object graphs that are "
+"passed from one test to another using the ``@depends`` annotation should "
+"be recursively scanned for mock objects."
+msgstr ""
+
+#: ../../src/configuration.rst:395
+msgid "The ``extensionsDirectory`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:397
+msgid ""
+"When ``phpunit.phar`` is used then this attribute may be used to "
+"configure a directory from which all ``*.phar`` files will be loaded as "
+"extensions for the PHPUnit test runner."
+msgstr ""
+
+#: ../../src/configuration.rst:402
+msgid "The ``executionOrder`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:404
+msgid ""
+"Possible values: ``default``, ``defects``, ``depends``, ``no-depends``, "
+"``duration``, ``random``, ``reverse``, ``size``"
+msgstr ""
+
+#: ../../src/configuration.rst:406
+msgid "Using multiple values is possible. These need to be separated by ``,``."
+msgstr ""
+
+#: ../../src/configuration.rst:408
+msgid "This attribute configures the order in which tests are executed."
+msgstr ""
+
+#: ../../src/configuration.rst:413
+msgid "The ``resolveDependencies`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:417
+msgid ""
+"This attribute configures whether dependencies between tests (expressed "
+"using the ``@depends`` annotation) should be resolved."
+msgstr ""
+
+#: ../../src/configuration.rst:422
+msgid "The ``testdox`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:426
+msgid ""
+"This attribute configures whether the output should be printed in TestDox"
+" format."
+msgstr ""
+
+#: ../../src/configuration.rst:429
+msgid "The ``noInteraction`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:433
+msgid ""
+"This attribute configures whether progress should be animated when "
+"TestDox format is used, for instance."
+msgstr ""
+
+#: ../../src/configuration.rst:438
+msgid "The ``<testsuites>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:440 ../../src/configuration.rst:486
+#: ../../src/configuration.rst:789 ../../src/configuration.rst:912
+#: ../../src/configuration.rst:934 ../../src/configuration.rst:943
+#: ../../src/configuration.rst:998 ../../src/configuration.rst:1068
+msgid "Parent element: ``<phpunit>``"
+msgstr ""
+
+#: ../../src/configuration.rst:442
+msgid ""
+"This element is the root for one or more ``<testsuite>`` elements that "
+"are used to configure the tests that are to be executed."
+msgstr ""
+
+#: ../../src/configuration.rst:447
+msgid "The ``<testsuite>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:449
+msgid "Parent element: ``<testsuites>``"
+msgstr ""
+
+#: ../../src/configuration.rst:451
+msgid ""
+"A ``<testsuite>`` element must have a ``name`` attribute and may have one"
+" or more ``<directory>`` and/or ``<file>`` child elements that configure "
+"directories and/or files, respectively, that should be searched for "
+"tests."
+msgstr ""
+
+#: ../../src/configuration.rst:469
+msgid ""
+"Using the ``phpVersion`` and ``phpVersionOperator`` attributes, a "
+"required PHP version can be specified:"
+msgstr ""
+
+#: ../../src/configuration.rst:479
+msgid ""
+"In the example above, the tests from the ``tests/unit`` directory are "
+"only added to the test suite if the PHP version is at least 8.0.0. The "
+"``phpVersionOperator`` attribute is optional and defaults to ``>=``."
+msgstr ""
+
+#: ../../src/configuration.rst:484
+msgid "The ``<coverage>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:488
+msgid ""
+"The ``<coverage>`` element and its children can be used to configure code"
+" coverage:"
+msgstr ""
+
+#: ../../src/configuration.rst:502
+msgid "The ``cacheDirectory`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:504 ../../src/configuration.rst:598
+#: ../../src/configuration.rst:612 ../../src/configuration.rst:667
+#: ../../src/configuration.rst:684 ../../src/configuration.rst:735
+#: ../../src/configuration.rst:752 ../../src/configuration.rst:779
+#: ../../src/configuration.rst:817 ../../src/configuration.rst:834
+#: ../../src/configuration.rst:851 ../../src/configuration.rst:868
+#: ../../src/configuration.rst:885 ../../src/configuration.rst:902
+msgid "Possible values: string"
+msgstr ""
+
+#: ../../src/configuration.rst:506
+msgid ""
+"When code coverage data is collected and processed, static code analysis "
+"is performed to improve reasoning about the covered code. This is an "
+"expensive operation, whose result can be cached. When the "
+"``cacheDirectory`` attribute is set, static analysis results will be "
+"cached in the specified directory."
+msgstr ""
+
+#: ../../src/configuration.rst:509
+msgid "The ``includeUncoveredFiles`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:513
+msgid ""
+"When set to ``true``, all sourcecode files that are configured to be "
+"considered for code coverage analysis will be included in the code "
+"coverage report(s). This includes sourcecode files that are not executed "
+"while the tests are running."
+msgstr ""
+
+#: ../../src/configuration.rst:516
+msgid "The ``processUncoveredFiles`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:520
+msgid ""
+"When set to ``true``, all sourcecode files that are configured to be "
+"considered for code coverage analysis will be processed. This includes "
+"sourcecode files that are not executed while the tests are running."
+msgstr ""
+
+#: ../../src/configuration.rst:523
+msgid "The ``ignoreDeprecatedCodeUnits`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:527
+msgid ""
+"This attribute configures whether code units annotated with "
+"``@deprecated`` should be ignored from code coverage."
+msgstr ""
+
+#: ../../src/configuration.rst:530
+msgid "The ``pathCoverage`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:534
+msgid ""
+"When set to ``false``, only line coverage data will be collected, "
+"processed, and reported."
+msgstr ""
+
+#: ../../src/configuration.rst:536
+msgid ""
+"When set to ``true``, line coverage, branch coverage, and path coverage "
+"data will be collected, processed, and reported. This requires a code "
+"coverage driver that supports path coverage. Path Coverage is currently "
+"only implemented by Xdebug."
+msgstr ""
+
+#: ../../src/configuration.rst:539
+msgid "The ``disableCodeCoverageIgnore`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:543
+msgid ""
+"This attribute configures whether the ``@codeCoverageIgnore*`` "
+"annotations should be ignored."
+msgstr ""
+
+#: ../../src/configuration.rst:548
+msgid "The ``<include>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:550 ../../src/configuration.rst:568
+#: ../../src/configuration.rst:639
+msgid "Parent element: ``<coverage>``"
+msgstr ""
+
+#: ../../src/configuration.rst:552
+msgid "Configures a set of files to be included in code coverage report(s)."
+msgstr ""
+
+#: ../../src/configuration.rst:560
+msgid ""
+"The example shown above instructs PHPUnit to include all sourcecode files"
+" with ``.php`` suffix in the ``src`` directory and its sub-directories in"
+" the code coverage report(s)."
+msgstr ""
+
+#: ../../src/configuration.rst:566
+msgid "The ``<exclude>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:570
+msgid "Configures a set of files to be excluded from code coverage report(s)."
+msgstr ""
+
+#: ../../src/configuration.rst:583
+msgid ""
+"The example shown above instructs PHPUnit to include all sourcecode files"
+" with ``.php`` suffix in the ``src`` directory and its sub-directories in"
+" the code coverage report but exclude all files with ``.php`` suffix in "
+"the ``src/generated`` directory and its sub-directories as well as the "
+"``src/autoload.php`` file from the code coverage report(s)."
+msgstr ""
+
+#: ../../src/configuration.rst:589
+msgid "The ``<directory>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:591 ../../src/configuration.rst:629
+msgid "Parent elements: ``<include>``, ``<exclude>``"
+msgstr ""
+
+#: ../../src/configuration.rst:593
+msgid ""
+"Configures a directory and its sub-directories for inclusion in or "
+"exclusion from code coverage report(s)."
+msgstr ""
+
+#: ../../src/configuration.rst:596
+msgid "The ``prefix`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:600
+msgid ""
+"Configures a prefix-based filter that is applied to the names of files in"
+" the directory and its sub-directories."
+msgstr ""
+
+#: ../../src/configuration.rst:603
+msgid "The ``suffix`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:605
+msgid "Possible values: string (default: ``'.php'``)"
+msgstr ""
+
+#: ../../src/configuration.rst:607
+msgid ""
+"Configures a suffix-based filter that is applied to the names of files in"
+" the directory and its sub-directories."
+msgstr ""
+
+#: ../../src/configuration.rst:610
+msgid "The ``phpVersion`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:614
+msgid ""
+"Configures a filter based on the version of the PHP runtime that is used "
+"to run the current PHPUnit process."
+msgstr ""
+
+#: ../../src/configuration.rst:617
+msgid "The ``phpVersionOperator`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:619
+msgid ""
+"Possible values: ``'<'``, ``'lt'``, ``'<='``, ``'le'``, ``'>'``, "
+"``'gt'``, ``'>='``, ``'ge'``, ``'=='``, ``'='``, ``'eq'``, ``'!='``, "
+"``'<>'``, ``'ne'`` (default: ``'>='``)"
+msgstr ""
+
+#: ../../src/configuration.rst:621
+msgid ""
+"Configures the comparison operator to be used with ``version_compare()`` "
+"for the filter based on the version of the PHP runtime that is used to "
+"run the current PHPUnit process."
+msgstr ""
+
+#: ../../src/configuration.rst:627
+msgid "The ``<file>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:631
+msgid ""
+"Configures a file for inclusion in or exclusion from code coverage "
+"report(s)."
+msgstr ""
+
+#: ../../src/configuration.rst:637
+msgid "The ``<report>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:641
+msgid "Configures the code coverage reports to be generated."
+msgstr ""
+
+#: ../../src/configuration.rst:658
+msgid "The ``<clover>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:660 ../../src/configuration.rst:677
+#: ../../src/configuration.rst:699 ../../src/configuration.rst:728
+#: ../../src/configuration.rst:745 ../../src/configuration.rst:772
+msgid "Parent element: ``<report>``"
+msgstr ""
+
+#: ../../src/configuration.rst:662
+msgid "Configures a code coverage report in Clover XML format."
+msgstr ""
+
+#: ../../src/configuration.rst:665 ../../src/configuration.rst:682
+#: ../../src/configuration.rst:733 ../../src/configuration.rst:750
+#: ../../src/configuration.rst:815 ../../src/configuration.rst:832
+#: ../../src/configuration.rst:849 ../../src/configuration.rst:866
+#: ../../src/configuration.rst:883 ../../src/configuration.rst:900
+msgid "The ``outputFile`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:669
+msgid "The file to which the Clover XML report is written."
+msgstr ""
+
+#: ../../src/configuration.rst:675
+msgid "The ``<crap4j>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:679
+msgid "Configures a code coverage report in Crap4J XML format."
+msgstr ""
+
+#: ../../src/configuration.rst:686
+msgid "The file to which the Crap4J XML report is written."
+msgstr ""
+
+#: ../../src/configuration.rst:689
+msgid "The ``threshold`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:691 ../../src/configuration.rst:711
+msgid "Possible values: integer (default: ``50``)"
+msgstr ""
+
+#: ../../src/configuration.rst:697
+msgid "The ``<html>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:701
+msgid "Configures a code coverage report in HTML format."
+msgstr ""
+
+#: ../../src/configuration.rst:704 ../../src/configuration.rst:777
+msgid "The ``outputDirectory`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:706
+msgid "The directory to which the HTML report is written."
+msgstr ""
+
+#: ../../src/configuration.rst:709
+msgid "The ``lowUpperBound`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:713
+msgid "The upper bound of what should be considered \"low coverage\"."
+msgstr ""
+
+#: ../../src/configuration.rst:716
+msgid "The ``highLowerBound`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:718
+msgid "Possible values: integer (default: ``90``)"
+msgstr ""
+
+#: ../../src/configuration.rst:720
+msgid "The lower bound of what should be considered \"high coverage\"."
+msgstr ""
+
+#: ../../src/configuration.rst:726 ../../src/configuration.rst:1066
+msgid "The ``<php>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:730
+msgid "Configures a code coverage report in PHP format."
+msgstr ""
+
+#: ../../src/configuration.rst:737
+msgid "The file to which the PHP report is written."
+msgstr ""
+
+#: ../../src/configuration.rst:743 ../../src/configuration.rst:893
+msgid "The ``<text>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:747
+msgid "Configures a code coverage report in text format."
+msgstr ""
+
+#: ../../src/configuration.rst:754
+msgid "The file to which the text report is written."
+msgstr ""
+
+#: ../../src/configuration.rst:757
+msgid "The ``showUncoveredFiles`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:762
+msgid "The ``showOnlySummary`` Attribute"
+msgstr ""
+
+#: ../../src/configuration.rst:770
+msgid "The ``<xml>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:774
+msgid "Configures a code coverage report in PHPUnit XML format."
+msgstr ""
+
+#: ../../src/configuration.rst:781
+msgid "The directory to which the PHPUnit XML report is written."
+msgstr ""
+
+#: ../../src/configuration.rst:787
+msgid "The ``<logging>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:791
+msgid ""
+"The ``<logging>`` element and its children can be used to configure the "
+"logging of the test execution."
+msgstr ""
+
+#: ../../src/configuration.rst:808
+msgid "The ``<junit>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:810 ../../src/configuration.rst:827
+#: ../../src/configuration.rst:844 ../../src/configuration.rst:861
+#: ../../src/configuration.rst:878 ../../src/configuration.rst:895
+msgid "Parent element: ``<logging>``"
+msgstr ""
+
+#: ../../src/configuration.rst:812
+msgid "Configures a test result logfile in JUnit XML format."
+msgstr ""
+
+#: ../../src/configuration.rst:819
+msgid "The file to which the test result logfile in JUnit XML format is written."
+msgstr ""
+
+#: ../../src/configuration.rst:825
+msgid "The ``<teamcity>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:829
+msgid "Configures a test result logfile in TeamCity format."
+msgstr ""
+
+#: ../../src/configuration.rst:836
+msgid "The file to which the test result logfile in TeamCity format is written."
+msgstr ""
+
+#: ../../src/configuration.rst:842
+msgid "The ``<testdoxHtml>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:846
+msgid "Configures a test result logfile in TestDox HTML format."
+msgstr ""
+
+#: ../../src/configuration.rst:853
+msgid ""
+"The file to which the test result logfile in TestDox HTML format is "
+"written."
+msgstr ""
+
+#: ../../src/configuration.rst:859
+msgid "The ``<testdoxText>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:863
+msgid "Configures a test result logfile in TestDox text format."
+msgstr ""
+
+#: ../../src/configuration.rst:870
+msgid ""
+"The file to which the test result logfile in TestDox text format is "
+"written."
+msgstr ""
+
+#: ../../src/configuration.rst:876
+msgid "The ``<testdoxXml>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:880
+msgid "Configures a test result logfile in TestDox XML format."
+msgstr ""
+
+#: ../../src/configuration.rst:887
+msgid ""
+"The file to which the test result logfile in TestDox XML format is "
+"written."
+msgstr ""
+
+#: ../../src/configuration.rst:897
+msgid "Configures a test result logfile in text format."
+msgstr ""
+
+#: ../../src/configuration.rst:904
+msgid "The file to which the test result logfile in text format is written."
+msgstr ""
+
+#: ../../src/configuration.rst:910
+msgid "The ``<groups>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:914
+msgid ""
+"The ``<groups>`` element and its ``<include>``, ``<exclude>``, and "
+"``<group>`` children can be used to select groups of tests marked with "
+"the ``@group`` annotation (documented in "
+":ref:`appendixes.annotations.group`) that should (not) be run:"
+msgstr ""
+
+#: ../../src/configuration.rst:927
+msgid ""
+"The example shown above is equivalent to invoking the PHPUnit test runner"
+" with ``--group name --exclude-group name``."
+msgstr ""
+
+#: ../../src/configuration.rst:932
+msgid "The ``<testdoxGroups>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:936
+msgid "... TBD ..."
+msgstr ""
+
+#: ../../src/configuration.rst:941
+msgid "The ``<listeners>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:945
+msgid ""
+"The ``<listeners>`` element and its ``<listener>`` children can be used "
+"to attach additional test listeners to the test execution."
+msgstr ""
+
+#: ../../src/configuration.rst:950
+msgid "The ``<listener>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:952
+msgid "Parent element: ``<listeners>``"
+msgstr ""
+
+#: ../../src/configuration.rst:973
+msgid ""
+"The XML configuration above corresponds to attaching the ``$listener`` "
+"object (see below) to the test execution:"
+msgstr ""
+
+#: ../../src/configuration.rst:987
+msgid "Note"
+msgstr ""
+
+#: ../../src/configuration.rst:989
+msgid ""
+"Please note that the ``PHPUnit\\Framework\\TestListener`` interface is "
+"deprecated and will be removed in the future. TestRunner extensions "
+"should be used instead of test listeners."
+msgstr ""
+
+#: ../../src/configuration.rst:996
+msgid "The ``<extensions>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1000
+msgid ""
+"The ``<extensions>`` element and its ``<extension>`` children can be used"
+" to register test runner extensions."
+msgstr ""
+
+#: ../../src/configuration.rst:1005
+msgid "The ``<extension>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1007
+msgid "Parent element: ``<extensions>``"
+msgstr ""
+
+#: ../../src/configuration.rst:1018
+msgid "The ``<arguments>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1020
+msgid "Parent element: ``<extension>``"
+msgstr ""
+
+#: ../../src/configuration.rst:1022
+msgid ""
+"The ``<arguments>`` element can be used to configure a single "
+"``<extension>``."
+msgstr ""
+
+#: ../../src/configuration.rst:1024
+msgid ""
+"Accepts a list of elements of types, which are then used to configure "
+"individual extensions. The arguments are passed to the extension class' "
+"``__constructor`` method in the order they are defined in the "
+"configuration."
+msgstr ""
+
+#: ../../src/configuration.rst:1028
+msgid "Available types:"
+msgstr ""
+
+#: ../../src/configuration.rst:1030
+msgid "``<boolean>``"
+msgstr ""
+
+#: ../../src/configuration.rst:1031
+msgid "``<integer>``"
+msgstr ""
+
+#: ../../src/configuration.rst:1032
+msgid "``<string>``"
+msgstr ""
+
+#: ../../src/configuration.rst:1033
+msgid "``<double>`` (float)"
+msgstr ""
+
+#: ../../src/configuration.rst:1034
+msgid "``<array>``"
+msgstr ""
+
+#: ../../src/configuration.rst:1035
+msgid "``<object>``"
+msgstr ""
+
+#: ../../src/configuration.rst:1070
+msgid ""
+"The ``<php>`` element and its children can be used to configure PHP "
+"settings, constants, and global variables. It can also be used to prepend"
+" the ``include_path``."
+msgstr ""
+
+#: ../../src/configuration.rst:1075
+msgid "The ``<includePath>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1077 ../../src/configuration.rst:1086
+#: ../../src/configuration.rst:1107 ../../src/configuration.rst:1128
+#: ../../src/configuration.rst:1149 ../../src/configuration.rst:1179
+#: ../../src/configuration.rst:1200 ../../src/configuration.rst:1221
+#: ../../src/configuration.rst:1242 ../../src/configuration.rst:1263
+#: ../../src/configuration.rst:1284
+msgid "Parent element: ``<php>``"
+msgstr ""
+
+#: ../../src/configuration.rst:1079
+msgid "This element can be used to prepend a path to the ``include_path``."
+msgstr ""
+
+#: ../../src/configuration.rst:1084
+msgid "The ``<ini>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1088
+msgid "This element can be used to set a PHP configuration setting."
+msgstr ""
+
+#: ../../src/configuration.rst:1096 ../../src/configuration.rst:1117
+#: ../../src/configuration.rst:1138 ../../src/configuration.rst:1159
+#: ../../src/configuration.rst:1189 ../../src/configuration.rst:1210
+#: ../../src/configuration.rst:1231 ../../src/configuration.rst:1252
+#: ../../src/configuration.rst:1273 ../../src/configuration.rst:1294
+msgid "The XML configuration above corresponds to the following PHP code:"
+msgstr ""
+
+#: ../../src/configuration.rst:1105
+msgid "The ``<const>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1109
+msgid "This element can be used to set a global constant."
+msgstr ""
+
+#: ../../src/configuration.rst:1126
+msgid "The ``<var>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1130
+msgid "This element can be used to set a global variable."
+msgstr ""
+
+#: ../../src/configuration.rst:1147
+msgid "The ``<env>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1151
+msgid ""
+"This element can be used to set a value in the super-global array "
+"``$_ENV``."
+msgstr ""
+
+#: ../../src/configuration.rst:1165
+msgid ""
+"By default, environment variables are not overwritten if they exist "
+"already. To force overwriting existing variables, use the ``force`` "
+"attribute:"
+msgstr ""
+
+#: ../../src/configuration.rst:1177
+msgid "The ``<get>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1181
+msgid ""
+"This element can be used to set a value in the super-global array "
+"``$_GET``."
+msgstr ""
+
+#: ../../src/configuration.rst:1198
+msgid "The ``<post>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1202
+msgid ""
+"This element can be used to set a value in the super-global array "
+"``$_POST``."
+msgstr ""
+
+#: ../../src/configuration.rst:1219
+msgid "The ``<cookie>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1223
+msgid ""
+"This element can be used to set a value in the super-global array "
+"``$_COOKIE``."
+msgstr ""
+
+#: ../../src/configuration.rst:1240
+msgid "The ``<server>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1244
+msgid ""
+"This element can be used to set a value in the super-global array "
+"``$_SERVER``."
+msgstr ""
+
+#: ../../src/configuration.rst:1261
+msgid "The ``<files>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1265
+msgid ""
+"This element can be used to set a value in the super-global array "
+"``$_FILES``."
+msgstr ""
+
+#: ../../src/configuration.rst:1282
+msgid "The ``<request>`` Element"
+msgstr ""
+
+#: ../../src/configuration.rst:1286
+msgid ""
+"This element can be used to set a value in the super-global array "
+"``$_REQUEST``."
+msgstr ""
+

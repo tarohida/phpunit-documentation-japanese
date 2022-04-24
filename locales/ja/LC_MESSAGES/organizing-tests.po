@@ -1,0 +1,113 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Sebastian Bergmann
+# This file is distributed under the same license as the PHPUnit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPUnit feature/configuration-rst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-24 18:09+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../src/organizing-tests.rst:7
+msgid "テストの構成"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:9
+msgid ""
+"PHPUnit の目指すところのひとつに 「自由に組み合わせられる」ということがあります。つまり、 "
+"例えば「そのプロジェクトのすべてのテストを実行する」「プロジェクトの中の ある部品を構成するすべてのクラスについて、すべてのテストを実行する」 "
+"「特定のひとつのクラスのテストのみを実行する」など、 数や組み合わせにとらわれずに好きなテストを一緒に実行できるということです。"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:16
+msgid ""
+"PHPUnit では、さまざまな方法でテストを組み合わせてテストスイートにまとめることができます。 "
+"本章では、その中でもよく使われる手法を説明します。"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:22
+msgid "ファイルシステムを用いたテストスイートの構成"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:24
+msgid ""
+"おそらく、テストスイートをとりまとめるもっとも簡単な方法は すべてのテストケースのソースファイルを一つのテストディレクトリにまとめることでしょう。"
+" PHPUnit はテストディレクトリを再帰的に探索し、 テストを自動的に見つけて実行します。"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:29
+msgid ""
+"`sebastianbergmann/money <http://github.com/sebastianbergmann/money/>`_ "
+"ライブラリのテストスイートを見てみましょう。このプロジェクトのディレクトリ構成を見ると、 テストケースクラスが :file:`tests` "
+"ディレクトリにまとめられていることがわかります。 その中のディレクトリの構造は、テスト対象のシステム (SUT) がある :file:`src` "
+"ディレクトリ以下の構造と同じになっています。"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:43
+msgid "PHPUnit のコマンドラインテストランナーに テストディレクトリの場所を指示することで、 このライブラリのすべてのテストを実行できます。"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:58 ../../src/organizing-tests.rst:92
+msgid "Note"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:60
+msgid ""
+"PHPUnit のコマンドラインテストランナーでディレクトリを指定すると、 その中の :file:`*Test.php` "
+"ファイルを見つけて実行します。"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:63
+msgid ""
+":file:`tests/CurrencyTest.php` にあるテストケースクラス ``CurrencyTest`` "
+"で宣言されているテストだけを実行するには、 次のコマンドを実行します。"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:78
+msgid "実行したいテストをより細かく指示するには ``--filter`` オプションを使います。"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:94
+msgid ""
+"この方式の欠点は、テストの実行順を制御できないことです。 そのため、テストの依存性に関する問題を引き起こすことがあります。 :ref"
+":`writing-tests-for-phpunit.test-dependencies` を参照ください。 次の節では、テストの実行順序を "
+"XML 設定ファイルで明示的に指定する方法を説明します。"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:103 ../../src/organizing-tests.rst:113
+#: ../../src/organizing-tests.rst:145
+msgid "XML 設定ファイルを用いたテストスイートの構成"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:105
+msgid ""
+"PHPUnit の XML 設定ファイル (:ref:`appendixes.configuration`) "
+"を使ってテストスイートを構成することもできます。 :numref:`organizing-tests.xml-"
+"configuration.examples.phpunit.xml` に、最小限の :file:`phpunit.xml` "
+"ファイルを示します。これは、 :file:`tests` ディレクトリを再帰的に探索して :file:`*Test.php` というファイルにある"
+" ``*Test`` クラスをすべて追加する設定です。"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:125
+msgid "特定のテストスイートを実行したい場合は、``--testsuite`` オプションを利用します。"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:137
+msgid ""
+"``--configuration`` が設定 *されていない* 場合は、現在の作業ディレクトリから :file:`phpunit.xml` "
+"あるいは :file:`phpunit.xml.dist` を (この順に) 探し、 見つかった場合はそれを自動的に読み込みます。"
+msgstr ""
+
+#: ../../src/organizing-tests.rst:143
+msgid "また以下のように、テストの実行順序を XML 設定ファイルで明示的に指定することもできます。"
+msgstr ""
+

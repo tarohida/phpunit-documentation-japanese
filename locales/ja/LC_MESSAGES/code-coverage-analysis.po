@@ -1,0 +1,295 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Sebastian Bergmann
+# This file is distributed under the same license as the PHPUnit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPUnit feature/configuration-rst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-24 18:09+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../src/code-coverage-analysis.rst:7
+msgid "コードカバレッジ解析"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:9
+msgid "*Wikipedia*:"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:11
+msgid ""
+"In computer science, code coverage is a measure used to describe the "
+"degree to which the source code of a program is tested by a particular "
+"test suite. A program with high code coverage has been more thoroughly "
+"tested and has a lower chance of containing software bugs than a program "
+"with low code coverage."
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:17
+msgid ""
+"この章では、PHPUnit のコードカバレッジ機能について学びます。 "
+"これは、テストを実行したときに、実装コードのどの部分が実行されたかを調べるものです。 PHPUnit のコードカバレッジ解析では `php-"
+"code-coverage <https://github.com/sebastianbergmann/php-code-coverage>`_ "
+"コンポーネントを使っています。このコンポーネントは、 `Xdebug <https://www.xdebug.org/>`_ "
+"拡張モジュールが提供するステートメントカバレッジ機能を利用しています。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:25
+#: ../../src/code-coverage-analysis.rst:101
+#: ../../src/code-coverage-analysis.rst:128
+msgid "Note"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:27
+msgid ""
+"Xdebug は PHPUnit 本体には組み込まれていません。 テストを実行したときに no code coverage driver is "
+"available という notice が出る場合は、 Xdebug がインストールされていないかあるいはうまく設定できていないのでしょう。 "
+"PHPUnit のコードカバレッジ機能を使う前に、まずは `Xdebug のインストールガイド "
+"<https://xdebug.org/docs/install>`_ を読んでみましょう。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:34
+msgid ""
+"php-code-coverage は `phpdbg "
+"<https://phpdbg.room11.org/introduction.html>`_ "
+"もコードカバレッジデータのソースとしてサポートしています。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:37
+msgid ""
+"PHPUnit は、HTML ベースのコードカバレッジレポートを生成するだけでなく、 XML "
+"ベースのログファイルにコードカバレッジ情報を出力することもできます。 Clover、Crap4J、PHPUnit "
+"など、さまざまな形式に対応しています。 また、コードカバレッジ情報をテキスト形式で出力 (そして、標準出力に表示) したり、PHP "
+"のコードとして出力して後処理をしたりすることもできます。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:43
+msgid ""
+"コードカバレッジ機能を制御するための コマンドラインスイッチの一覧は、:ref:`textui` を参照ください。 また、設定項目については "
+":ref:`appendixes.configuration.logging` を参照ください。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:50
+msgid "コードカバレッジの指標"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:52
+msgid "コードカバレッジを計測するための指標には、さまざまなものがあります。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:54
+msgid "*Line Coverage*"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:56
+msgid "*ラインカバレッジ* は、 実行可能な行が実行されたかどうかを計測します。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:59
+msgid "*Function and Method Coverage*"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:61
+msgid ""
+"*関数・メソッドカバレッジ* は、 関数やメソッドが実行されたかどうかを計測します。 php-code-coverage "
+"は、その関数やメソッド内の実行可能な行がすべて実行された場合にのみ、 その関数やメソッドが実行されたとみなします。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:66
+msgid "*クラス・トレイトカバレッジ*"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:68
+msgid ""
+"*クラス・トレイトカバレッジ* は、 クラスやトレイトがカバーされたかどうかを計測します。 php-code-coverage "
+"は、クラスやトレイト内のすべてのメソッドがカバーされている場合にのみ、 そのクラスやトレイトがカバーされたとみなします。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:73
+msgid "*Opcode Coverage*"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:75
+msgid ""
+"*オペコードカバレッジ* は、関数やメソッドのオペコードが、 テストスイートの実行中に実行されたかどうかを計測します。 通常は、1 "
+"行のコードをコンパイルすると、複数のオペコードになります。 ラインカバレッジは、複数のオペコードのうち少なくともひとつが実行された時点で、 "
+"その行が実行されたとみなします。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:81
+msgid "*Branch Coverage*"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:83
+msgid ""
+"*ブランチカバレッジ* は、テストスイートの実行中に、 制御構造内の boolean 式が ``true`` あるいは ``false`` "
+"のどちらかとして評価されたかどうかを計測します。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:87
+msgid "*Path Coverage*"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:89
+msgid ""
+"*パスカバレッジ* は、テストスイートの実行中に、 関数やメソッド内で取りうる実行パスが網羅されたかどうかを計測します。 "
+"実行パスとは、関数やメソッドに入ってから出るまでの間のルート内での分岐のことです。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:93
+msgid "*Change Risk Anti-Patterns (CRAP) Index*"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:95
+msgid ""
+"*Change Risk Anti-Patterns (CRAP) インデックス* "
+"とは、循環的複雑度と、あるコード単位のコードカバレッジに基づいて算出される指標です。 "
+"複雑度が低く、適切なテストカバレッジが達成されているコードは、CRAPインデックスの値が低くなります。 "
+"CRAPインデックスを下げるには、テストを書くか、 あるいはリファクタリングでコードの複雑性を下げます。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:103
+msgid ""
+"*オペコードカバレッジ*、 *ブランチカバレッジ*、 *パスカバレッジ* については、 php-code-coverage "
+"ではまだサポートしていません。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:111
+msgid "ファイルのホワイトリスト"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:113
+msgid ""
+"*ホワイトリスト* を設定して、 PHPUnit に対してどのソースコードファイルをコードカバレッジレポートに含めるかを指定する必要があります。 "
+"ホワイトリストの設定には、コマンドラインオプションの ``--whitelist`` を使うか、あるいは設定ファイルを使います "
+"(:ref:`appendixes.configuration.whitelisting-files` を参照ください)。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:118
+msgid ""
+"設定項目 ``addUncoveredFilesFromWhitelist`` および "
+"``processUncoveredFilesFromWhitelist`` で、ホワイトリストの使いかたを設定できます。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:120
+msgid ""
+"``addUncoveredFilesFromWhitelist=\"false\"`` "
+"と指定すると、ホワイトリストの追加したファイルのうち、実行される行が少なくとも一行以上あるファイルだけをコードカバレッジレポートに含めます。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:122
+msgid ""
+"``addUncoveredFilesFromWhitelist=\"true\"`` (デフォルト) "
+"と指定すると、実行されるコードが一行もないファイルを含めてホワイトリスト上のすべてのファイルをコードカバレッジレポートに含めます。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:124
+msgid ""
+"``processUncoveredFilesFromWhitelist=\"false\"`` (デフォルト) "
+"と指定すると、実行される行が一行もないホワイトリスト上のファイルも "
+"(``addUncoveredFilesFromWhitelist=\"true\"`` が指定されている場合) "
+"コードカバレッジレポートに追加されますが、PHPUnit には読み込まれず、実行可能な行数の解析は行われません。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:126
+msgid ""
+"``processUncoveredFilesFromWhitelist=\"true\"`` "
+"と指定すると、実行される行が一行もないホワイトリスト上のファイルが PHPUnit に読み込まれて、実行可能な行数の解析も行われるようになります。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:130
+msgid ""
+"``processUncoveredFilesFromWhitelist=\"true\"`` "
+"が設定されている場合のソースコードファイルの読み込みでは、 "
+"もしクラスや関数のスコープから外れるコードが含まれていたときに問題が起こる可能性があります。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:137
+msgid "コードブロックの無視"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:139
+msgid ""
+"どうしてもテストができないコードブロックなどを、 コードカバレッジ解析時に無視させたいこともあるでしょう。 PHPUnit でこれを実現するには、"
+" ``@codeCoverageIgnore``、 ``@codeCoverageIgnoreStart`` および "
+"``@codeCoverageIgnoreEnd`` アノテーションを :numref:`code-coverage-analysis"
+".ignoring-code-blocks.examples.Sample.php` のように使用します。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:148
+msgid ""
+"``@codeCoverageIgnore``、``@codeCoverageIgnoreStart`` および "
+"``@codeCoverageIgnoreEnd`` アノテーションの使用法"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:184
+msgid ""
+"これらのアノテーションを使って無視するよう指定された行は、 もし実行可能なら (たとえ実行されていなくても) 実行されたものとみなされ、 "
+"強調表示されません。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:191
+msgid "カバーするメソッドの指定"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:193
+msgid ""
+"テストコードで ``@covers`` アノテーション "
+"(:ref:`appendixes.annotations.covers.tables.annotations`) を参照ください) "
+"を使用すると、 そのテストメソッドがどのメソッドをテストしたいのかを指定することができます。 "
+"これを指定すると、指定したメソッドのコードカバレッジ情報のみを考慮します。 :numref:`code-coverage-analysis"
+".specifying-covered-methods.examples.BankAccountTest.php` に例を示します。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:201
+msgid "どのメソッドを対象とするかを指定したテスト"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:277
+msgid ""
+"あるテストが、*一切* メソッドをカバーしてはならないことも指定できます。 そのために使うのが ``@coversNothing`` "
+"アノテーションです。 (:ref:`appendixes.annotations.coversNothing` を参照ください)。 "
+"これは、インテグレーションテストを書く際に ユニットテストだけのコードカバレッジを生成させたい場合に便利です。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:283
+msgid "どのメソッドもカバーすべきでないことを指定したテスト"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:315
+msgid "エッジケース"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:317
+msgid "この節では、コードカバレッジ情報がわかりにくくなってしまうような、 エッジケースについて紹介します。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:344
+msgid "Xdebug を使ったコードカバレッジ出力の高速化"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:346
+msgid ""
+"Xdebug 2.6 以降では、ホワイトリストによるフィルタリングを Xdebug に任せることで、 "
+"コードカバレッジ用データを収集する効率を劇的に向上させることができます。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:349
+msgid "そのためには、まず ``--dump-xdebug-filter`` オプションを使って Xdebug 用のフィルタースクリプトを生成します。"
+msgstr ""
+
+#: ../../src/code-coverage-analysis.rst:362
+msgid ""
+"これで、 コードカバレッジレポートの生成時に ``--prepend`` オプションを使って Xdebug "
+"フィルタースクリプトをロードできるようになりました。"
+msgstr ""
+

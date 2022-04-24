@@ -1,0 +1,118 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Sebastian Bergmann
+# This file is distributed under the same license as the PHPUnit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPUnit feature/configuration-rst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-24 18:09+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../src/risky-tests.rst:7
+msgid "リスクを伴うテスト"
+msgstr ""
+
+#: ../../src/risky-tests.rst:9
+msgid "PHPUnit は、テストを実行する際に、以下のような追加のチェックをすることができます。"
+msgstr ""
+
+#: ../../src/risky-tests.rst:14
+msgid "無意味なテスト"
+msgstr ""
+
+#: ../../src/risky-tests.rst:16
+msgid ""
+"PHPUnit はデフォルトで、何も確かめていないテストを検出します。 このチェックを無効にするには、コマンドラインオプション ``--dont-"
+"report-useless-tests`` を使うか、あるいは PHPUnit の XML 設定ファイルで "
+"``beStrictAboutTestsThatDoNotTestAnything=\"false\"`` を設定します。"
+msgstr ""
+
+#: ../../src/risky-tests.rst:23
+msgid ""
+"何もアサーションを実行していないテストは、このチェックを有効にしておくと、 危険であるとマークされます。モックオブジェクトでの例外や、 "
+"@expectedException などのアノテーションは、アサーションとみなします。"
+msgstr ""
+
+#: ../../src/risky-tests.rst:30
+msgid "意図せぬうちにカバーされているコード"
+msgstr ""
+
+#: ../../src/risky-tests.rst:32
+msgid ""
+"PHPUnit は、意図せずカバーされているコードを検出することができます。 このチェックを有効にするには、コマンドラインオプション "
+"``--strict-coverage`` を使うか、あるいは PHPUnit の XML 設定ファイルで "
+"``beStrictAboutCoversAnnotation=\"true\"`` を設定します。"
+msgstr ""
+
+#: ../../src/risky-tests.rst:39
+msgid ""
+"@covers アノテーションつきのテストが、 @covers や @uses に記されていないコードを実行している場合に、 "
+"このチェックを有効にしておくと、危険であるとマークされます。"
+msgstr ""
+
+#: ../../src/risky-tests.rst:46
+msgid "テストの実行時の出力"
+msgstr ""
+
+#: ../../src/risky-tests.rst:48
+msgid ""
+"PHPUnit は、テストの最中の出力を検出することができます。 このチェックを有効にするには、コマンドラインオプション "
+"``--disallow-test-output`` を使うか、あるいは PHPUnit の XML 設定ファイルで "
+"``beStrictAboutOutputDuringTests=\"true\"`` を設定します。"
+msgstr ""
+
+#: ../../src/risky-tests.rst:55
+msgid "テストコードあるいは被テストコードの中で、print などで何かを出力している場合に、 このチェックを有効にしておくと、危険であるとマークされます。"
+msgstr ""
+
+#: ../../src/risky-tests.rst:62
+msgid "テストの実行時のタイムアウト"
+msgstr ""
+
+#: ../../src/risky-tests.rst:64
+msgid ""
+"``PHP_Invoker`` パッケージがインストールされており、 かつ ``pcntl`` 拡張モジュールが利用可能な場合は、 "
+"テストの実行時間に制限を設けることができます。 この時間制限を有効にするには、コマンドラインオプション ``--enforce-time-"
+"limit`` を使うか、あるいは PHPUnit の XML 設定ファイルで "
+"``beStrictAboutTestSize=\"true\"`` を設定します。"
+msgstr ""
+
+#: ../../src/risky-tests.rst:73
+msgid ""
+"``@large`` とマークされたテストは、 実行時間が 60 秒を超えたら失敗します。 このタイムアウト時間は、XML 設定ファイルの "
+"``timeoutForLargeTests`` 属性で変更できます。"
+msgstr ""
+
+#: ../../src/risky-tests.rst:78
+msgid ""
+"``@medium`` とマークされたテストは、 実行時間が 10 秒を超えたら失敗します。 このタイムアウト時間は、XML 設定ファイルの "
+"``timeoutForMediumTests`` 属性で変更できます。"
+msgstr ""
+
+#: ../../src/risky-tests.rst:83
+msgid ""
+"``@medium`` とも ``@large`` ともマークされていないテストは、 ``@small`` とマークされたものとみなします。 "
+"このテストは、実行時間が 1 秒を超えたら失敗します。 このタイムアウト時間は、XML 設定ファイルの "
+"``timeoutForSmallTests`` 属性で変更できます。"
+msgstr ""
+
+#: ../../src/risky-tests.rst:92
+msgid "グローバルな状態の変更"
+msgstr ""
+
+#: ../../src/risky-tests.rst:94
+msgid ""
+"PHPUnit は、グローバルな状態を変更するテストを厳格にチェックすることができます。 このチェックを有効にするには、コマンドラインで "
+"``--strict-global-state`` オプションを指定するか、PHPUnit の XML 設定ファイルで "
+"``beStrictAboutChangesToGlobalState=\"true\"`` を指定します。"
+msgstr ""
+

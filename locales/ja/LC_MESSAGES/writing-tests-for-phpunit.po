@@ -1,0 +1,437 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Sebastian Bergmann
+# This file is distributed under the same license as the PHPUnit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPUnit feature/configuration-rst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-24 18:09+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../src/writing-tests-for-phpunit.rst:7
+msgid "PHPUnit 用のテストの書き方"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:9
+msgid ""
+":numref:`writing-tests-for-phpunit.examples.StackTest.php` で、 PHP "
+"の配列操作のテストを PHPUnit 用に書く方法を示します。 この例では、PHPUnit "
+"を使ったテストを書く際の基本的な決まり事や手順を紹介します。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:15
+msgid "``Class`` という名前のクラスのテストは、``ClassTest`` という名前のクラスに記述します。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:19
+msgid "``ClassTest`` は、(ほとんどの場合) ``PHPUnit\\Framework\\TestCase`` を継承します。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:23
+msgid "テストは、``test*`` という名前のパブリックメソッドとなります。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:25
+msgid "あるいは、``@test`` アノテーションをメソッドのコメント部で使用することで、それがテストメソッドであることを示すこともできます。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:29
+msgid ""
+"テストメソッドの中で ``assertSame()`` のようなアサーションメソッド (:ref:`appendixes.assertions` "
+"を参照ください) を使用して、期待される値と実際の値が等しいことを確かめます。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:31
+msgid "PHPUnit での配列操作のテスト"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:55
+msgid "*Martin Fowler*:"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:57
+msgid ""
+"Whenever you are tempted to type something into a ``print`` statement or "
+"a debugger expression, write it as a test instead."
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:61
+msgid "何かを ``print`` 文やデバッガの式に書きたくなったときは、 代わりにその内容をテストに書くようにするんだ。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:67
+msgid "テストの依存性"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:69
+msgid "*Adrian Kuhn et. al.*:"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:71
+msgid ""
+"Unit Tests are primarily written as a good practice to help developers "
+"identify and fix bugs, to refactor code and to serve as documentation for"
+" a unit of software under test. To achieve these benefits, unit tests "
+"ideally should cover all the possible paths in a program. One unit test "
+"usually covers one specific path in one function or method. However a "
+"test method is not necessarily an encapsulated, independent entity. Often"
+" there are implicit dependencies between test methods, hidden in the "
+"implementation scenario of a test."
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:80
+msgid ""
+"ユニットテストを書くそもそもの目的は、バグの発見と修正や コードのリファクタリングを開発者がやりやすくすること。 "
+"そしてテスト対象のソフトウェアのドキュメントとしての役割を果たすことだ。 これらの目的を達成するためには、 "
+"ユニットテストがプログラム内のすべてのルートをカバーしていることが理想である。 ひとつのユニットテストがカバーするのは、 "
+"通常はひとつの関数やメソッド内の特定のルートだけとなる。 しかし、テストメソッドは必ずしもカプセル化して独立させる必要はない。 "
+"複数のテストメソッドの間に暗黙の依存性があって、 隠された実装シナリオがテストの中にあるのもよくあることだ。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:91
+msgid ""
+"PHPUnit は、テストメソッド間の依存性の明示的な宣言をサポートしています。 "
+"この依存性とは、テストメソッドが実行される順序を定義するものではありません。 プロデューサーがテストフィクスチャを作ってそのインスタンスを返し、 "
+"依存するコンシューマーがそれを受け取って利用するというものです。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:98
+msgid "プロデューサーとは、返り値としてテスト対象のユニットを生成するテストメソッドのこと。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:102
+msgid "コンシューマーとは、プロデューサーの返り値に依存するテストメソッドのこと。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:104
+msgid ""
+":numref:`writing-tests-for-phpunit.examples.StackTest2.php` "
+"は、``@depends`` アノテーションを使ってテストメソッドの依存性をあらわす例です。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:107
+msgid "``@depends`` アノテーションを使った依存性の表現"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:146
+msgid ""
+"上の例では、まず最初のテスト ``testEmpty()`` で新しい配列を作り、それが空であることを確かめます。 "
+"このテストは、フィクスチャを返します。 二番目のテスト ``testPush()`` は ``testEmpty()`` に依存しており、 "
+"依存するテストの結果を引数として受け取ります。 最後の ``testPop()`` は ``testPush()`` に依存しています。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:155
+#: ../../src/writing-tests-for-phpunit.rst:616
+#: ../../src/writing-tests-for-phpunit.rst:623
+#: ../../src/writing-tests-for-phpunit.rst:678
+#: ../../src/writing-tests-for-phpunit.rst:694
+#: ../../src/writing-tests-for-phpunit.rst:879
+msgid "Note"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:157
+msgid ""
+"プロデューサーの生成する戻り値は、デフォルトでは「そのままの形式」でコンシューマーに渡されます。 "
+"つまり、プロデューサーがオブジェクトを戻した場合は、そのオブジェクトへの参照がコンシューマーに渡されるということです。 参照を使う代わりに、 "
+"``@depends clone`` を用いてディープコピーをしたり ``@depends shallowClone`` を用いてシャローコピー "
+"（PHPのキーワード ``clone`` によるコピー）をしたりすることもできます。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:163
+msgid ""
+"問題の局所化を手早く行うには、失敗したテストに目を向けやすくしたいものです。 そのため PHPUnit では、 "
+"あるテストが失敗したときにはそのテストに依存する他のテストの実行をスキップします。 テスト間の依存性を活用して問題点を見つけやすくしている例を "
+":numref:`writing-tests-for-phpunit.examples.DependencyFailureTest.php` "
+"に示します。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:170
+msgid "テストの依存性の活用"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:216
+msgid ""
+"ひとつのテストに複数の ``@depends`` アノテーションをつけることもできます。 PHPUnit "
+"はテストが実行される順序を変更しないので、 テストが実行されるときに確実に依存性が満たされているようにしておく必要があります。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:220
+msgid ""
+"複数の ``@depends`` アノテーションを持つテストは、 "
+"最初のプロデューサーからのフィクスチャを最初の引数、二番目のプロデューサーからのフィクスチャを二番目の引数、…… として受け取ります。 "
+":numref:`writing-tests-for-phpunit.examples.MultipleDependencies.php` "
+"を参照ください。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:226
+msgid "複数の依存性を持つテスト"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:274
+msgid "データプロバイダ"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:276
+msgid ""
+"テストメソッドには任意の引数を渡すことができます。 この引数は、データプロバイダメソッド (:numref:`writing-tests-for-"
+"phpunit.data-providers.examples.DataTest.php` の ``additionProvider()``) "
+"で指定します。使用するデータプロバイダメソッドを指定するには ``@dataProvider`` アノテーションを使用します。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:283
+msgid ""
+"データプロバイダメソッドは、``public`` でなければなりません。また、 メソッドの返り値の型は、配列の配列あるいはオブジェクト "
+"(``Iterator`` インターフェイスを実装しており、 反復処理の際に配列を返すもの) である必要があります。 "
+"この返り値の各要素に対して、その配列の中身を引数としてテストメソッドがコールされます。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:290
+msgid "配列の配列を返すデータプロバイダの使用"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:337
+msgid ""
+"大量のデータセットを使う場合は、デフォルトの数字を使うのではなく、各データセットに文字列の名前をつけておくと便利です。 "
+"出力もよりわかりやすくなり、テストを失敗させたデータセットの名前もわかるようになります。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:340
+msgid "データプロバイダでの名前つきデータセットの使用"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:387
+msgid "Iterator オブジェクトを返すデータプロバイダの使用"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:429
+msgid "CsvFileIterator クラス"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:483
+msgid ""
+"``@dataProvider`` で指定したメソッドと ``@depends`` で指定したテストの両方からの入力を受け取るテストの場合、 "
+"データプロバイダからの引数のほうが依存するテストからの引数より先にきます。 "
+"依存するテストからの引数は、どちらのデータセットに対しても同じになります。 :numref:`writing-tests-for-phpunit"
+".data-providers.examples.DependencyAndDataProviderCombo.php` を参照ください。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:490
+msgid "同じテストでの @depends と @dataProvider の組み合わせ"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:560
+msgid "ひとつのテストでの複数のデータプロバイダの使用"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:618
+msgid ""
+"あるテストがデータプロバイダを使う別のテストに依存している場合、 別のテストで少なくともひとつのデータセットに対するテストが成功すれば "
+"そのテストも実行されます。 データプロバイダを使ったテストの結果をそのテストに注入することはできません。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:625
+msgid ""
+"すべてのデータプロバイダを実行してから、 静的メソッド ``setUpBeforeClass()`` や ``setUp()`` "
+"メソッドの最初の呼び出しが発生します。そのため、 これらのメソッドで作った変数にデータプロバイダ内からアクセスすることはできません。 "
+"そうなっている理由は、PHPUnit がテストの総数を算出できるようにするためです。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:634
+msgid "例外のテスト"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:636
+msgid ""
+":numref:`writing-tests-for-phpunit.exceptions.examples.ExceptionTest.php`"
+" は、テストするコード内で例外がスローされたかどうかを ``expectException()`` メソッドを使用して調べる方法を示すものです。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:640
+msgid "expectException() メソッドの使用法"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:672
+msgid ""
+"``expectException()`` メソッドのほかにも ``expectExceptionCode()``、 "
+"``expectExceptionMessage()``、 ``expectExceptionMessageMatches()`` "
+"といったメソッドで、 テスト対象のコードで発生するであろう例外をテストできます。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:680
+msgid ""
+"``expectExceptionMessage()`` は ``$actual`` の中に ``$expected`` "
+"のメッセージが含まれるかどうかを確かめるだけのものであり、 完全一致するかどうかを確かめるわけではないことに注意しましょう。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:687
+msgid "PHP のエラーのテスト"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:689
+msgid ""
+"デフォルトでは、PHPUnit はテストの実行中に発生した PHP のエラーや警告そして notice "
+"を例外に変換します。これらの例外を用いて、たとえば :numref:`writing-tests-for-"
+"phpunit.exceptions.examples.ErrorTest.php` のように PHP のエラーが発生することをテストできます。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:696
+msgid ""
+"PHP の実行時設定 ``error_reporting`` を使うと、 PHPUnit がどのエラーを例外に変換するのかを制限できます。 "
+"この機能に関して何か問題がでた場合は、PHP の設定を見直し、 調べたいと思っているエラーを抑制するようになっていないかどうか確認しましょう。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:701
+msgid "PHPのエラーが発生することのテスト"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:747
+msgid ""
+"エラーを引き起こすような PHP の関数、たとえば ``fopen`` "
+"などに依存するテストを行うときには、テスト中にエラーを抑制できれば便利なことがあります。 そうすれば、notice のせいで "
+"``PHPUnit\\Framework\\Error\\Notice`` が出てしまうことなく、返り値だけをチェックできるようになります。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:753
+msgid "PHP のエラーが発生するコードの返り値のテスト"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:795
+msgid ""
+"もしエラーを抑制しなければ、このテストは失敗して ``fopen(/is-not-writeable/file): failed to open "
+"stream: No such file or directory`` となります。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:801
+msgid "出力内容のテスト"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:803
+msgid ""
+"メソッドの実行結果を確かめる方法として、(``echo`` や ``print`` などによる) "
+"出力が期待通りのものかを調べたいこともあるでしょう。 ``PHPUnit\\Framework\\TestCase`` クラスは、PHP の "
+"`出力バッファリング <http://www.php.net/manual/ja/ref.outcontrol.php>`_ "
+"機能を使用してこの仕組みを提供します。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:809
+msgid ""
+":numref:`writing-tests-for-phpunit.output.examples.OutputTest.php` "
+"では、期待する出力内容を ``expectOutputString()`` メソッドで設定する方法を示します。 "
+"期待通りの出力が得られなかった場合は、そのテストは失敗という扱いになります。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:814
+msgid "関数やメソッドの出力内容のテスト"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:860
+msgid ""
+":numref:`writing-tests-for-phpunit.output.tables.api` は、 "
+"テストの出力用に提供するメソッドをまとめたものです。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:864
+msgid "テストの出力用のメソッド"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:868
+msgid "メソッド"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:869
+msgid "意味"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:870
+msgid "``void expectOutputRegex(string $regularExpression)``"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:871
+msgid "出力が正規表現 ``$regularExpression`` にマッチするであろうという予測を設定します。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:872
+msgid "``void expectOutputString(string $expectedString)``"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:873
+msgid "出力が文字列 ``$expectedString`` と等しくなるであろうという予測を設定します。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:874
+msgid "``bool setOutputCallback(callable $callback)``"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:875
+msgid "たとえば出力時の正規化などに使用するコールバック関数を設定します。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:876
+msgid "``string getActualOutput()``"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:877
+msgid "実際の出力を取得します。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:881
+msgid "strict モードでは、出力を発生させるテストは失敗します。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:886
+msgid "エラー出力"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:888
+msgid "テストが失敗した場合、PHPUnit は、状況を可能な限り詳細に報告します。 これが、何が問題だったのかを調べるのに役立つでしょう。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:891
+msgid "配列の比較に失敗したときのエラー出力"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:940
+msgid "この例では配列の要素のうちひとつだけが異なっています。 それ以外の値も表示することで、どこが悪かったのかをわかりやすくしています。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:943
+msgid "出力が長すぎる場合は PHPUnit が出力を分割し、違っている部分の前後数行だけを出力します。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:945
+msgid "要素数の多い配列の比較に失敗したときのエラー出力"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:995
+msgid "エッジケース"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:997
+msgid ""
+"比較に失敗したときに、PHPUnit は入力値をテキスト形式にしてこれを比較します。 "
+"この実装が原因で、実際の違う箇所よりも多くの問題を報告してしまうことがあります。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:1000
+msgid "この問題が発生するのは、 ``assertEquals()`` などの「緩い」比較の関数を、配列やオブジェクトに対して使った場合だけです。"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:1003
+msgid "緩い比較を使った場合の diff の生成のエッジケース"
+msgstr ""
+
+#: ../../src/writing-tests-for-phpunit.rst:1053
+msgid ""
+"この例では、最初のインデックスの ``1`` と ``'1'`` がエラー報告されていますが、 ``assertEquals()`` "
+"ではこれらを等しいとみなしているはずです。"
+msgstr ""
+

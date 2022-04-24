@@ -1,0 +1,596 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Sebastian Bergmann
+# This file is distributed under the same license as the PHPUnit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPUnit feature/configuration-rst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-24 18:09+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../src/annotations.rst:7 ../../src/annotations.rst:335
+msgid "アノテーション"
+msgstr ""
+
+#: ../../src/annotations.rst:9
+msgid ""
+"アノテーションとはメタデータを表す特別な構文のことで、 プログラミング言語のソースコードに追加することができます。 PHP "
+"そのものにはソースコードにアノテーションする専用の仕組みはありませんが、 ドキュメンテーションブロックに ``@アノテーション名 引数`` "
+"のようなタグを書くことでアノテーションを表すという記法が PHP コミュニティ内で一般に使われています。 PHP では、リフレクション API の"
+" ``getDocComment()`` メソッドを使えば関数、クラス、メソッド、属性 "
+"それぞれのドキュメンテーションブロックにアクセスすることができます。 PHPUnit などのアプリケーションでは、 "
+"この情報をもとに実行時の振る舞いを設定するのです。"
+msgstr ""
+
+#: ../../src/annotations.rst:21 ../../src/annotations.rst:204
+#: ../../src/annotations.rst:633 ../../src/annotations.rst:686
+msgid "Note"
+msgstr ""
+
+#: ../../src/annotations.rst:23
+msgid ""
+"PHP の doc コメントは、``/**`` で始めて ``*/`` で終わる必要があります。 "
+"その他の形式のコメントで書いたアノテーションは、無視されます。"
+msgstr ""
+
+#: ../../src/annotations.rst:27
+msgid "本章では、PHPUnit がサポートするすべてのアノテーションについて解説します。"
+msgstr ""
+
+#: ../../src/annotations.rst:32
+msgid "@author"
+msgstr ""
+
+#: ../../src/annotations.rst:34
+msgid ""
+"``@author`` アノテーションは ``@group`` アノテーション "
+"(:ref:`appendixes.annotations.group` を参照ください) のエイリアスで、 "
+"テストの作者にもとづいたフィルタリングができるようになります。"
+msgstr ""
+
+#: ../../src/annotations.rst:41
+msgid "@after"
+msgstr ""
+
+#: ../../src/annotations.rst:43
+msgid "``@after`` アノテーションを使うと、 テストケースクラス内の各テストメソッドを実行した後に呼ぶメソッドを指定できます。"
+msgstr ""
+
+#: ../../src/annotations.rst:73
+msgid "@afterClass"
+msgstr ""
+
+#: ../../src/annotations.rst:75
+msgid ""
+"``@afterClass`` アノテーションを使うと、 テストケースクラス内の各テストメソッドを実行した後に呼ぶ静的メソッドを指定できます。 "
+"ここで共有フィクスチャの後始末をします。"
+msgstr ""
+
+#: ../../src/annotations.rst:106
+msgid "@backupGlobals"
+msgstr ""
+
+#: ../../src/annotations.rst:108
+msgid ""
+"PHPUnit では、グローバル変数やスーパーグローバル変数の値をバックアップしてからテストを始め、 "
+"テストが終わった後でそれらの値を復元することができます。"
+msgstr ""
+
+#: ../../src/annotations.rst:111
+msgid ""
+"``@backupGlobals enabled`` アノテーションはクラスレベルで使うことができます。 "
+"この場合、テストケースクラスのすべてのテストでグローバル変数の保存と復元が行われます。"
+msgstr ""
+
+#: ../../src/annotations.rst:127
+msgid ""
+"``@backupGlobals`` アノテーションをテストメソッドレベルで使うこともできます。 "
+"これによって、保存と復元の操作をより細やかに制御できるようになります。"
+msgstr ""
+
+#: ../../src/annotations.rst:157
+msgid "@backupStaticAttributes"
+msgstr ""
+
+#: ../../src/annotations.rst:159
+msgid ""
+"PHPUnit では、宣言されたクラス内のすべての static 属性の値をバックアップしてからテストを始め、 "
+"テストが終わった後でそれらの値を復元することができます。"
+msgstr ""
+
+#: ../../src/annotations.rst:162
+msgid ""
+"``@backupStaticAttributes enabled`` アノテーションはクラスレベルで使うことができます。 "
+"この場合、テストケースクラスのすべてのテストで static 属性の保存と復元が行われます。"
+msgstr ""
+
+#: ../../src/annotations.rst:177
+msgid ""
+"``@backupStaticAttributes`` アノテーションをテストメソッドレベルで使うこともできます。 "
+"これによって、保存と復元の操作をより細やかに制御できるようになります。"
+msgstr ""
+
+#: ../../src/annotations.rst:206
+msgid ""
+"PHP の内部的な制約のため、 ``@backupStaticAttributes`` が、 意図していない static 値を保存してしまい、 "
+"その後のテストに影響してしまうことがあります。"
+msgstr ""
+
+#: ../../src/annotations.rst:211
+msgid "詳細は :ref:`fixtures.global-state` を参照ください。"
+msgstr ""
+
+#: ../../src/annotations.rst:216
+msgid "@before"
+msgstr ""
+
+#: ../../src/annotations.rst:218
+msgid "``@before`` アノテーションを使うと、 テストケースクラス内の各テストメソッドを実行する前に呼ぶメソッドを指定できます。"
+msgstr ""
+
+#: ../../src/annotations.rst:248
+msgid "@beforeClass"
+msgstr ""
+
+#: ../../src/annotations.rst:250
+msgid ""
+"``@beforeClass`` アノテーションを使うと、 テストケースクラス内の各テストメソッドを実行する前に呼ぶ静的メソッドを指定できます。 "
+"ここで共有フィクスチャの準備をします。"
+msgstr ""
+
+#: ../../src/annotations.rst:281
+msgid "@codeCoverageIgnore*"
+msgstr ""
+
+#: ../../src/annotations.rst:283
+msgid ""
+"``@codeCoverageIgnore`` や ``@codeCoverageIgnoreStart``、そして "
+"``@codeCoverageIgnoreEnd`` アノテーションを使うと、 コード内の特定の行をカバレッジ解析の対象外にできます。"
+msgstr ""
+
+#: ../../src/annotations.rst:288
+msgid "利用法は :ref:`code-coverage-analysis.ignoring-code-blocks` を参照ください。"
+msgstr ""
+
+#: ../../src/annotations.rst:293
+msgid "@covers"
+msgstr ""
+
+#: ../../src/annotations.rst:295
+msgid "``@covers`` アノテーションをテストコードで使うと、 そのテストメソッドがどのメソッドをテストするのかを指定することができます。"
+msgstr ""
+
+#: ../../src/annotations.rst:308
+msgid ""
+"``@covers`` アノテーションが利用された場合、出力されるコードカバレッジの算出方法が変わります。 "
+"アノテーションで自身を指定するテストから実行された場合のみ、「covered」と判定されます。 "
+"アノテーションで自身を指定していないテストから間接的に利用されたとしても、「covered」とは判定されません。 "
+"これによって、コードカバレッジが実際よりも高く出る false positive を避けることができます。"
+msgstr ""
+
+#: ../../src/annotations.rst:313
+msgid ""
+"このアノテーションはテストクラスの docblock に記載することも、個別のテストメソッドの docblock に記載することもできますが、 "
+"テストクラスの docblock に記載することが推奨され、個別のテストメソッドの docblock に記載することは推奨されません。"
+msgstr ""
+
+#: ../../src/annotations.rst:317
+msgid ""
+":ref:`XML 設定ファイル <appendixes.configuration>` の ``forceCoversAnnotation`` "
+"オプションを ``true`` に設定した場合、 全てのテストメソッドにおいて ``covers`` アノテーションを設定しなければなりません "
+"(テストクラス単位で設定しても、それぞれのテストメソッドを個別に設定しても構いません)"
+msgstr ""
+
+#: ../../src/annotations.rst:321
+msgid ""
+":numref:`appendixes.annotations.covers.tables.annotations` に ``@covers`` "
+"アノテーションの構文を示します。"
+msgstr ""
+
+#: ../../src/annotations.rst:324
+msgid ""
+":ref:`code-coverage-analysis.specifying-covered-parts` "
+"のセクションでは、このアノテーションを使うより詳細な例を紹介しています。"
+msgstr ""
+
+#: ../../src/annotations.rst:326 ../../src/annotations.rst:370
+#: ../../src/annotations.rst:789
+msgid ""
+"このアノテーションは、完全修飾クラス名を必要とすることに注意してください。 "
+"完全修飾クラス名の先頭のバックスラッシュは省略しても動作に問題ありませんが、読み手に完全修飾クラス名であることを伝えるために "
+"先頭にバックスラッシュをつける形式で記載することが推奨されます。"
+msgstr ""
+
+#: ../../src/annotations.rst:331
+msgid "カバーするメソッドを指定するためのアノテーション"
+msgstr ""
+
+#: ../../src/annotations.rst:336
+msgid "説明"
+msgstr ""
+
+#: ../../src/annotations.rst:337
+msgid "``@covers ClassName::methodName`` (not recommended)"
+msgstr ""
+
+#: ../../src/annotations.rst:338
+msgid "そのテストメソッドが指定したメソッドをカバーすることを表します。"
+msgstr ""
+
+#: ../../src/annotations.rst:339
+msgid "``@covers ClassName`` (recommended)"
+msgstr ""
+
+#: ../../src/annotations.rst:340
+msgid "そのテストメソッドが指定したクラスのすべてのメソッドをカバーすることを表します。"
+msgstr ""
+
+#: ../../src/annotations.rst:341
+msgid "``@covers ClassName<extended>`` (not recommended)"
+msgstr ""
+
+#: ../../src/annotations.rst:342
+msgid "そのテストメソッドが、指定したクラスとその親クラスおよびインターフェイスのすべてのメソッドをカバーすることを表します。"
+msgstr ""
+
+#: ../../src/annotations.rst:343
+msgid "``@covers ClassName::<public>`` (not recommended)"
+msgstr ""
+
+#: ../../src/annotations.rst:344
+msgid "そのテストメソッドが、指定したクラスのすべての public メソッドをカバーすることを表します。"
+msgstr ""
+
+#: ../../src/annotations.rst:345
+msgid "``@covers ClassName::<protected>`` (not recommended)"
+msgstr ""
+
+#: ../../src/annotations.rst:346
+msgid "そのテストメソッドが、指定したクラスのすべての protected メソッドをカバーすることを表します。"
+msgstr ""
+
+#: ../../src/annotations.rst:347
+msgid "``@covers ClassName::<private>`` (not recommended)"
+msgstr ""
+
+#: ../../src/annotations.rst:348
+msgid "そのテストメソッドが、指定したクラスのすべての private メソッドをカバーすることを表します。"
+msgstr ""
+
+#: ../../src/annotations.rst:349
+msgid "``@covers ClassName::<!public>`` (not recommended)"
+msgstr ""
+
+#: ../../src/annotations.rst:350
+msgid "そのテストメソッドが、指定したクラスのすべての非 public メソッドをカバーすることを表します。"
+msgstr ""
+
+#: ../../src/annotations.rst:351
+msgid "``@covers ClassName::<!protected>`` (not recommended)"
+msgstr ""
+
+#: ../../src/annotations.rst:352
+msgid "そのテストメソッドが、指定したクラスのすべての非 protected メソッドをカバーすることを表します。"
+msgstr ""
+
+#: ../../src/annotations.rst:353
+msgid "``@covers ClassName::<!private>`` (not recommended)"
+msgstr ""
+
+#: ../../src/annotations.rst:354
+msgid "そのテストメソッドが、指定したクラスのすべての非 private メソッドをカバーすることを表します。"
+msgstr ""
+
+#: ../../src/annotations.rst:355
+msgid "``@covers ::functionName`` (recommended)"
+msgstr ""
+
+#: ../../src/annotations.rst:356
+msgid "そのテストメソッドが、指定したグローバル関数をカバーすることを表します。"
+msgstr ""
+
+#: ../../src/annotations.rst:361
+msgid "@coversDefaultClass"
+msgstr ""
+
+#: ../../src/annotations.rst:363
+msgid ""
+"``@coversDefaultClass`` アノテーションを使うと、 デフォルトの名前空間あるいはクラス名を指定できます。 こうすることで、 "
+"``@covers`` アノテーションのたびに長い名前を繰り返す必要がなくなります。 "
+":numref:`appendixes.annotations.examples.CoversDefaultClassTest.php` "
+"を参照ください。"
+msgstr ""
+
+#: ../../src/annotations.rst:374
+msgid "@coversDefaultClass を使ったアノテーションの短縮"
+msgstr ""
+
+#: ../../src/annotations.rst:399
+msgid "@coversNothing"
+msgstr ""
+
+#: ../../src/annotations.rst:401
+msgid ""
+"``@coversNothing`` アノテーションをテストコードで使うと、 "
+"そのテストケースについてはコードカバレッジ情報を記録しないように指定できます。"
+msgstr ""
+
+#: ../../src/annotations.rst:404
+msgid ""
+"これはインテグレーションテストで使えます。例として :ref:`code-coverage-analysis.specifying-"
+"covered-parts.examples.GuestbookIntegrationTest.php` を参照ください。"
+msgstr ""
+
+#: ../../src/annotations.rst:408
+msgid "このメソッドはクラスレベルおよびメソッドレベルで使え、 あらゆる ``@covers`` タグを上書きします。"
+msgstr ""
+
+#: ../../src/annotations.rst:414
+msgid "@dataProvider"
+msgstr ""
+
+#: ../../src/annotations.rst:416
+msgid ""
+"テストメソッドには任意の引数を渡すことができます。 引数は、データプロバイダメソッド (:ref:`writing-tests-for-"
+"phpunit.data-providers.examples.DataTest.php` の ``provider()``) から渡されます。 "
+"使用するデータプロバイダメソッドを指定するには ``@dataProvider`` アノテーションを使います。"
+msgstr ""
+
+#: ../../src/annotations.rst:423
+msgid "詳細は :ref:`writing-tests-for-phpunit.data-providers` を参照ください。"
+msgstr ""
+
+#: ../../src/annotations.rst:429
+msgid "@depends"
+msgstr ""
+
+#: ../../src/annotations.rst:431
+msgid ""
+"PHPUnit は、テストメソッド間の依存性の明示的な宣言をサポートしています。 "
+"この依存性とは、テストメソッドが実行される順序を定義するものではありません。 プロデューサーがテストフィクスチャを作ってそのインスタンスを返し、 "
+"依存するコンシューマーがそれを受け取って利用するというものです。 :ref:`writing-tests-for-"
+"phpunit.examples.StackTest2.php` は、``@depends`` "
+"アノテーションを使ってテストメソッドの依存性をあらわす例です。"
+msgstr ""
+
+#: ../../src/annotations.rst:438
+msgid "詳細は :ref:`writing-tests-for-phpunit.test-dependencies` を参照ください。"
+msgstr ""
+
+#: ../../src/annotations.rst:444
+msgid "@doesNotPerformAssertions"
+msgstr ""
+
+#: ../../src/annotations.rst:446
+msgid "アサーションがひとつもないテストを、リスキーであるとみなさないようにします。"
+msgstr ""
+
+#: ../../src/annotations.rst:451
+msgid "@group"
+msgstr ""
+
+#: ../../src/annotations.rst:453
+msgid "あるテストを、ひとつあるいは複数のグループに属するものとすることができます。 ``@group`` アノテーションをこのように使用します。"
+msgstr ""
+
+#: ../../src/annotations.rst:479
+msgid ""
+"``@group`` アノテーションはテストクラスにも指定できます。 "
+"指定すると、そのテストクラスのすべてのメソッドにアノテーションが「継承」されます。"
+msgstr ""
+
+#: ../../src/annotations.rst:482
+msgid ""
+"特定のグループに属するテストのみを選んで実行するには、 コマンドラインのテストランナーの場合は ``--group`` オプションあるいは "
+"``--exclude-group`` オプションを指定します。XML 設定ファイルの場合は、 それぞれ対応するディレクティブを指定します。"
+msgstr ""
+
+#: ../../src/annotations.rst:491
+msgid "@large"
+msgstr ""
+
+#: ../../src/annotations.rst:493
+msgid "``@large`` アノテーションは、 ``@group large`` のエイリアスです。"
+msgstr ""
+
+#: ../../src/annotations.rst:496
+msgid ""
+"``PHP_Invoker`` パッケージがインストールされていて strict モードが有効な場合に、 large テストは実行時間が 60 "
+"秒を超えたら失敗します。 このタイムアウト時間は、XML 設定ファイルの ``timeoutForLargeTests`` 属性で変更できます。"
+msgstr ""
+
+#: ../../src/annotations.rst:504
+msgid "@medium"
+msgstr ""
+
+#: ../../src/annotations.rst:506
+msgid ""
+"``@medium`` アノテーションは ``@group medium`` のエイリアスです。 medium テストは、``@large`` "
+"とマークしたテストに依存してはいけません。"
+msgstr ""
+
+#: ../../src/annotations.rst:510
+msgid ""
+"``PHP_Invoker`` パッケージがインストールされていて strict モードが有効な場合に、 medium テストは実行時間が 10 "
+"秒を超えたら失敗します。 このタイムアウト時間は、XML 設定ファイルの ``timeoutForMediumTests`` 属性で変更できます。"
+msgstr ""
+
+#: ../../src/annotations.rst:518
+msgid "@preserveGlobalState"
+msgstr ""
+
+#: ../../src/annotations.rst:520
+msgid ""
+"テストを別プロセスで実行するときに、 PHPUnit は親プロセスのグローバルな状態を保存しようと試みます。 "
+"親プロセスのすべてのグローバル状態をシリアライズし、 子プロセス内で最後にそれをアンシリアライズするのです。 "
+"しかし、親プロセスのグローバル状態の中にもしシリアライズできないものがあれば、 "
+"問題が発生します。この問題に対応するために、グローバル状態の保存を無効にすることができます。 そのために使うのが "
+"``@preserveGlobalState`` アノテーションです。"
+msgstr ""
+
+#: ../../src/annotations.rst:548
+msgid "@requires"
+msgstr ""
+
+#: ../../src/annotations.rst:550
+msgid ""
+"``@requires`` アノテーションを使うと、共通の事前条件 (たとえば PHP のバージョンや拡張モジュールのインストール状況) "
+"を満たさないときにテストをスキップできます。"
+msgstr ""
+
+#: ../../src/annotations.rst:554
+msgid ""
+"条件に指定できる内容やその例については :ref:`incomplete-and-skipped-"
+"tests.requires.tables.api` を参照ください。"
+msgstr ""
+
+#: ../../src/annotations.rst:561
+msgid "@runTestsInSeparateProcesses"
+msgstr ""
+
+#: ../../src/annotations.rst:563
+msgid "テストクラス内のすべてのテストケースを、個別の PHP プロセスで実行するように指示します。"
+msgstr ""
+
+#: ../../src/annotations.rst:578 ../../src/annotations.rst:610
+msgid ""
+"*注意:* デフォルトで、PHPUnit は親プロセスのグローバルな状態を保存しようと試みます。 "
+"親プロセスのすべてのグローバル状態をシリアライズし、 子プロセス内で最後にそれをアンシリアライズするのです。 "
+"しかし、親プロセスのグローバル状態の中にもしシリアライズできないものがあれば、 "
+"問題が発生します。この問題に対応するために、グローバル状態の保存を無効にすることができます。 この問題の対処法については "
+":ref:`appendixes.annotations.preserveGlobalState` を参照ください。"
+msgstr ""
+
+#: ../../src/annotations.rst:590
+msgid "@runInSeparateProcess"
+msgstr ""
+
+#: ../../src/annotations.rst:592
+msgid "そのテストを個別の PHP プロセスで実行するように指示します。"
+msgstr ""
+
+#: ../../src/annotations.rst:622
+msgid "@small"
+msgstr ""
+
+#: ../../src/annotations.rst:624
+msgid ""
+"``@small`` アノテーションは ``@group small`` のエイリアスです。 small テストは、``@medium`` や "
+"``@large`` とマークしたテストに依存してはいけません。"
+msgstr ""
+
+#: ../../src/annotations.rst:628
+msgid ""
+"``PHP_Invoker`` パッケージがインストールされていて strict モードが有効な場合に、 small テストは実行時間が 1 "
+"秒を超えたら失敗します。 このタイムアウト時間は、XML 設定ファイルの ``timeoutForSmallTests`` 属性で変更できます。"
+msgstr ""
+
+#: ../../src/annotations.rst:635
+msgid ""
+"テストの実行時間の制限を有効にするには、``@small``、 ``@medium``、``@large`` "
+"のいずれかのアノテーションで明示的に指定する必要があります。"
+msgstr ""
+
+#: ../../src/annotations.rst:642
+msgid "@test"
+msgstr ""
+
+#: ../../src/annotations.rst:644
+msgid ""
+"テストメソッド名の先頭に ``test`` をつけるかわりに、メソッドのドキュメンテーションブロックで ``@test`` "
+"アノテーションを使ってそのメソッドがテストメソッドであることを指定することができます。"
+msgstr ""
+
+#: ../../src/annotations.rst:661
+msgid "@testdox"
+msgstr ""
+
+#: ../../src/annotations.rst:663
+msgid "アジャイルドキュメントを生成する際に使う別の説明を指定します。"
+msgstr ""
+
+#: ../../src/annotations.rst:665
+msgid "``@testdox`` アノテーションは、クラスにもテストメソッドにも指定できます。"
+msgstr ""
+
+#: ../../src/annotations.rst:688
+msgid ""
+"PHPUnit 7.0 より前のバージョンでは、アノテーションのパースにバグがあるため、 ``@testdox`` "
+"アノテーションを指定すると自動的に ``@test`` アノテーションも指定したものとみなされます。"
+msgstr ""
+
+#: ../../src/annotations.rst:692
+msgid ""
+"メソッドレベルで ``@testdox`` アノテーションを ``@dataProvider`` "
+"アノテーションと一緒に利用する場合、別の説明の中でメソッドの引数をプレースホルダとして使えます。"
+msgstr ""
+
+#: ../../src/annotations.rst:716
+msgid "@testWith"
+msgstr ""
+
+#: ../../src/annotations.rst:718
+msgid ""
+"テストメソッド ``@dataProvider`` とともに使うメソッドを実装するかわりに、 ``@testWith`` "
+"アノテーションを使ってデータセットを定義することができます。"
+msgstr ""
+
+#: ../../src/annotations.rst:721
+msgid ""
+"データセットには複数の要素を含めることができます。 複数の要素からなるデータセットを定義するには、要素ごとに別の行で定義します。 "
+"データセットの要素は、JSONの配列形式でなければいけません。"
+msgstr ""
+
+#: ../../src/annotations.rst:725
+msgid ""
+"データセットをテストに渡す方法について、詳しくは :ref:`writing-tests-for-phpunit.data-providers` "
+"を参照ください。"
+msgstr ""
+
+#: ../../src/annotations.rst:739
+msgid "JSONのオブジェクト形式で書いた場合は、連想配列として扱われます。"
+msgstr ""
+
+#: ../../src/annotations.rst:754
+msgid "@ticket"
+msgstr ""
+
+#: ../../src/annotations.rst:756
+msgid ""
+"``@ticket`` アノテーションは ``@group`` アノテーション "
+"(:ref:`appendixes.annotations.group` を参照ください) のエイリアスで、 "
+"チケットIDにもとづいたテストのフィルタリングができるようになります。"
+msgstr ""
+
+#: ../../src/annotations.rst:763
+msgid "@uses"
+msgstr ""
+
+#: ../../src/annotations.rst:765
+msgid ""
+"``@uses`` アノテーションは、 テストから実行されてはいるが、そのテストでカバーするつもりはないコードを指定します。 "
+"たとえば、コード片をテストするために必要な値オブジェクトなどに使います。"
+msgstr ""
+
+#: ../../src/annotations.rst:780
+msgid ""
+":numref:`code-coverage-analysis.specifying-covered-"
+"parts.examples.InvoiceTest.php` にて、他の使用例を確認することができます。"
+msgstr ""
+
+#: ../../src/annotations.rst:783
+msgid ""
+"このアノテーションはコードを読む人の助けになることに加え、 "
+"意図せずコードをカバーしていた場合にテストを失敗させる厳密なカバレッジモードで使うと特に有用です。 厳密なカバレッジモードに関する詳細な情報は "
+"ref:`risky-tests.unintentionally-covered-code` を参照してください。"
+msgstr ""
+

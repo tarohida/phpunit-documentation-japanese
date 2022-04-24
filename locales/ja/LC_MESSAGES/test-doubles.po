@@ -1,0 +1,555 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Sebastian Bergmann
+# This file is distributed under the same license as the PHPUnit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPUnit feature/configuration-rst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-24 18:09+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../src/test-doubles.rst:7
+msgid "テストダブル"
+msgstr ""
+
+#: ../../src/test-doubles.rst:9
+msgid ""
+"Gerard Meszaros は、テストダブルの概念を :ref:`Meszaros2007 "
+"<appendixes.bibliography>` でこのように述べています。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:12
+msgid "*Gerard Meszaros*:"
+msgstr ""
+
+#: ../../src/test-doubles.rst:14
+msgid ""
+"Sometimes it is just plain hard to test the system under test (SUT) "
+"because it depends on other components that cannot be used in the test "
+"environment. This could be because they aren't available, they will not "
+"return the results needed for the test or because executing them would "
+"have undesirable side effects. In other cases, our test strategy requires"
+" us to have more control or visibility of the internal behavior of the "
+"SUT."
+msgstr ""
+
+#: ../../src/test-doubles.rst:21
+msgid ""
+"\\- テスト対象のシステム (SUT: system under test) をテストすることは、時に非常に困難なこととなります。というのも、 "
+"システムが他のコンポーネントに依存しており、 そのコンポーネントをテスト環境で利用できないことがあるからです。 "
+"そもそも使用不可能であったりテストで必要な結果を返さなかったり、 あるいは好ましくない副作用があったりといったことです。 "
+"それ以外の場合も、テスト環境の内部的な振る舞いをきちんと制御して 目に見えるようにしておくことが必要です。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:30
+msgid ""
+"When we are writing a test in which we cannot (or chose not to) use a "
+"real depended-on component (DOC), we can replace it with a Test Double. "
+"The Test Double doesn't have to behave exactly like the real DOC; it "
+"merely has to provide the same API as the real one so that the SUT thinks"
+" it is the real one!"
+msgstr ""
+
+#: ../../src/test-doubles.rst:36
+msgid ""
+"\\- 実際に依存するコンポーネント (DOC: depended-on component) "
+"を使わないテストを書く場合は、それをテストダブルで置き換えることができます。 テストダブルは、必ずしも実際の DOC "
+"とまったく同様に動作する必要はありません。 単に実際のものと同じ API を提供し、 SUT に「これは本物だ!」と思わせるだけでいいのです。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:43
+msgid ""
+"PHPUnit の ``createStub($type)`` メソッドや ``getMockBuilder($type)`` メソッドを使うと、"
+" 指定した元インターフェイス (あるいは元クラス) のテストダブルとして振る舞うオブジェクトを自動的に生成することができます。 "
+"このテストダブルオブジェクトは、元のオブジェクトを要するすべての場面で使うことができます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:47
+msgid ""
+"``createStub($type)`` 、および ``createMock($type)`` メソッドは、指定した型 "
+"(インターフェイスやクラス) のテストダブルオブジェクトをその場で返します。 "
+"テストダブルの作成は、デフォルトではベストプラクティスに沿って行われます (元クラスの ``__construct()`` や "
+"``__clone()`` は実行しません)。また、テストダブルのメソッドに渡された引数はクローンされません。 "
+"デフォルトと異なる挙動を求める場合は、 ``getMockBuilder($type)`` "
+"メソッドを用いてテストダブルの生成処理をカスタマイズする必要があります。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:55
+msgid ""
+"デフォルトでは、元クラスのすべてのメソッドが置き換えられて、 (元のメソッドは呼び出さずに) 単に ``null`` "
+"を返すダミー実装になります。たとえば ``will($this->returnValue())`` メソッドを使うと、 "
+"ダミー実装がコールされたときに値を返すよう設定することができます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:61
+msgid "制限：final、private および static メソッド"
+msgstr ""
+
+#: ../../src/test-doubles.rst:63
+msgid ""
+"``final``, ``private`` および ``static`` メソッドのスタブやモックは作れないことに注意しましょう。 "
+"PHPUnit のテストダブル機能ではこれらを無視し、元のメソッドの振る舞いをそのまま維持します。 ただし ``static`` "
+"メソッドは例外で、これは ``\\PHPUnit\\Framework\\MockObject\\BadMethodCallException``"
+" をスローするメソッドに置き換えられます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:73
+msgid "スタブ"
+msgstr ""
+
+#: ../../src/test-doubles.rst:75
+msgid ""
+"実際のオブジェクトを置き換えて、 設定した何らかの値を (オプションで) 返すようなテストダブルのことを *スタブ* といいます。 *スタブ* "
+"を使うと、 「SUT が依存している実際のコンポーネントを置き換え、 SUT の入力を間接的にコントロールできるようにすることができます。 "
+"これにより、SUT が他の何者も実行しないことを強制させることができます。」"
+msgstr ""
+
+#: ../../src/test-doubles.rst:83
+msgid ""
+":numref:`test-doubles.stubs.examples.StubTest.php` "
+"に、スタブメソッドの作成と返り値の設定の方法を示します。まず、 ``PHPUnit\\Framework\\TestCase`` クラスの "
+"``createStub()`` メソッドを用いて ``SomeClass`` オブジェクトのスタブを作成します (:numref:`test-"
+"doubles.stubs.examples.SomeClass.php`)。 次に、PHPUnit が提供する、いわゆる `Fluent "
+"Interface <http://martinfowler.com/bliki/FluentInterface.html>`_ "
+"(`流れるようなインターフェイス "
+"<http://capsctrl.que.jp/kdmsnr/wiki/bliki/?FluentInterface>`_) "
+"を用いてスタブの振る舞いを指定します。簡単に言うと、 いくつもの一時オブジェクトを作成して、 "
+"それらを連結するといった操作は必要ないということです。 そのかわりに、例にあるようにメソッドの呼び出しを連結します。 このほうが、より読みやすく "
+"\"流れるような\" コードとなります。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:98
+msgid "スタブを作りたいクラス"
+msgstr ""
+
+#: ../../src/test-doubles.rst:111
+msgid "メソッドに固定値を返させるスタブ"
+msgstr ""
+
+#: ../../src/test-doubles.rst:135
+msgid "制限： \"method\" という名前のメソッド"
+msgstr ""
+
+#: ../../src/test-doubles.rst:137
+msgid "この例がきちんと動作するのは、元のクラスで \"method\" という名前のメソッドが宣言されていない場合だけです。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:139
+msgid ""
+"元のクラスで \"method\" という名前のメソッドが宣言されている場合は、 "
+"``$stub->expects($this->any())->method('doSomething')->willReturn('foo');``"
+" としなければいけません。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:142
+msgid ""
+"舞台裏では、``createStub()`` メソッドが使われたときに PHPUnit が自動的に、求める振る舞いを実装した新たな PHP "
+"のクラスを生成しています。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:146
+msgid ""
+"なお、 ``createStub()`` "
+"は、メソッドの戻り値の型に基づいて自動的に、そして再帰的に戻り値をスタブ化します。以下のような例を考えてみましょう。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:148
+msgid "返り値について型宣言されたメソッド"
+msgstr ""
+
+#: ../../src/test-doubles.rst:161
+msgid ""
+"上の例のように、 ``C::m()`` は返り値として ``D`` のオブジェクトを返すことが宣言されています。 ``C`` "
+"のテストダブルを作成し、返り値を ``willReturn()`` メソッドなどで設定しなかった場合、 ``C`` のテストダブルで "
+"``m()`` のメソッドを呼び出すと、 PHPUnit は自動的に ``D`` のテストダブルを作成して返します。 同様に ``m`` "
+"の型定義がスカラー型であった場合は、 ``0`` ( ``int`` の場合)、  ``0.0`` ( ``float`` の場合)、 "
+"``[]`` ( ``配列`` の場合) が生成され返されます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:164
+msgid ""
+":numref:`test-doubles.stubs.examples.StubTest2.php` に例を示します。 "
+"これは、モックビルダーの流れるようなインターフェイスを使って、テストダブルの作成方法を設定するものです。 "
+"このテストダブルで使っている設定は、``createStub()`` がデフォルトで使用するベストプラクティスと同じです。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:169
+msgid "モックビルダー API を使った、生成されるテストダブルクラスの変更"
+msgstr ""
+
+#: ../../src/test-doubles.rst:198
+msgid ""
+"ここまでの例では、 ``willReturn($value)`` を使ってシンプルな値を返していました。 この構文は、 "
+"``will($this->returnValue($value))`` と同じ意味です。 "
+"この長い構文での検証を使うと、より複雑な動きをするスタブも作れます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:204
+msgid ""
+"時には、メソッドをコールした際の引数のひとつを (そのまま) スタブメソッドコールの返り値としたいこともあるでしょう。 :numref"
+":`test-doubles.stubs.examples.StubTest3.php` は、 ``returnValue()`` のかわりに "
+"``returnArgument()`` を用いてこれを実現する例です。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:210
+msgid "メソッドに引数のひとつを返させるスタブ"
+msgstr ""
+
+#: ../../src/test-doubles.rst:236
+msgid ""
+"流れるようなインターフェイスをテストするときには、 スタブメソッドがオブジェクト自身への参照を返すようにできると便利です。 :numref"
+":`test-doubles.stubs.examples.StubTest4.php` は、 ``returnSelf()`` "
+"を使ってこれを実現する例です。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:241
+msgid "スタブオブジェクトへの参照を返すメソッドのスタブ"
+msgstr ""
+
+#: ../../src/test-doubles.rst:264
+msgid ""
+"スタブメソッドをコールした結果として、 定義済みの引数リストにあわせて異なる値を返さなければならないこともあるでしょう。 "
+"``returnValueMap()`` を使えば、 マップを作って引数と関連付け、それを返り値に対応させることができます。 :numref"
+":`test-doubles.stubs.examples.StubTest5.php` を参照ください。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:270
+msgid "メソッドにマップからの値を返させるスタブ"
+msgstr ""
+
+#: ../../src/test-doubles.rst:300
+msgid ""
+"スタブメソッドをコールした結果として固定値 (``returnValue()`` を参照ください) や (不変の) 引数 "
+"(``returnArgument()`` を参照ください) ではなく計算した値を返したい場合は、 ``returnCallback()`` "
+"を使用します。 これは、スタブメソッドからコールバック関数やメソッドの結果を返させます。 :numref:`test-"
+"doubles.stubs.examples.StubTest6.php` を参照ください。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:309
+msgid "メソッドにコールバックからの値を返させるスタブ"
+msgstr ""
+
+#: ../../src/test-doubles.rst:332
+msgid ""
+"コールバックメソッドを設定するよりももう少しシンプルな方法として、 希望する返り値のリストを指定することもできます。この場合に使うのは "
+"``onConsecutiveCalls()`` メソッドです。 :numref:`test-"
+"doubles.stubs.examples.StubTest7.php` の例を参照ください。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:338
+msgid "メソッドに、リストで指定した値をその順で返させるスタブ"
+msgstr ""
+
+#: ../../src/test-doubles.rst:363
+msgid ""
+"値を返すのではなく、スタブメソッドで例外を発生させることもできます。 :numref:`test-"
+"doubles.stubs.examples.StubTest8.php` に、``throwException()`` "
+"でこれを行う方法を示します。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:367
+msgid "メソッドに例外をスローさせるスタブ"
+msgstr ""
+
+#: ../../src/test-doubles.rst:390
+msgid ""
+"また、スタブを使用することで、よりよい設計を行うことができるようにもなります。 あちこちで使用されているリソースを単一の窓口 (façade : "
+"ファサード) 経由でアクセスするようにすることで、 それをスタブに置き換えられるようになります。例えば、 "
+"データベースへのアクセスのコードをそこらじゅうにちりばめるのではなく、 その代わりに ``IDatabase`` インターフェイスを実装した単一の"
+" ``Database`` オブジェクトを使用するようにします。すると、 ``IDatabase`` を実装したスタブを作成することで、 "
+"それをテストに使用できるようになるのです。同時に、 テストを行う際にスタブデータベースを使用するか "
+"本物のデータベースを使用するかを選択できるようになります。 つまり開発時にはローカル環境でテストし、 "
+"統合テスト時には実際のデータベースでテストするといったことができるようになるのです。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:404
+msgid ""
+"スタブ化しなければならない機能は、たいてい同一オブジェクト内で密結合しています。 この機能ををひとつの結合したインターフェイスにまとめることで、 "
+"システムのそれ以外の部分との結合を緩やかにすることができます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:411
+msgid "モックオブジェクト"
+msgstr ""
+
+#: ../../src/test-doubles.rst:413
+msgid "実際のオブジェクトを置き換えて、 (メソッドがコールされたことなどの) 期待する内容を検証するテストダブルのことを *モック* といいます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:417
+msgid ""
+"*モックオブジェクト* は \"SUT の間接的な出力の内容を検証するために使用する観測地点です。 "
+"一般的に、モックオブジェクトにはテスト用スタブの機能も含まれます。 まだテストに失敗していない場合に、間接的な出力の検証用の値を SUT "
+"に返す機能です。 したがって、モックオブジェクトとは テスト用スタブにアサーション機能を足しただけのものとは異なります。 "
+"それ以外の用途にも使うことができます\" (Gerard Meszaros)。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:425
+msgid "制限：期待値の自動検証"
+msgstr ""
+
+#: ../../src/test-doubles.rst:427
+msgid ""
+"そのテストのスコープ内で生成されたモックオブジェクトだけが、PHPUnit による自動検証の対象となります。 "
+"たとえば、データプロバイダなどで生成されたモックオブジェクトや ``@depends`` "
+"アノテーションで注入されたオブジェクトについては、PHPUnit では検証しません。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:431
+msgid ""
+"ひとつ例を示します。ここでは、別のオブジェクトを観察している あるオブジェクトの特定のメソッド (この例では ``update()``) "
+"が正しくコールされたかどうかを調べるものとします。 :numref:`test-doubles.mock-"
+"objects.examples.SUT.php` は、テスト対象のシステム (SUT) の一部である ``Subject`` クラスと "
+"``Observer`` クラスのコードです。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:438
+msgid "テスト対象のシステム (SUT) の一部である Subject クラスと Observer クラス"
+msgstr ""
+
+#: ../../src/test-doubles.rst:506
+msgid ""
+":numref:`test-doubles.mock-objects.examples.SubjectTest.php` "
+"では、モックオブジェクトを作成して ``Subject`` オブジェクトと ``Observer`` "
+"オブジェクトの対話をテストする方法を説明します。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:511
+msgid ""
+"まず ``PHPUnit\\Framework\\TestCase`` クラスの ``createMock()`` メソッドを使用して "
+"``Observer`` のモックオブジェクトを作成します。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:515
+msgid ""
+"あるメソッドがコールされたのかどうか、そしてどんな引数を渡してコールされたのかを検証したいので、 ``expects()`` メソッドと "
+"``with()`` メソッドを利用します。 これらを使って、このやりとりがどのように行われるのかを指定します。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:519
+msgid "あるメソッドが、指定した引数で一度だけコールされることを確かめるテスト"
+msgstr ""
+
+#: ../../src/test-doubles.rst:553
+msgid ""
+"``with()`` メソッドには任意の数の引数を渡すことができます。 これは、モック対象のメソッドの引数の数に対応します。 "
+"メソッドの引数に対して、単なるマッチだけでなくより高度な制約を指定することもできます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:557
+msgid "メソッドが引数つきでコールされることを、さまざまな制約の下でテストする例"
+msgstr ""
+
+#: ../../src/test-doubles.rst:589
+msgid ""
+"``withConsecutive()`` メソッドには、 テスト対象の呼び出しにあわせて、引数の配列を好きなだけ渡せます。 "
+"個々の配列は制約のリストです。 ``with()`` と同様に、これがモック対象メソッドのそれぞれの引数に対応します。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:594
+msgid "あるメソッドが、指定した引数つきで 2 回呼び出されることを確かめるテスト"
+msgstr ""
+
+#: ../../src/test-doubles.rst:621
+msgid ""
+"``callback()`` 制約を使えば、より複雑な引数の検証ができます。 この制約は、PHP のコールバックを引数として受け取ります。 "
+"このコールバックは、検証したい引数を受け取って、検証を通過した場合に ``true``、 それ以外の場合に ``false`` を返します。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:626
+msgid "より複雑な引数の検証"
+msgstr ""
+
+#: ../../src/test-doubles.rst:661
+msgid "メソッドが一度だけ呼ばれ、同じオブジェクトが渡されたことを確かめるテスト"
+msgstr ""
+
+#: ../../src/test-doubles.rst:686
+msgid "パラメータのクローンの有効にしたモックオブジェクトの作成"
+msgstr ""
+
+#: ../../src/test-doubles.rst:708
+msgid ""
+":ref:`appendixes.assertions.assertThat.tables.constraints` "
+"はメソッドの引数に適用できる制約、そして :numref:`test-doubles.mock-objects.tables.matchers` "
+"は起動回数を指定するために使える matcher です。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:714
+msgid "Matchers"
+msgstr ""
+
+#: ../../src/test-doubles.rst:718
+msgid "Matcher"
+msgstr ""
+
+#: ../../src/test-doubles.rst:719
+msgid "意味"
+msgstr ""
+
+#: ../../src/test-doubles.rst:720
+msgid "``PHPUnit\\Framework\\MockObject\\Matcher\\AnyInvokedCount any()``"
+msgstr ""
+
+#: ../../src/test-doubles.rst:721
+msgid "評価対象のメソッドがゼロ回以上実行された際にマッチするオブジェクトを返します。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:722
+msgid "``PHPUnit\\Framework\\MockObject\\Matcher\\InvokedCount never()``"
+msgstr ""
+
+#: ../../src/test-doubles.rst:723
+msgid "評価対象のメソッドが実行されなかった際にマッチするオブジェクトを返します。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:724
+msgid ""
+"``PHPUnit\\Framework\\MockObject\\Matcher\\InvokedAtLeastOnce "
+"atLeastOnce()``"
+msgstr ""
+
+#: ../../src/test-doubles.rst:725
+msgid "評価対象のメソッドが最低一回以上実行された際にマッチするオブジェクトを返します。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:726
+msgid "``PHPUnit\\Framework\\MockObject\\Matcher\\InvokedCount once()``"
+msgstr ""
+
+#: ../../src/test-doubles.rst:727
+msgid "評価対象のメソッドが一度だけ実行された際にマッチするオブジェクトを返します。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:728
+msgid ""
+"``PHPUnit\\Framework\\MockObject\\Matcher\\InvokedCount exactly(int "
+"$count)``"
+msgstr ""
+
+#: ../../src/test-doubles.rst:729
+msgid "評価対象のメソッドが指定した回数だけ実行された際にマッチするオブジェクトを返します。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:730
+msgid "``PHPUnit\\Framework\\MockObject\\Matcher\\InvokedAtIndex at(int $index)``"
+msgstr ""
+
+#: ../../src/test-doubles.rst:731
+msgid "評価対象のメソッドが ``$index`` 回目に実行された際にマッチするオブジェクトを返します。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:733
+msgid "Note"
+msgstr ""
+
+#: ../../src/test-doubles.rst:735
+msgid ""
+"``at()`` マッチャーのパラメータ ``$index`` は、 指定したモックオブジェクトでの *すべてのメソッドの実行* "
+"の、ゼロからはじまるインデックスを参照します。 このマッチャーを使うときには注意しましょう。テストが実装の詳細とあまりにも密結合になり、 "
+"脆いテストになってしまう可能性があるからです。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:741
+msgid ""
+"最初に説明したとおり、 ``createStub()`` および ``createMock()`` "
+"メソッドが用いるデフォルトのテストダブル生成方法がニーズを満たさない場合は、 ``getMockBuilder($type)`` "
+"メソッドを使えば生成方法をカスタマイズできます。 モックビルダーが提供するメソッドの一覧は、次のとおりです。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:748
+msgid ""
+"``setMethods(array $methods)`` "
+"をモックビルダーオブジェクト上でコールすると、テストダブルで置き換えるメソッドを指定することができます。その他のメソッドの挙動は変更しません。``setMethods(NULL)``"
+" とすると、どのメソッドも置き換えません。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:752
+msgid ""
+"``setMethodsExcept(array $methods)`` "
+"をモックビルダーオブジェクト上でコールすると、テストダブルで置き換えないメソッドを指定することができます。その他のすべてのpubilicメソッドは置き換えられます。このメソッドは"
+" ``setMethods()`` の逆の働きをします。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:757
+msgid ""
+"``setConstructorArgs(array $args)`` "
+"をコールしてパラメータの配列を渡すと、それを元クラスのコンストラクタに渡すことができます "
+"(デフォルトのダミー実装では、コンストラクタは置き換えません)。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:761
+msgid "``setMockClassName($name)`` を使うと、生成されるテストダブルクラスのクラス名を指定することができます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:765
+msgid "``disableOriginalConstructor()`` を使うと、元クラスのコンストラクタを無効にすることができます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:769
+msgid "``disableOriginalClone()`` を使うと、元クラスのクローンコンストラクタを無効にすることができます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:773
+msgid ""
+"``disableAutoload()`` を使うと、テストダブルクラスを生成するときに ``__autoload()`` "
+"を無効にすることができます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:778
+msgid "トレイトと抽象クラスのモック"
+msgstr ""
+
+#: ../../src/test-doubles.rst:780
+msgid ""
+"``getMockForTrait()`` メソッドは、指定したトレイトを使ったモックオブジェクトを返します。 "
+"そのトレイトのすべての抽象メソッドがモックの対象となります。 これを使えば、トレイトの具象メソッドをテストすることができます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:784
+msgid "トレイトの具象メソッドのテスト"
+msgstr ""
+
+#: ../../src/test-doubles.rst:815
+msgid ""
+"``getMockForAbstractClass()`` メソッドは、 抽象クラスのモックオブジェクトを返します。 "
+"そのクラスのすべての抽象メソッドがモックの対象となります。 これを使えば、抽象クラスにある具象メソッドをテストすることができます。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:820
+msgid "抽象クラスの具象メソッドのテスト"
+msgstr ""
+
+#: ../../src/test-doubles.rst:854
+msgid "ウェブサービスのスタブおよびモック"
+msgstr ""
+
+#: ../../src/test-doubles.rst:856
+msgid ""
+"ウェブサービスとのやりとりを行うアプリケーションを、 実際にウェブサービスとやりとりすることなくテストしたくなることもあるでしょう。 "
+"ウェブサービスのスタブやモックを作成するために ``getMockFromWsdl()`` メソッドが用意されており、これは "
+"``getMock()`` (上を参照ください) とほぼ同様に使うことができます。唯一の違いは、 ``getMockFromWsdl()`` "
+"が返すスタブやモックが WSDL のウェブサービス記述にもとづくものであるのに対して ``getMock()`` が返すスタブやモックが PHP "
+"のクラスやインターフェイスにもとづくものであるという点です。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:865
+msgid ""
+":numref:`test-doubles.stubbing-and-mocking-web-"
+"services.examples.GoogleTest.php` は、``getMockFromWsdl()`` を使って "
+":file:`GoogleSearch.wsdl` に記述されたウェブサービスのスタブを作る例です。"
+msgstr ""
+
+#: ../../src/test-doubles.rst:869
+msgid "ウェブサービスのスタブ"
+msgstr ""
+

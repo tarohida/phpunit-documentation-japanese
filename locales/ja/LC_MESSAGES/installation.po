@@ -1,0 +1,204 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Sebastian Bergmann
+# This file is distributed under the same license as the PHPUnit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPUnit feature/configuration-rst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-24 18:09+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../src/installation.rst:7
+msgid "PHPUnit のインストール"
+msgstr ""
+
+#: ../../src/installation.rst:12
+msgid "要件"
+msgstr ""
+
+#: ../../src/installation.rst:14
+msgid "PHPUnit |version| は PHP 7.3 以降のバージョンで動作しますが、最新版の PHP を使うことを強く推奨します。"
+msgstr ""
+
+#: ../../src/installation.rst:17
+msgid ""
+"PHPUnit を使うには、拡張モジュール `dom "
+"<http://php.net/manual/ja/dom.setup.php>`_、`json "
+"<http://php.net/manual/ja/json.installation.php>`_、 "
+"が必要です。これらは通常、デフォルトで有効になっています。"
+msgstr ""
+
+#: ../../src/installation.rst:20
+msgid ""
+"PHPUnit また、拡張モジュール `pcre "
+"<http://php.net/manual/ja/pcre.installation.php>`_、 `reflection "
+"<http://php.net/manual/ja/reflection.installation.php>`_、 そして `spl "
+"<http://php.net/manual/ja/spl.installation.php>`_ "
+"も必要です。これらは標準の拡張モジュールとしてデフォルトで有効になっており、 PHP のビルドシステムやソースファイルに手を加えない限り、 "
+"無効にすることはできません。"
+msgstr ""
+
+#: ../../src/installation.rst:28
+msgid ""
+"コードカバレッジをサポートするには `Xdebug <http://xdebug.org/>`_ 2.7.0 以降と `tokenizer "
+"<http://php.net/manual/ja/tokenizer.installation.php>`_ 拡張モジュールが必要です。 XML"
+" 形式で情報を出力するには、`xmlwriter "
+"<http://php.net/manual/ja/xmlwriter.installation.php>`_ 拡張モジュールも必要です。"
+msgstr ""
+
+#: ../../src/installation.rst:37
+msgid "PHP Archive (PHAR)"
+msgstr ""
+
+#: ../../src/installation.rst:39
+msgid ""
+"PHPUnit を入手する一番簡単な方法は、`PHP Archive (PHAR) <http://php.net/phar>`_ "
+"をダウンロードすることです。 必要な依存コンポーネントがすべて (オプションのコンポーネントの一部も含めて) "
+"ひとつのファイルにまとめられています。"
+msgstr ""
+
+#: ../../src/installation.rst:43
+msgid ""
+"PHP Archives (PHAR) を利用するには、 `phar "
+"<http://php.net/manual/en/phar.installation.php>`_ 拡張モジュールが必要です。"
+msgstr ""
+
+#: ../../src/installation.rst:47
+msgid ""
+"PHAR の ``--self-update`` 機能を使うには、 `openssl "
+"<http://php.net/manual/en/openssl.installation.php>`_ 拡張モジュールが必要です。"
+msgstr ""
+
+#: ../../src/installation.rst:51
+msgid ""
+"`Suhosin <http://suhosin.org/>`_ 拡張モジュールが有効になっている場合は、 ``php.ini`` で PHAR "
+"の実行を許可する必要があります。"
+msgstr ""
+
+#: ../../src/installation.rst:58
+msgid "PHPUnit の PHAR は、ダウンロードするだけですぐに使えます。"
+msgstr ""
+
+#: ../../src/installation.rst:66
+msgid "PHAR ファイルに実行可能属性をつけておくのが一般的です。"
+msgstr ""
+
+#: ../../src/installation.rst:78
+msgid "PHPUnit の PHAR リリースの検証"
+msgstr ""
+
+#: ../../src/installation.rst:80
+msgid ""
+"PHPUnit プロジェクトが配布する公式リリースにはすべて、 リリースマネージャーによる署名がついています。 検証用の PGP 署名と "
+"SHA256 ハッシュは、`phar.phpunit.de <https://phar.phpunit.de/>`_ から取得できます。"
+msgstr ""
+
+#: ../../src/installation.rst:85
+msgid ""
+"リリースの検証をどのように行うのかについて、説明しましょう。まず、 :file:`phpunit.phar` をダウンロードし、さらにその PGP"
+" 署名 :file:`phpunit.phar.asc` もダウンロードします。"
+msgstr ""
+
+#: ../../src/installation.rst:94
+msgid ""
+"ダウンロードした PHPUnit の PHP Archive (:file:`phpunit-x.y.phar`) を、署名 "
+"(:file:`phpunit-x.y.phar.asc`) で検証します。"
+msgstr ""
+
+#: ../../src/installation.rst:103
+msgid ""
+"リリースマネージャーの公開鍵 (``6372C20A``) が、ローカルシステム上に存在しないようです。 "
+"検証を進めるには、リリースマネージャーの公開鍵を、鍵サーバーから取得する必要があります。 鍵サーバーには、たとえば :file:`pgp.uni-"
+"mainz.de` などがあります。 公開鍵サーバーはお互いリンクしあっているので、どの鍵サーバーを使ってもかまいません。"
+msgstr ""
+
+#: ../../src/installation.rst:119
+msgid ""
+"これで、\"Sebastian Bergmann <sb@sebastian-bergmann.de>\" さんの公開鍵を取得できました。 "
+"ただ、この鍵を作ったのが本当に Sebastian Bergmann という人なのかは、確かめようがありません。 "
+"ともあれ、もう一度リリースの署名を検証してみましょう。"
+msgstr ""
+
+#: ../../src/installation.rst:138
+msgid ""
+"とりあえず、署名が正しいことはわかりました。 ただ、この署名が信頼できるものであるかどうかは、まだわかりません。 "
+"ここで言う「署名が正しい」とは、リリースのファイルが改ざんされていないということです。 しかし、公開鍵暗号方式の性質上、これだけでは不十分です。 "
+"``6372C20A`` を作ったのが Sebastian Bergmann 本人であることを、確かめる必要があります。"
+msgstr ""
+
+#: ../../src/installation.rst:145
+msgid ""
+"公開鍵を作って公開鍵サーバーにアップロードするのは、誰にだってできることです。 当然、悪意のある攻撃者にも可能なことです。 "
+"攻撃者は、このニセの鍵を使って署名した、悪意のあるリリースを作ることもできます。 このリリース (そして署名) "
+"をダウンロードして検証すると、成功するでしょう。 なぜならその公開鍵は、悪意のある攻撃者が作ったニセの鍵だからです。 "
+"こういったことを防ぐために、鍵の作者も検証しなければいけないのです。 "
+"公開鍵の作者を検証する方法については、このマニュアルの範囲を超えるので、割愛します。"
+msgstr ""
+
+#: ../../src/installation.rst:153
+msgid ""
+"GPGを使っていちいち署名を検証したり PHPUnit の PHAR を検証したりするのはつまらない作業です。 そこで作られたのが PHIVE "
+"で、これは PHAR のインストールや検証状況を管理するためのツールです。 詳しくは `ウェブサイト <https://phar.io/>`_ "
+"をご覧ください。"
+msgstr ""
+
+#: ../../src/installation.rst:160
+msgid "Composer"
+msgstr ""
+
+#: ../../src/installation.rst:162
+msgid ""
+"`Composer <https://getcomposer.org/>`_ を使ってプロジェクトの依存関係を管理するには、 "
+"``phpunit/phpunit`` への (開発時の) 依存情報をプロジェクトの :file:`composer.json` "
+"ファイルに追加します。"
+msgstr ""
+
+#: ../../src/installation.rst:174
+msgid "グローバルなインストール"
+msgstr ""
+
+#: ../../src/installation.rst:176
+msgid ""
+"PHPUnitをグローバルに（たとえば ``/usr/bin/phpunit`` や ``/usr/local/bin/phpunit`` "
+"などとして）インストールすることはおすすめできません。"
+msgstr ""
+
+#: ../../src/installation.rst:179
+msgid "PHPUnitはプロジェクト単位でローカルな依存として管理すべきです。"
+msgstr ""
+
+#: ../../src/installation.rst:181
+msgid ""
+"PHPUnitの特定のバージョンのPHARをプロジェクトの ``tools`` ディレクトリに置く（そしてPHIVEで管理する）か、 "
+"Composerを使っているならそのプロジェクトで必要とするPHPUnitのバージョンを ``composer.json`` に書きましょう。"
+msgstr ""
+
+#: ../../src/installation.rst:185
+msgid "Webserver"
+msgstr ""
+
+#: ../../src/installation.rst:187
+msgid "PHPUnitはテストを実行するためのフレームワークであり、また、コマンドラインツールです。テストのコーディングおよび実行は開発時に行うものであるため、ウェブサーバにPHPUnitをインストールする理由は全くありません。"
+msgstr ""
+
+#: ../../src/installation.rst:189
+msgid ""
+"**ウェブサーバにPHPUnitをインストールすると、そのデプロイは壊れた状態となります。より一般的な話をすると、** ``vendor`` "
+"**ディレクトリをウェブサーバ上で公開したときにも同様にそのデプロイは壊れた状態となります。**"
+msgstr ""
+
+#: ../../src/installation.rst:191
+msgid ""
+"PHPUnitをウェブサーバにアップロードすることは良くないことであると認識してください。`警告はしましたからね。 "
+"<https://thephp.cc/news/2020/02/phpunit-a-security-risk>`_"
+msgstr ""
+

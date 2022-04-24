@@ -1,0 +1,41 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Sebastian Bergmann
+# This file is distributed under the same license as the PHPUnit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPUnit feature/configuration-rst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-24 18:09+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../src/bibliography.rst:7
+msgid "参考文献"
+msgstr ""
+
+#: ../../src/bibliography.rst:9
+msgid "[Astels2003] David Astels. *Test Driven Development*."
+msgstr ""
+
+#: ../../src/bibliography.rst:11
+msgid "[Beck2002] Kent Beck. *Test Driven Development by Example*."
+msgstr ""
+
+#: ../../src/bibliography.rst:13
+msgid "[Beck2002-ja] Kent Beck. *テスト駆動開発入門*."
+msgstr ""
+
+#: ../../src/bibliography.rst:15
+msgid ""
+"[Meszaros2007] Gerard Meszaros. *xUnit Test Patterns: Refactoring Test "
+"Code*."
+msgstr ""
+

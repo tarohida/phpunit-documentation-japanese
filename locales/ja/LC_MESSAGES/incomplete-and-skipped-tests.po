@@ -1,0 +1,315 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Sebastian Bergmann
+# This file is distributed under the same license as the PHPUnit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPUnit feature/configuration-rst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-24 18:09+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../src/incomplete-and-skipped-tests.rst:7
+msgid "不完全なテスト・テストの省略"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:12
+msgid "不完全なテスト"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:14
+msgid ""
+"新しいテストケースクラスを作成する際には、 これから書くべきテストの内容をはっきりさせるために、 "
+"まず最初は以下のような空のテストメソッドを書きたくなることでしょう。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:24
+msgid ""
+"しかし、PHPUnit フレームワークでは空のメソッドを「成功した」 と判断してしまうという問題があります。このような解釈ミスがあると、 "
+"テスト結果のレポートが無意味になってしまいます。 そのテストがほんとうに成功したのか、 "
+"それともまだテストが実装されていないのかが判断できないからです。 実装していないテストメソッドの中で ``$this->fail()`` "
+"をコールするようにしたところで事態は何も変わりません。 こうすると、テストが「失敗した」と判断されてしまいます。 "
+"これは未実装のテストが「成功」と判断されてしまうのと同じくらいまずいことです (訳注: レポートを見ても、そのテストがほんとうに失敗したのか、 "
+"まだ実装されていないだけなのかがわかりません)。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:36
+msgid ""
+"テストの成功を青信号、失敗を赤信号と考えるなら、 テストが未完成あるいは未実装であることを表すための黄信号が必要です。 "
+"そのような場合に使用するインターフェイスが ``PHPUnit\\Framework\\IncompleteTest`` で、 "
+"これは未完成あるいは未実装のテストメソッドで発生する例外を表すものです。 このインターフェイスの標準的な実装が "
+"``PHPUnit\\Framework\\IncompleteTestError`` です。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:44
+msgid ""
+":numref:`incomplete-and-skipped-tests.incomplete-"
+"tests.examples.SampleTest.php` では ``SampleTest`` というテストケースクラスを定義しています。 "
+"便利なメソッド ``markTestIncomplete()`` (これは、自動的に "
+"``PHPUnit\\Framework\\IncompleteTestError`` を発生させます) をテストメソッド内でコールすることで、 "
+"このメソッドがまだ完成していないことをはっきりさせます。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:51
+msgid "テストに未完成の印をつける"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:72
+msgid "未完成のテストは、PHPUnit のコマンドライン版テストランナーでは以下のように ``I`` で表されます。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:93
+msgid ""
+":numref:`incomplete-and-skipped-tests.incomplete-tests.tables.api` "
+"に、テストを未完成扱いにするための API を示します。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:97
+msgid "未完成のテスト用の API"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:101
+#: ../../src/incomplete-and-skipped-tests.rst:179
+msgid "メソッド"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:102
+#: ../../src/incomplete-and-skipped-tests.rst:180
+msgid "意味"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:103
+msgid "``void markTestIncomplete()``"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:104
+msgid "現在のテストを未完成扱いにします。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:105
+msgid "``void markTestIncomplete(string $message)``"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:106
+msgid "現在のテストを未完成扱いにします。それを説明する文字列として ``$message`` を使用します。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:111
+msgid "テストの省略"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:113
+msgid ""
+"すべてのテストがあらゆる環境で実行できるわけではありません。 考えてみましょう。たとえば、データベースの抽象化レイヤーを使用しており、 "
+"それがさまざまなドライバを使用してさまざまなデータベースシステムを サポートしているとします。MySQL ドライバのテストができるのは、 "
+"MySQL サーバが使用できる環境だけです。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:119
+msgid ""
+":numref:`incomplete-and-skipped-tests.skipping-"
+"tests.examples.DatabaseTest.php` に示すテストケースクラス ``DatabaseTest`` には、 "
+"テストメソッド ``testConnection()`` が含まれています。 このクラスのテンプレートメソッド ``setUp()`` では、 "
+"MySQLi 拡張モジュールが使用可能かを調べたうえで、もし使用できない場合は ``markTestSkipped()`` "
+"メソッドでテストを省略するようにしています。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:126
+msgid "テストを省略する"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:150
+msgid "飛ばされたテストは、PHPUnit のコマンドライン版テストランナーでは以下のように ``S`` で表されます。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:171
+msgid ""
+":numref:`incomplete-and-skipped-tests.skipped-tests.tables.api` "
+"に、テストを省略するための API を示します。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:175
+msgid "テストを省略するための API"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:181
+msgid "``void markTestSkipped()``"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:182
+msgid "現在のテストを省略扱いにします。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:183
+msgid "``void markTestSkipped(string $message)``"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:184
+msgid "現在のテストを省略扱いにします。それを説明する文字列として ``$message`` を使用します。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:189
+msgid "@requires によるテストのスキップ"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:191
+msgid "ここまでに示したメソッドに加えて、 ``@requires`` アノテーションを使って共通の事前条件を記述することもできます。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:195
+msgid "@requires の例用例"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:199
+msgid "型"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:200
+msgid "取り得る値"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:201
+msgid "例"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:202
+msgid "別の例"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:203
+msgid "``PHP``"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:204
+msgid "PHP のバージョン (比較演算子を利用することもできます)"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:205
+msgid "@requires PHP 7.1.20"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:206
+msgid "@requires PHP >= 7.2"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:207
+msgid "``PHPUnit``"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:208
+msgid "PHPUnit のバージョン (比較演算子を利用することもできます)"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:209
+msgid "@requires PHPUnit 7.3.1"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:210
+msgid "@requires PHPUnit < 8"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:211
+msgid "``OS``"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:212
+msgid ""
+"`PHP_OS <https://www.php.net/manual/ja/reserved.constants.php#constant"
+".php-os>`_ にマッチする正規表現"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:213
+msgid "@requires OS Linux"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:214
+msgid "@requires OS WIN32|WINNT"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:215
+msgid "``OSFAMILY``"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:216
+msgid ""
+"任意の `OS family "
+"<https://www.php.net/manual/ja/reserved.constants.php#constant.php-os-"
+"family>`_"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:217
+msgid "@requires OSFAMILY Solaris"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:218
+msgid "@requires OSFAMILY Windows"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:219
+msgid "``function``"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:220
+msgid ""
+"`function_exists <https://www.php.net/manual/ja/function.function-"
+"exists.php>`_ に渡せるパラメータ"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:221
+msgid "@requires function imap_open"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:222
+msgid "@requires function ReflectionMethod::setAccessible"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:223
+msgid "``extension``"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:224
+msgid "拡張モジュール名 (バージョンを明示的に指定したり、比較演算子を利用して指定したりできます)"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:225
+msgid "@requires extension mysqli"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:226
+msgid "@requires extension redis >= 2.2.0"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:228
+msgid "下記の演算子を用いて、PHPやPHPUnit、その他拡張機能のバージョンを指定することができます。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:230
+msgid "``<``, ``<=``, ``>``, ``>=``, ``=``, ``==``, ``!=``, ``<>``"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:232
+msgid ""
+"バージョンの比較には、PHPの `version_compare <https://www.php.net/manual/ja/function"
+".version-compare.php>`_ 関数を利用しています。そのため、 ``=`` と ``==`` の演算子は ``X.Y.Z`` "
+"の形式のバージョンであればうまく動作しますが、 ``X.Y`` の形式である場合は動作しません。"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:234
+msgid "@requires を使ったテストケースのスキップ"
+msgstr ""
+
+#: ../../src/incomplete-and-skipped-tests.rst:257
+msgid ""
+"特定のバージョンの PHP でしか使えない構文を利用する場合は、 "
+":ref:`appendixes.configuration.testsuites` にあるように XML "
+"設定ファイルでのバージョン依存のインクルードを検討しましょう。"
+msgstr ""
+

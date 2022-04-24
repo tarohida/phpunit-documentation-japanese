@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Sebastian Bergmann
+# This file is distributed under the same license as the PHPUnit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPUnit feature/configuration-rst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-24 18:09+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../src/extending-phpunit.rst:7
+msgid "PHPUnit の拡張"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:9
+msgid ""
+"テストを書きやすくする、あるいはテストの実行結果の表示方法を変更するなど、 PHPUnit はさまざまな方法で拡張することができます。 "
+"PHPUnit を拡張するための第一歩をここで説明します。"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:16
+msgid "PHPUnit\\\\Framework\\\\TestCase のサブクラスの作成"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:18
+msgid ""
+"``PHPUnit\\Framework\\TestCase`` を継承した抽象サブクラスにカスタムアサーションやユーティリティメソッドを書き、 "
+"そのクラスをさらに継承してテストクラスを作成します。 これが、PHPUnit を拡張するための一番簡単な方法です。"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:26
+msgid "カスタムアサーションの作成"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:28
+msgid ""
+"カスタムアサーションを作成するときには、PHPUnit 自体のアサーションの実装方法を真似るのがおすすめです。 :numref"
+":`extending-phpunit.examples.Assert.php` を見ればわかるとおり、 ``assertTrue()`` "
+"メソッドは ``isTrue()`` および ``assertThat()`` メソッドのラッパーです。 ``isTrue()`` が "
+"matcher オブジェクトを作り、それを ``assertThat()`` に渡して評価しています。"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:35
+msgid "PHPUnit\\\\Framework\\\\Assert クラスの assertTrue() および isTrue() メソッド"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:63
+msgid ""
+":numref:`extending-phpunit.examples.IsTrue.php` は、 "
+"``PHPUnit\\Framework\\Constraint\\IsTrue`` が matcher オブジェクト (あるいは制約) "
+"のために抽象クラス ``PHPUnit\\Framework\\Constraint`` を継承している部分です。"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:68
+msgid "PHPUnit\\\\Framework\\\\Constraint\\\\IsTrue クラス"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:90
+msgid ""
+"``assertTrue()`` や ``isTrue()`` メソッドの実装を "
+"``PHPUnit\\Framework\\Constraint\\IsTrue`` クラスと同じようにしておけば、 "
+"アサーションの評価やタスクの記録 (テストの統計情報に自動的に更新するなど) を ``assertThat()`` "
+"が自動的に行ってくれるようになります。 さらに、モックオブジェクトを設定する際の matcher として ``isTrue()`` "
+"メソッドを使えるようにもなります。"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:101
+msgid "Test Runner の拡張"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:103
+msgid ""
+"PHPUnit の Test Runner はオブジェクトを登録することで拡張することができます。 "
+"登録されるオブジェクトは以下のインターフェースのうち、少なくともひとつを実装する必要があります。"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:106
+msgid "``AfterIncompleteTestHook``"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:107
+msgid "``AfterLastTestHook``"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:108
+msgid "``AfterRiskyTestHook``"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:109
+msgid "``AfterSkippedTestHook``"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:110
+msgid "``AfterSuccessfulTestHook``"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:111
+msgid "``AfterTestErrorHook``"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:112
+msgid "``AfterTestFailureHook``"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:113
+msgid "``AfterTestWarningHook``"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:114
+msgid "``AfterTestHook``"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:115
+msgid "``BeforeFirstTestHook``"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:116
+msgid "``BeforeTestHook``"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:118
+msgid "これらそれぞれのインターフェースを 「フック」と呼びます。 PHPUnit でテストを実行した際に発生するイベントを表現したものです。"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:121
+msgid ""
+"PHPUnit の XML 設定ファイルを使ってエクステンションを組み込む方法については "
+":ref:`appendixes.configuration.extensions` を参照ください。"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:124
+msgid ""
+":numref:`extending-phpunit.examples.TestRunnerExtension` に、 "
+"``BeforeFirstTestHook`` と ``AfterLastTestHook`` を実装したエクステンションの例を示します。"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:128
+msgid "Test Runner エクステンションの例"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:152
+msgid "エクステンションの設定"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:154
+msgid ""
+"エクステンションに設定値を受け渡すことで、エクステンション自体の設定が行なえます。 "
+"設定値を受け渡すためには、エクステンションのクラスが設定値を受け入れるようにしておく必要があります。"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:157
+msgid ""
+"エクステンションのクラスに ``__constructor()`` を追加し、 設定可能とする例を :numref:`extending-"
+"phpunit.examples.TestRunnerConfigurableExtension` に示します:"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:160
+msgid "コンストラクタを追加して Test Runner のエクステンションを設定可能とする例"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:191
+msgid ""
+"XML から TestRunner の拡張の設定値を受け渡す場合は、 ``extensions`` セクションを利用します。 "
+"``extensions`` セクションは :numref:`extending-"
+"phpunit.examples.TestRunnerConfigurableExtensionConfig` の例のように、 "
+"設定値を記載する必要があります:"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:196
+msgid "TestRunner Extension configuration"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:210
+msgid ""
+"``arguments`` の設定方法の詳細については、 "
+":ref:`appendixes.configuration.extensions.extension.arguments` を参照してください。"
+msgstr ""
+
+#: ../../src/extending-phpunit.rst:213
+msgid ""
+"注意: 全ての設定値が必ず設定されるとは限りません。 TestRunner "
+"の拡張を作成するときは、設定値が設定されていない場合にデフォルト値を利用して動作する、 "
+"もしくは自身を無効化するなど、異常が発生しないように取り計らってください。"
+msgstr ""
+

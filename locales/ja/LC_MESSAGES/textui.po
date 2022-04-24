@@ -1,0 +1,618 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) 2020, Sebastian Bergmann
+# This file is distributed under the same license as the PHPUnit package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2022.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PHPUnit feature/configuration-rst\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-04-24 18:09+0900\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.9.1\n"
+
+#: ../../src/textui.rst:7
+msgid "コマンドラインのテストランナー"
+msgstr ""
+
+#: ../../src/textui.rst:9
+msgid ""
+":file:`phpunit` コマンドを実行すると、PHPUnit のコマンドライン版テストランナーが起動します。 "
+"コマンドラインのテストランナーを使用したテストの様子を以下に示します。"
+msgstr ""
+
+#: ../../src/textui.rst:24
+msgid ""
+"このように実行すると、PHPUnit のコマンドラインテストランナーは、 まず現在の作業ディレクトリにあるソースファイル "
+":file:`ArrayTest.php` を探してそれを読み込み、テストケースクラス ``ArrayTest`` を探します。 "
+"そして、そのクラス内のテストを実行します。"
+msgstr ""
+
+#: ../../src/textui.rst:30
+msgid "テストがひとつ実行されるたびに、PHPUnit コマンドラインツールはその経過を示す文字を出力します。"
+msgstr ""
+
+#: ../../src/textui.rst:33
+msgid "``.``"
+msgstr ""
+
+#: ../../src/textui.rst:35
+msgid "テストが成功した際に表示されます。"
+msgstr ""
+
+#: ../../src/textui.rst:37
+msgid "``F``"
+msgstr ""
+
+#: ../../src/textui.rst:39
+msgid "テストメソッドの実行中、アサーションに失敗した際に表示されます。"
+msgstr ""
+
+#: ../../src/textui.rst:41
+msgid "``E``"
+msgstr ""
+
+#: ../../src/textui.rst:43
+msgid "テストメソッドの実行中、エラーが発生した際に表示されます。"
+msgstr ""
+
+#: ../../src/textui.rst:45
+msgid "``R``"
+msgstr ""
+
+#: ../../src/textui.rst:47
+msgid "テストが危険だとマークされている場合に表示されます (:ref:`risky-tests` を参照ください)。"
+msgstr ""
+
+#: ../../src/textui.rst:50
+msgid "``S``"
+msgstr ""
+
+#: ../../src/textui.rst:52
+msgid "テストが飛ばされた場合に表示されます (:ref:`incomplete-and-skipped-tests` を参照ください)。"
+msgstr ""
+
+#: ../../src/textui.rst:55
+msgid "``I``"
+msgstr ""
+
+#: ../../src/textui.rst:57
+msgid ""
+"テストが「不完全」あるいは「未実装」とマークされている場合に表示されます (:ref:`incomplete-and-skipped-tests`"
+" を参照ください)。"
+msgstr ""
+
+#: ../../src/textui.rst:60
+msgid ""
+"PHPUnit は、*失敗 (failures)* と *エラー (errors)* を区別します。 「失敗」は PHPUnit "
+"のアサーションに違反した場合、つまり例えば ``assertSame()`` のコールに失敗した場合などで、 「エラー」は予期せぬ例外や PHP "
+"のエラーが発生した場合となります。 この区別は、時に有用です。というのは「エラー」は一般的に「失敗」 より修正しやすい傾向があるからです。 "
+"もし大量の問題が発生した場合は、まず「エラー」を最初に片付け、 その後で「失敗」を修正していくのが最良の方法です。"
+msgstr ""
+
+#: ../../src/textui.rst:73
+msgid "コマンドラインオプション"
+msgstr ""
+
+#: ../../src/textui.rst:75
+msgid "以下のコードで、コマンドライン版テストランナーのオプションの一覧を見てみましょう。"
+msgstr ""
+
+#: ../../src/textui.rst:184
+msgid "``phpunit UnitTest``"
+msgstr ""
+
+#: ../../src/textui.rst:186
+msgid ""
+"``UnitTest`` という名前のクラスで定義されている テストを実行します。このクラスは、:file:`UnitTest.php` "
+"という名前のファイルの中に定義されているものとします。"
+msgstr ""
+
+#: ../../src/textui.rst:190
+msgid ""
+"``UnitTest`` は、``PHPUnit\\Framework\\TestCase`` を継承したクラスであるか、あるいは "
+"``PHPUnit\\Framework\\Test`` オブジェクト、例えば ``PHPUnit\\Framework\\TestSuite``"
+" のインスタンスを返す ``public static suite()`` というメソッドを保持するクラスでなければなりません。"
+msgstr ""
+
+#: ../../src/textui.rst:196
+msgid "``phpunit UnitTest UnitTest.php``"
+msgstr ""
+
+#: ../../src/textui.rst:198
+msgid "``UnitTest`` という名前のクラスで定義されているテストを実行します。 このクラスは、指定したファイルの中で定義されているものとします。"
+msgstr ""
+
+#: ../../src/textui.rst:201
+msgid "``--coverage-clover``"
+msgstr ""
+
+#: ../../src/textui.rst:203
+msgid ""
+"テスト結果から XML 形式のログファイルを作成し、 コードカバレッジ情報もそこに含めます。詳細は :ref:`code-coverage-"
+"analysis` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:207
+msgid "``--coverage-crap4j``"
+msgstr ""
+
+#: ../../src/textui.rst:209
+msgid "コードカバレッジレポートを Crap4j 形式で作成します。詳細は :ref:`code-coverage-analysis` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:212
+msgid "``--coverage-html``"
+msgstr ""
+
+#: ../../src/textui.rst:214
+msgid "コードカバレッジレポートを HTML 形式で作成します。詳細は :ref:`code-coverage-analysis` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:217
+msgid "``--coverage-php``"
+msgstr ""
+
+#: ../../src/textui.rst:219
+msgid "シリアライズした PHP_CodeCoverage オブジェクトを生成し、 コードカバレッジ情報もそこに含めます。"
+msgstr ""
+
+#: ../../src/textui.rst:222
+msgid "``--coverage-text``"
+msgstr ""
+
+#: ../../src/textui.rst:224
+msgid "テストを実行したときに、ログファイルあるいはコマンドライン出力で 可読形式のコードカバレッジ情報を生成します。"
+msgstr ""
+
+#: ../../src/textui.rst:227
+msgid "``--log-junit``"
+msgstr ""
+
+#: ../../src/textui.rst:229
+msgid "JUnit XML フォーマットを使用して、テストの実行結果のログを作成します。"
+msgstr ""
+
+#: ../../src/textui.rst:231
+msgid "``--testdox-html`` および ``--testdox-text``"
+msgstr ""
+
+#: ../../src/textui.rst:233
+msgid ""
+"実行したテストについて、HTML あるいはプレーンテキスト形式のドキュメントを生成します ( :ref:`textui.testdox` "
+"を参照ください)。"
+msgstr ""
+
+#: ../../src/textui.rst:236
+msgid "``--filter``"
+msgstr ""
+
+#: ../../src/textui.rst:238
+msgid ""
+"指定した正規表現パターンにマッチする名前のテストのみを実行します。 パターンがデリミタで囲まれていない場合は、PHPUnit はパターンをデリミタ"
+" ``/`` で囲みます。"
+msgstr ""
+
+#: ../../src/textui.rst:241
+msgid "マッチするテスト名は、次のいずれかのフォーマットになります。"
+msgstr ""
+
+#: ../../src/textui.rst:243
+msgid "``TestNamespace\\TestCaseClass::testMethod``"
+msgstr ""
+
+#: ../../src/textui.rst:245
+msgid "デフォルトのテスト名のフォーマットは、テストメソッドの中でマジック定数 ``__METHOD__`` を使うのと同等です。"
+msgstr ""
+
+#: ../../src/textui.rst:248
+msgid "``TestNamespace\\TestCaseClass::testMethod with data set #0``"
+msgstr ""
+
+#: ../../src/textui.rst:250
+msgid "テストがデータプロバイダーを持つ場合、データを処理するたびに、 現在のインデックスをデフォルトのテスト名の後に続けたものを取得します。"
+msgstr ""
+
+#: ../../src/textui.rst:253
+msgid ""
+"``TestNamespace\\TestCaseClass::testMethod with data set \"my named "
+"data\"``"
+msgstr ""
+
+#: ../../src/textui.rst:255
+msgid ""
+"テストが持つデータプロバイダーが名前つきセットを使う場合、データを処理するたびに、 現在の名前をデフォルトのテスト名の後に続けたものを取得します。"
+" 名前つきデータセットの例は :numref:`textui.examples.TestCaseClass.php` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:261
+msgid "名前つきデータセット"
+msgstr ""
+
+#: ../../src/textui.rst:289
+msgid "``/path/to/my/test.phpt``"
+msgstr ""
+
+#: ../../src/textui.rst:291
+msgid "PHPT のテストのテスト名は、ファイルシステムのパスになります。"
+msgstr ""
+
+#: ../../src/textui.rst:293
+msgid "有効なフィルターパターンの例は、:numref:`textui.examples.filter-patterns` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:295
+msgid "フィルターパターンの例"
+msgstr ""
+
+#: ../../src/textui.rst:308
+msgid ""
+"データプロバイダーのマッチングに使えるショートカットは、 :numref:`textui.examples.filter-shortcuts` "
+"を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:311
+msgid "フィルターのショートカット"
+msgstr ""
+
+#: ../../src/textui.rst:324
+msgid "``--testsuite``"
+msgstr ""
+
+#: ../../src/textui.rst:326
+msgid "指定したパターンにマッチする名前のテストスイートのみを実行します。"
+msgstr ""
+
+#: ../../src/textui.rst:328
+msgid "``--group``"
+msgstr ""
+
+#: ../../src/textui.rst:330
+msgid "指定したグループのテストのみを実行します。 あるテストを特定のグループに所属させるには、 ``@group`` アノテーションを使用します。"
+msgstr ""
+
+#: ../../src/textui.rst:334
+msgid ""
+"``@author`` アノテーションおよび ``@ticket`` アノテーションは ``@group`` のエイリアスで、 "
+"それぞれテストの作者およびチケットIDに基づいてテストをフィルタリングします。"
+msgstr ""
+
+#: ../../src/textui.rst:338
+msgid "``--exclude-group``"
+msgstr ""
+
+#: ../../src/textui.rst:340
+msgid "指定したグループをテストの対象外とします。 あるテストを特定のグループに所属させるには、 ``@group`` アノテーションを使用します。"
+msgstr ""
+
+#: ../../src/textui.rst:344
+msgid "``--list-groups``"
+msgstr ""
+
+#: ../../src/textui.rst:346
+msgid "使用可能なテストグループの一覧を表示します。"
+msgstr ""
+
+#: ../../src/textui.rst:348
+msgid "``--test-suffix``"
+msgstr ""
+
+#: ../../src/textui.rst:350
+msgid "指定したサフィックスのテストファイルだけを探します。"
+msgstr ""
+
+#: ../../src/textui.rst:352
+msgid "``--dont-report-useless-tests``"
+msgstr ""
+
+#: ../../src/textui.rst:354
+msgid "何もテストをしないテストについて報告しません。 詳細は :ref:`risky-tests` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:357
+msgid "``--strict-coverage``"
+msgstr ""
+
+#: ../../src/textui.rst:359
+msgid "意図せずカバーしているコードについて厳格にチェックします。 詳細は :ref:`risky-tests` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:362
+msgid "``--strict-global-state``"
+msgstr ""
+
+#: ../../src/textui.rst:364
+msgid "グローバルな状態の変更について厳格にチェックします。 詳細は :ref:`risky-tests` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:367
+msgid "``--disallow-test-output``"
+msgstr ""
+
+#: ../../src/textui.rst:369
+msgid "実行中に何かを出力するテストについて厳格にチェックします。 詳細は :ref:`risky-tests` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:372
+msgid "``--disallow-todo-tests``"
+msgstr ""
+
+#: ../../src/textui.rst:374
+msgid "docblock に ``@todo`` アノテーションが指定されているテストを実行しません。"
+msgstr ""
+
+#: ../../src/textui.rst:376
+msgid "``--enforce-time-limit``"
+msgstr ""
+
+#: ../../src/textui.rst:378
+msgid "テストのサイズに応じて、制限時間を設定します。 詳細は :ref:`risky-tests` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:381
+msgid "``--process-isolation``"
+msgstr ""
+
+#: ../../src/textui.rst:383
+msgid "各テストを個別の PHP プロセスで実行します。"
+msgstr ""
+
+#: ../../src/textui.rst:385
+msgid "``--no-globals-backup``"
+msgstr ""
+
+#: ../../src/textui.rst:387
+msgid "$GLOBALS のバックアップ・リストアを行いません。 詳細は :ref:`fixtures.global-state` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:390
+msgid "``--static-backup``"
+msgstr ""
+
+#: ../../src/textui.rst:392
+msgid "ユーザ定義クラスの静的属性のバックアップ・リストアを行います。 詳細は :ref:`fixtures.global-state` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:395
+msgid "``--colors``"
+msgstr ""
+
+#: ../../src/textui.rst:397
+msgid ""
+"出力に色を使用します。 Windows では、`ANSICON <https://github.com/adoxa/ansicon>`_ あるいは"
+" `ConEmu <https://github.com/Maximus5/ConEmu>`_ を利用します。"
+msgstr ""
+
+#: ../../src/textui.rst:401
+msgid "指定できる値は、以下の三つです。"
+msgstr ""
+
+#: ../../src/textui.rst:405
+msgid "``never``: 出力を色分けしません。これは、``--colors`` オプションを省略したときのデフォルトです。"
+msgstr ""
+
+#: ../../src/textui.rst:409
+msgid ""
+"``auto``: ターミナルが色をサポートしていない場合や、 "
+"出力をコマンドにパイプしたりファイルにリダイレクトしたりする場合を除き、出力に色を使います。"
+msgstr ""
+
+#: ../../src/textui.rst:414
+msgid ""
+"``always``: ターミナルが色をサポートしていない場合や、 "
+"出力をコマンドにパイプしたりファイルにリダイレクトしたりする場合も含めて、常に出力に色を使います。"
+msgstr ""
+
+#: ../../src/textui.rst:417
+msgid "``--colors`` だけを指定して何も値を指定しなかった場合は、``auto`` を選んだものとみなされます。"
+msgstr ""
+
+#: ../../src/textui.rst:419
+msgid "``--stderr``"
+msgstr ""
+
+#: ../../src/textui.rst:421
+msgid "オプションで、出力先を ``STDOUT`` ではなく ``STDERR`` にします。"
+msgstr ""
+
+#: ../../src/textui.rst:424
+msgid "``--stop-on-error``"
+msgstr ""
+
+#: ../../src/textui.rst:426
+msgid "最初にエラーが発生した時点で実行を停止します。"
+msgstr ""
+
+#: ../../src/textui.rst:428
+msgid "``--stop-on-failure``"
+msgstr ""
+
+#: ../../src/textui.rst:430
+msgid "最初にエラーあるいは失敗が発生した時点で実行を停止します。"
+msgstr ""
+
+#: ../../src/textui.rst:432
+msgid "``--stop-on-risky``"
+msgstr ""
+
+#: ../../src/textui.rst:434
+msgid "最初に危険なテストがあらわれた時点で実行を停止します。"
+msgstr ""
+
+#: ../../src/textui.rst:436
+msgid "``--stop-on-skipped``"
+msgstr ""
+
+#: ../../src/textui.rst:438
+msgid "最初にテストのスキップが発生した時点で実行を停止します。"
+msgstr ""
+
+#: ../../src/textui.rst:440
+msgid "``--stop-on-incomplete``"
+msgstr ""
+
+#: ../../src/textui.rst:442
+msgid "最初に不完全なテストがあらわれた時点で実行を停止します。"
+msgstr ""
+
+#: ../../src/textui.rst:444
+msgid "``--verbose``"
+msgstr ""
+
+#: ../../src/textui.rst:446
+msgid "より詳細な情報を出力します。例えば、 未完成のテストや省略したテストの名前が表示されます。"
+msgstr ""
+
+#: ../../src/textui.rst:449
+msgid "``--debug``"
+msgstr ""
+
+#: ../../src/textui.rst:451
+msgid "テスト名などのデバッグ情報を、テストの実行開始時に出力します。"
+msgstr ""
+
+#: ../../src/textui.rst:453
+msgid "``--loader``"
+msgstr ""
+
+#: ../../src/textui.rst:455
+msgid "``PHPUnit\\Runner\\TestSuiteLoader`` を実装したクラスのうち、 実際に使用するものを指定します。"
+msgstr ""
+
+#: ../../src/textui.rst:458
+msgid ""
+"標準のテストスイートローダーは、現在の作業ディレクトリおよび PHP の設定項目 ``include_path`` "
+"で指定されているディレクトリからソースファイルを探します。 ``Project_Package_Class`` クラスがソースファイル "
+":file:`Project/Package/Class.php` に対応します。"
+msgstr ""
+
+#: ../../src/textui.rst:465
+msgid "``--repeat``"
+msgstr ""
+
+#: ../../src/textui.rst:467
+msgid "指定された回数だけ、繰り返しテストを実行します。"
+msgstr ""
+
+#: ../../src/textui.rst:469
+msgid "``--testdox``"
+msgstr ""
+
+#: ../../src/textui.rst:471
+msgid "テストの進行状況を、アジャイルな文書として報告します。 ( :ref:`textui.testdox`) を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:474
+msgid "``--printer``"
+msgstr ""
+
+#: ../../src/textui.rst:476
+msgid ""
+"結果を表示するために使うプリンタクラスを指定します。このプリンタクラスは ``PHPUnit\\Util\\Printer`` を継承し、かつ "
+"``PHPUnit\\Framework\\TestListener`` インターフェイスを実装したものでなければなりません。"
+msgstr ""
+
+#: ../../src/textui.rst:481
+msgid "``--bootstrap``"
+msgstr ""
+
+#: ../../src/textui.rst:483
+msgid "テストの前に実行される \"ブートストラップ\" PHP ファイルを指定します。"
+msgstr ""
+
+#: ../../src/textui.rst:485
+msgid "``--configuration``, ``-c``"
+msgstr ""
+
+#: ../../src/textui.rst:487
+msgid "設定を XML ファイルから読み込みます。 詳細は :ref:`appendixes.configuration` を参照ください。"
+msgstr ""
+
+#: ../../src/textui.rst:490
+msgid ""
+":file:`phpunit.xml` あるいは :file:`phpunit.xml.dist` (この順番で使用します) "
+"が現在の作業ディレクトリに存在しており、かつ ``--configuration`` が使われて *いない* "
+"場合、設定が自動的にそのファイルから読み込まれます。"
+msgstr ""
+
+#: ../../src/textui.rst:495
+msgid ""
+"指定されているのがディレクトリで、 :file:`phpunit.xml` あるいは :file:`phpunit.xml.dist` "
+"(この順番で使用します) がそのディレクトリ内に存在する場合、設定が自動的にそのファイルから読み込まれます。"
+msgstr ""
+
+#: ../../src/textui.rst:500
+msgid "``--no-configuration``"
+msgstr ""
+
+#: ../../src/textui.rst:502
+msgid "現在の作業ディレクトリにある :file:`phpunit.xml` および :file:`phpunit.xml.dist` を無視します。"
+msgstr ""
+
+#: ../../src/textui.rst:505
+msgid "``--include-path``"
+msgstr ""
+
+#: ../../src/textui.rst:507
+msgid "PHP の ``include_path`` の先頭に、指定したパスを追加します。"
+msgstr ""
+
+#: ../../src/textui.rst:509
+msgid "``-d``"
+msgstr ""
+
+#: ../../src/textui.rst:511
+msgid "指定した PHP 設定オプションの値を設定します。"
+msgstr ""
+
+#: ../../src/textui.rst:513
+msgid "Note"
+msgstr ""
+
+#: ../../src/textui.rst:515
+msgid "これらのオプションは、引数の後に指定することもできます。"
+msgstr ""
+
+#: ../../src/textui.rst:520
+msgid "TestDox"
+msgstr ""
+
+#: ../../src/textui.rst:522
+msgid ""
+"PHPUnit の TestDox 機能は、テストクラス内のすべてのテストメソッドの名前を抽出し、 それを PHP "
+"風のキャメルケースから通常の文に変換します。つまり ``testBalanceIsInitiallyZero()`` が \"Balance is"
+" initially zero\" のようになるわけです。最後のほうの数字のみが違うメソッド、例えば "
+"``testBalanceCannotBecomeNegative()`` と "
+"``testBalanceCannotBecomeNegative2()`` のようなものが存在した場合は、 文 \"Balance cannot"
+" become negative\" は一度のみ表示され、 全てのテストが成功したことを表します。"
+msgstr ""
+
+#: ../../src/textui.rst:531
+msgid "``BankAccount`` クラスのアジャイルな文書を見てみましょう。"
+msgstr ""
+
+#: ../../src/textui.rst:542
+msgid ""
+"また、アジャイルな文書を HTML あるいはプレーンテキスト形式で作成してファイルに書き出すこともできます。 この場合は、引数 "
+"``--testdox-html`` あるいは ``--testdox-text`` を使用します。"
+msgstr ""
+
+#: ../../src/textui.rst:546
+msgid ""
+"アジャイルな文書は、プロジェクト内であなたが作成しようとしている外部パッケージについて、 "
+"このように動作するであるという期待をまとめた文書にもなります。 外部のパッケージを使用するときには、 "
+"そのパッケージが期待通りに動作しなくなるというリスクに常にさらされています。 "
+"パッケージのバージョンアップにより知らないうちに挙動が変わってしまい、 "
+"あなたのコードが動作しなくなる可能性もあります。そのようなことを避けるため、 「このパッケージはこのように動作するはず」 "
+"ということを常にテストケースで記述しておくようにします。テストが成功すれば、 "
+"期待通りに動作していることがわかります。もし動作仕様をすべてテストで記述できているのなら、 "
+"外部パッケージが将来バージョンアップされたとしても何の心配もいりません。 "
+"テストをクリアしたということは、システムは期待通りに動作するということだからです。"
+msgstr ""
+
