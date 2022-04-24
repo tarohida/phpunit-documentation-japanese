@@ -2,151 +2,918 @@
 
 .. _appendixes.configuration:
 
-================
-XML 設定ファイル
-================
+==========================
+The XML Configuration File
+==========================
 
 .. _appendixes.configuration.phpunit:
 
-PHPUnit
-#######
+The ``<phpunit>`` Element
+#########################
 
-``<phpunit>`` 要素の属性を使って
-PHPUnit のコア機能を設定します。
+.. _appendixes.configuration.phpunit.backupGlobals:
 
-.. code-block:: bash
+The ``backupGlobals`` Attribute
+-------------------------------
 
-    <phpunit
-             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-             xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/|version|/phpunit.xsd"
-             backupGlobals="true"
-             backupStaticAttributes="false"
-             <!--bootstrap="/path/to/bootstrap.php"-->
-             cacheResult="false"
-             cacheTokens="false"
-             colors="false"
-             convertErrorsToExceptions="true"
-             convertNoticesToExceptions="true"
-             convertWarningsToExceptions="true"
-             forceCoversAnnotation="false"
-             printerClass="PHPUnit\TextUI\ResultPrinter"
-             <!--printerFile="/path/to/ResultPrinter.php"-->
-             processIsolation="false"
-             stopOnError="false"
-             stopOnFailure="false"
-             stopOnIncomplete="false"
-             stopOnSkipped="false"
-             stopOnRisky="false"
-             testSuiteLoaderClass="PHPUnit\Runner\StandardTestSuiteLoader"
-             <!--testSuiteLoaderFile="/path/to/StandardTestSuiteLoader.php"-->
-             timeoutForSmallTests="1"
-             timeoutForMediumTests="10"
-             timeoutForLargeTests="60"
-             verbose="false">
-      <!-- ... -->
-    </phpunit>
+Possible values: ``true`` or ``false`` (default: ``false``)
 
-上の XML 設定ファイルは、TextUI テストランナーをデフォルトの設定で起動します。
-その詳細は :ref:`textui.clioptions` で説明します。
+PHPUnit can optionally backup all global and super-global variables before each test and restore this backup after each test.
 
-その他、コマンドラインからは設定できないオプションもあります。
+This attribute configures this operation for all tests. This configuration can be overridden using the ``@backupGlobals`` annotation on the test case class and test method level.
 
-``convertErrorsToExceptions``
+.. _appendixes.configuration.phpunit.backupStaticAttributes:
 
-    ``false`` にすると、
-    すべての PHP のエラーを例外に変換するエラーハンドラをインストールしません。
+The ``backupStaticAttributes`` Attribute
+----------------------------------------
 
-``convertNoticesToExceptions``
+Possible values: ``true`` or ``false`` (default: ``false``)
 
-    ``false`` にすると、
-    ``convertErrorsToExceptions`` でインストールしたエラーハンドラが
-    ``E_NOTICE`` や ``E_USER_NOTICE`` そして
-    ``E_STRICT`` を例外に変換しなくなります。
+PHPUnit can optionally backup all static attributes in all declared classes before each test and restore this backup after each test.
 
-``convertWarningsToExceptions``
+This attribute configures this operation for all tests. This configuration can be overridden using the ``@backupStaticAttributes`` annotation on the test case class and test method level.
 
-    ``false`` にすると、
-    ``convertErrorsToExceptions`` でインストールしたエラーハンドラが
-    ``E_WARNING`` や ``E_USER_WARNING``
-    を例外に変換しなくなります。
+.. _appendixes.configuration.phpunit.bootstrap:
 
-``forceCoversAnnotation``
+The ``bootstrap`` Attribute
+---------------------------
 
-    コードカバレッジの記録を、
-    ``@covers`` アノテーションを使っている関数だけに限定します。
-    このアノテーションについては
-    :ref:`appendixes.annotations.covers` で説明します。
+This attribute configures the bootstrap script that is loaded before the tests are executed. This script usually only registers the autoloader callback that is used to load the code under test.
 
-``timeoutForLargeTests``
+.. _appendixes.configuration.phpunit.cacheResult:
 
-    テストのサイズによるタイムアウト値を制限する場合に、
-    ``@large`` とマークされたすべてのテストのタイムアウトをこの属性で設定します。
-    ここで指定した時間内にテストが完了しなかった場合、テストは失敗します。
+The ``cacheResult`` Attribute
+-----------------------------
 
-``timeoutForMediumTests``
+Possible values: ``true`` or ``false`` (default: ``true``)
 
-    テストのサイズによるタイムアウト値を制限する場合に、
-    ``@medium`` とマークされたすべてのテストのタイムアウトをこの属性で設定します。
-    ここで指定した時間内にテストが完了しなかった場合、テストは失敗します。
+This attribute configures the caching of test results. This caching is required for certain other features to work.
 
-``timeoutForSmallTests``
+.. _appendixes.configuration.phpunit.cacheResultFile:
 
-    テストのサイズによるタイムアウト値を制限する場合に、
-    ``@medium`` あるいは ``@large``
-    のいずれのマークもついていないすべてのテストのタイムアウトをこの属性で設定します。
-    ここで指定した時間内にテストが完了しなかった場合、テストは失敗します。
+The ``cacheResultFile`` Attribute
+---------------------------------
+
+This attribute configures the file in which the test result cache (see above) is stored.
+
+.. _appendixes.configuration.phpunit.colors:
+
+The ``colors`` Attribute
+------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether colors are used in PHPUnit's output.
+
+Setting this attribute to ``true`` is equivalent to using the ``--colors=auto`` CLI option.
+
+Setting this attribute to ``false`` is equivalent to using the ``--colors=never`` CLI option.
+
+.. _appendixes.configuration.phpunit.columns:
+
+The ``columns`` Attribute
+-------------------------
+
+Possible values: integer or string ``max`` (default: ``80``)
+
+This attribute configures the number of columns to use for progress output.
+
+If ``max`` is defined as value, the number of columns will be maximum of the current terminal.
+
+.. _appendixes.configuration.phpunit.convertDeprecationsToExceptions:
+
+The ``convertDeprecationsToExceptions`` Attribute
+-------------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``true``)
+
+This attribute configures whether ``E_DEPRECATED`` and ``E_USER_DEPRECATED`` events triggered by the code under test are converted to an exception (and mark the test as error).
+
+.. _appendixes.configuration.phpunit.convertErrorsToExceptions:
+
+The ``convertErrorsToExceptions`` Attribute
+-------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``true``)
+
+This attribute configures whether ``E_ERROR`` and ``E_USER_ERROR`` events triggered by the code under test are converted to an exception (and mark the test as error).
+
+.. _appendixes.configuration.phpunit.convertNoticesToExceptions:
+
+The ``convertNoticesToExceptions`` Attribute
+--------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``true``)
+
+This attribute configures whether ``E_STRICT``, ``E_NOTICE``, and ``E_USER_NOTICE`` events triggered by the code under test are converted to an exception (and mark the test as error).
+
+.. _appendixes.configuration.phpunit.convertWarningsToExceptions:
+
+The ``convertWarningsToExceptions`` Attribute
+---------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``true``)
+
+This attribute configures whether ``E_WARNING`` and ``E_USER_WARNING`` events triggered by the code under test are converted to an exception (and mark the test as error).
+
+.. _appendixes.configuration.phpunit.forceCoversAnnotation:
+
+The ``forceCoversAnnotation`` Attribute
+---------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether a test will be marked as risky (see :ref:`risky-tests.unintentionally-covered-code`) when it does not have a :ref:`@covers <appendixes.annotations.covers>` annotation.
+
+.. _appendixes.configuration.phpunit.printerClass:
+
+The ``printerClass`` Attribute
+------------------------------
+
+Default: ``PHPUnit\TextUI\ResultPrinter``
+
+This attribute configures the name of a class that either is ``PHPUnit\TextUI\ResultPrinter`` or that extends ``PHPUnit\TextUI\ResultPrinter``. An object of this class is used to print progress and test results.
+
+.. _appendixes.configuration.phpunit.printerFile:
+
+The ``printerFile`` Attribute
+-----------------------------
+
+This attribute can be used to configure the path to the sourcecode file that declares the class configured with ``printerClass`` in case that class cannot be autoloaded.
+
+.. _appendixes.configuration.phpunit.processIsolation:
+
+The ``processIsolation`` Attribute
+----------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether each test should be run in a separate PHP process for increased isolation.
+
+.. _appendixes.configuration.phpunit.stopOnError:
+
+The ``stopOnError`` Attribute
+-----------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether the test suite execution should be stopped after the first test finished with status "error".
+
+.. _appendixes.configuration.phpunit.stopOnFailure:
+
+The ``stopOnFailure`` Attribute
+-------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether the test suite execution should be stopped after the first test finished with status "failure".
+
+.. _appendixes.configuration.phpunit.stopOnIncomplete:
+
+The ``stopOnIncomplete`` Attribute
+----------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether the test suite execution should be stopped after the first test finished with status "incomplete".
+
+.. _appendixes.configuration.phpunit.stopOnRisky:
+
+The ``stopOnRisky`` Attribute
+-----------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether the test suite execution should be stopped after the first test finished with status "risky".
+
+.. _appendixes.configuration.phpunit.stopOnSkipped:
+
+The ``stopOnSkipped`` Attribute
+-------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether the test suite execution should be stopped after the first test finished with status "skipped".
+
+.. _appendixes.configuration.phpunit.stopOnWarning:
+
+The ``stopOnWarning`` Attribute
+-------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether the test suite execution should be stopped after the first test finished with status "warning".
+
+.. _appendixes.configuration.phpunit.stopOnDefect:
+
+The ``stopOnDefect`` Attribute
+------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether the test suite execution should be stopped after the first test finished with a status "error", "failure", "risky" or "warning".
+
+.. _appendixes.configuration.phpunit.failOnRisky:
+
+The ``failOnRisky`` Attribute
+-----------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether the PHPUnit test runner should exit with a shell exit code that indicates failure when all tests are successful but there are tests that were marked as risky.
+
+.. _appendixes.configuration.phpunit.failOnWarning:
+
+The ``failOnWarning`` Attribute
+-------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether the PHPUnit test runner should exit with a shell exit code that indicates failure when all tests are successful but there are tests that had warnings.
+
+.. _appendixes.configuration.phpunit.beStrictAboutChangesToGlobalState:
+
+The ``beStrictAboutChangesToGlobalState`` Attribute
+---------------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether PHPUnit should mark a test as risky when global state is manipulated by the code under test (or the test code).
+
+.. _appendixes.configuration.phpunit.beStrictAboutOutputDuringTests:
+
+The ``beStrictAboutOutputDuringTests`` Attribute
+------------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether PHPUnit should mark a test as risky when the code under test (or the test code) prints output.
+
+.. _appendixes.configuration.phpunit.beStrictAboutResourceUsageDuringSmallTests:
+
+The ``beStrictAboutResourceUsageDuringSmallTests`` Attribute
+------------------------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether PHPUnit should mark a test that is annotated with ``@small`` as risky when it invokes a PHP built-in function or method that operates on ``resource`` variables.
+
+.. _appendixes.configuration.phpunit.beStrictAboutTestsThatDoNotTestAnything:
+
+The ``beStrictAboutTestsThatDoNotTestAnything`` Attribute
+---------------------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``true``)
+
+This attribute configures whether PHPUnit should mark a test as risky when no assertions are performed (expectations are also considered).
+
+.. _appendixes.configuration.phpunit.beStrictAboutTodoAnnotatedTests:
+
+The ``beStrictAboutTodoAnnotatedTests`` Attribute
+-------------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether PHPUnit should mark a test as risky when it is annotated with ``@todo``.
+
+.. _appendixes.configuration.phpunit.beStrictAboutCoversAnnotation:
+
+The ``beStrictAboutCoversAnnotation`` Attribute
+-----------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether PHPUnit should mark a test as risky when it executes code that is not specified using ``@covers`` or ``@uses``.
+
+.. _appendixes.configuration.phpunit.enforceTimeLimit:
+
+The ``enforceTimeLimit`` Attribute
+----------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether time limits should be enforced.
+
+.. _appendixes.configuration.phpunit.defaultTimeLimit:
+
+The ``defaultTimeLimit`` Attribute
+----------------------------------
+
+Possible values: integer (default: ``0``)
+
+This attribute configures the default time limit (in seconds).
+
+.. _appendixes.configuration.phpunit.timeoutForSmallTests:
+
+The ``timeoutForSmallTests`` Attribute
+--------------------------------------
+
+Possible values: integer (default: ``1``)
+
+This attribute configures the time limit for tests annotated with ``@small`` (in seconds).
+
+.. _appendixes.configuration.phpunit.timeoutForMediumTests:
+
+The ``timeoutForMediumTests`` Attribute
+---------------------------------------
+
+Possible values: integer (default: ``10``)
+
+This attribute configures the time limit for tests annotated with ``@medium`` (in seconds).
+
+.. _appendixes.configuration.phpunit.timeoutForLargeTests:
+
+The ``timeoutForLargeTests`` Attribute
+--------------------------------------
+
+Possible values: integer (default: ``60``)
+
+This attribute configures the time limit for tests annotated with ``@large`` (in seconds).
+
+.. _appendixes.configuration.phpunit.testSuiteLoaderClass:
+
+The ``testSuiteLoaderClass`` Attribute
+--------------------------------------
+
+Default: ``PHPUnit\Runner\StandardTestSuiteLoader``
+
+This attribute configures the name of a class that implements the ``PHPUnit\Runner\TestSuiteLoader`` interface. An object of this class is used to load the test suite.
+
+.. _appendixes.configuration.phpunit.testSuiteLoaderFile:
+
+The ``testSuiteLoaderFile`` Attribute
+-------------------------------------
+
+This attribute can be used to configure the path to the sourcecode file that declares the class configured with ``testSuiteLoaderClass`` in case that class cannot be autoloaded.
+
+.. _appendixes.configuration.phpunit.defaultTestSuite:
+
+The ``defaultTestSuite`` Attribute
+----------------------------------
+
+This attribute configures the name of the default test suite.
+
+.. _appendixes.configuration.phpunit.verbose:
+
+The ``verbose`` Attribute
+-------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether more verbose output should be printed.
+
+.. _appendixes.configuration.phpunit.stderr:
+
+The ``stderr`` Attribute
+------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether PHPUnit should print its output to ``stderr`` instead of ``stdout``.
+
+.. _appendixes.configuration.phpunit.reverseDefectList:
+
+The ``reverseDefectList`` Attribute
+-----------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether tests that are not successful should be printed in reverse order.
+
+.. _appendixes.configuration.phpunit.registerMockObjectsFromTestArgumentsRecursively:
+
+The ``registerMockObjectsFromTestArgumentsRecursively`` Attribute
+-----------------------------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether arrays and object graphs that are passed from one test to another using the ``@depends`` annotation should be recursively scanned for mock objects.
+
+.. _appendixes.configuration.phpunit.extensionsDirectory:
+
+The ``extensionsDirectory`` Attribute
+-------------------------------------
+
+When ``phpunit.phar`` is used then this attribute may be used to configure a directory from which all ``*.phar`` files will be loaded as extensions for the PHPUnit test runner.
+
+.. _appendixes.configuration.phpunit.executionOrder:
+
+The ``executionOrder`` Attribute
+--------------------------------
+
+Possible values: ``default``, ``defects``, ``depends``, ``no-depends``, ``duration``, ``random``, ``reverse``, ``size``
+
+Using multiple values is possible. These need to be separated by ``,``.
+
+This attribute configures the order in which tests are executed.
+
+.. _appendixes.configuration.phpunit.resolveDependencies:
+
+The ``resolveDependencies`` Attribute
+-------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``true``)
+
+This attribute configures whether dependencies between tests (expressed using the ``@depends`` annotation) should be resolved.
+
+.. _appendixes.configuration.phpunit.testdox:
+
+The ``testdox`` Attribute
+-------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether the output should be printed in TestDox format.
+
+The ``noInteraction`` Attribute
+-------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether progress should be animated when TestDox format is used, for instance.
 
 .. _appendixes.configuration.testsuites:
 
-テストスイート
-##############
+The ``<testsuites>`` Element
+############################
 
-``<testsuites>`` 要素とその子要素である
-``<testsuite>`` を使って、
-テストスイート群やテストケース群の中からテストスイートを構成します。
+Parent element: ``<phpunit>``
 
-.. code-block:: bash
+This element is the root for one or more ``<testsuite>`` elements that are used to configure the tests that are to be executed.
+
+.. _appendixes.configuration.testsuites.testsuite:
+
+The ``<testsuite>`` Element
+---------------------------
+
+Parent element: ``<testsuites>``
+
+A ``<testsuite>`` element must have a ``name`` attribute and may have one or more ``<directory>`` and/or ``<file>`` child elements that configure directories and/or files, respectively, that should be searched for tests.
+
+.. code-block:: xml
 
     <testsuites>
-      <testsuite name="My Test Suite">
-        <directory>/path/to/*Test.php files</directory>
-        <file>/path/to/MyTest.php</file>
-        <exclude>/path/to/exclude</exclude>
+      <testsuite name="unit">
+        <directory>tests/unit</directory>
+      </testsuite>
+
+      <testsuite name="integration">
+        <directory>tests/integration</directory>
+      </testsuite>
+
+      <testsuite name="edge-to-edge">
+        <directory>tests/edge-to-edge</directory>
       </testsuite>
     </testsuites>
 
-``phpVersion`` および
-``phpVersionOperator`` 属性を使うと、必要な PHP
-のバージョンを指定できます。次の例は、PHP のバージョンが 5.3.0 以降である場合にのみ
-:file:`/path/to/\*Test.php` と
-:file:`/path/to/MyTest.php` を追加します。
+Using the ``phpVersion`` and ``phpVersionOperator`` attributes, a required PHP version can be specified:
 
-.. code-block:: bash
+.. code-block:: xml
 
-      <testsuites>
-        <testsuite name="My Test Suite">
-          <directory suffix="Test.php" phpVersion="5.3.0" phpVersionOperator=">=">/path/to/files</directory>
-          <file phpVersion="5.3.0" phpVersionOperator=">=">/path/to/MyTest.php</file>
-        </testsuite>
-      </testsuites>
+    <testsuites>
+      <testsuite name="unit">
+        <directory phpVersion="8.0.0" phpVersionOperator=">=">tests/unit</directory>
+      </testsuite>
+    </testsuites>
 
-``phpVersionOperator`` 属性はオプションで、デフォルトは
-``>=`` です。
+In the example above, the tests from the ``tests/unit`` directory are only added to the test suite if the PHP version is at least 8.0.0. The ``phpVersionOperator`` attribute is optional and defaults to ``>=``.
+
+.. _appendixes.configuration.coverage:
+
+The ``<coverage>`` Element
+##########################
+
+Parent element: ``<phpunit>``
+
+The ``<coverage>`` element and its children can be used to configure code coverage:
+
+.. code-block:: xml
+
+    <coverage cacheDirectory="/path/to/directory"
+              includeUncoveredFiles="true"
+              processUncoveredFiles="true"
+              pathCoverage="false"
+              ignoreDeprecatedCodeUnits="true"
+              disableCodeCoverageIgnore="true">
+        <!-- ... -->
+    </coverage>
+
+The ``cacheDirectory`` Attribute
+--------------------------------
+
+Possible values: string
+
+When code coverage data is collected and processed, static code analysis is performed to improve reasoning about the covered code. This is an expensive operation, whose result can be cached. When the ``cacheDirectory`` attribute is set, static analysis results will be cached in the specified directory.
+
+The ``includeUncoveredFiles`` Attribute
+---------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``true``)
+
+When set to ``true``, all sourcecode files that are configured to be considered for code coverage analysis will be included in the code coverage report(s). This includes sourcecode files that are not executed while the tests are running.
+
+The ``processUncoveredFiles`` Attribute
+---------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+When set to ``true``, all sourcecode files that are configured to be considered for code coverage analysis will be processed. This includes sourcecode files that are not executed while the tests are running.
+
+The ``ignoreDeprecatedCodeUnits`` Attribute
+-------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether code units annotated with ``@deprecated`` should be ignored from code coverage.
+
+The ``pathCoverage`` Attribute
+------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+When set to ``false``, only line coverage data will be collected, processed, and reported.
+
+When set to ``true``, line coverage, branch coverage, and path coverage data will be collected, processed, and reported. This requires a code coverage driver that supports path coverage. Path Coverage is currently only implemented by Xdebug.
+
+The ``disableCodeCoverageIgnore`` Attribute
+-------------------------------------------
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+This attribute configures whether the ``@codeCoverageIgnore*`` annotations should be ignored.
+
+.. _appendixes.configuration.coverage.include:
+
+The ``<include>`` Element
+-------------------------
+
+Parent element: ``<coverage>``
+
+Configures a set of files to be included in code coverage report(s).
+
+.. code-block:: xml
+
+    <include>
+        <directory suffix=".php">src</directory>
+    </include>
+
+The example shown above instructs PHPUnit to include all sourcecode files with ``.php`` suffix in the ``src`` directory and its sub-directories in the code coverage report(s).
+
+
+.. _appendixes.configuration.coverage.exclude:
+
+The ``<exclude>`` Element
+-------------------------
+
+Parent element: ``<coverage>``
+
+Configures a set of files to be excluded from code coverage report(s).
+
+.. code-block:: xml
+
+    <include>
+        <directory suffix=".php">src</directory>
+    </include>
+
+    <exclude>
+        <directory suffix=".php">src/generated</directory>
+        <file>src/autoload.php</file>
+    </exclude>
+
+The example shown above instructs PHPUnit to include all sourcecode files with ``.php`` suffix in the ``src`` directory and its sub-directories in the code coverage report but exclude all files with ``.php`` suffix in the ``src/generated`` directory and its sub-directories as well as the ``src/autoload.php`` file from the code coverage report(s).
+
+
+.. _appendixes.configuration.coverage.directory:
+
+The ``<directory>`` Element
+---------------------------
+
+Parent elements: ``<include>``, ``<exclude>``
+
+Configures a directory and its sub-directories for inclusion in or exclusion from code coverage report(s).
+
+The ``prefix`` Attribute
+************************
+
+Possible values: string
+
+Configures a prefix-based filter that is applied to the names of files in the directory and its sub-directories.
+
+The ``suffix`` Attribute
+************************
+
+Possible values: string (default: ``'.php'``)
+
+Configures a suffix-based filter that is applied to the names of files in the directory and its sub-directories.
+
+The ``phpVersion`` Attribute
+****************************
+
+Possible values: string
+
+Configures a filter based on the version of the PHP runtime that is used to run the current PHPUnit process.
+
+The ``phpVersionOperator`` Attribute
+************************************
+
+Possible values: ``'<'``, ``'lt'``, ``'<='``, ``'le'``, ``'>'``, ``'gt'``, ``'>='``, ``'ge'``, ``'=='``, ``'='``, ``'eq'``, ``'!='``, ``'<>'``, ``'ne'`` (default: ``'>='``)
+
+Configures the comparison operator to be used with ``version_compare()`` for the filter based on the version of the PHP runtime that is used to run the current PHPUnit process.
+
+
+.. _appendixes.configuration.coverage.file:
+
+The ``<file>`` Element
+----------------------
+
+Parent elements: ``<include>``, ``<exclude>``
+
+Configures a file for inclusion in or exclusion from code coverage report(s).
+
+
+.. _appendixes.configuration.coverage.report:
+
+The ``<report>`` Element
+------------------------
+
+Parent element: ``<coverage>``
+
+Configures the code coverage reports to be generated.
+
+.. code-block:: xml
+
+    <report>
+        <clover outputFile="clover.xml"/>
+        <crap4j outputFile="crap4j.xml" threshold="50"/>
+        <html outputDirectory="html-coverage" lowUpperBound="50" highLowerBound="90"/>
+        <php outputFile="coverage.php"/>
+        <text outputFile="coverage.txt" showUncoveredFiles="false" showOnlySummary="true"/>
+        <xml outputDirectory="xml-coverage"/>
+    </report>
+
+
+.. _appendixes.configuration.coverage.report.clover:
+
+The ``<clover>`` Element
+************************
+
+Parent element: ``<report>``
+
+Configures a code coverage report in Clover XML format.
+
+The ``outputFile`` Attribute
+++++++++++++++++++++++++++++
+
+Possible values: string
+
+The file to which the Clover XML report is written.
+
+
+.. _appendixes.configuration.coverage.report.crap4j:
+
+The ``<crap4j>`` Element
+************************
+
+Parent element: ``<report>``
+
+Configures a code coverage report in Crap4J XML format.
+
+The ``outputFile`` Attribute
+++++++++++++++++++++++++++++
+
+Possible values: string
+
+The file to which the Crap4J XML report is written.
+
+The ``threshold`` Attribute
++++++++++++++++++++++++++++
+
+Possible values: integer (default: ``50``)
+
+
+.. _appendixes.configuration.coverage.report.html:
+
+The ``<html>`` Element
+**********************
+
+Parent element: ``<report>``
+
+Configures a code coverage report in HTML format.
+
+The ``outputDirectory`` Attribute
++++++++++++++++++++++++++++++++++
+
+The directory to which the HTML report is written.
+
+The ``lowUpperBound`` Attribute
++++++++++++++++++++++++++++++++
+
+Possible values: integer (default: ``50``)
+
+The upper bound of what should be considered "low coverage".
+
+The ``highLowerBound`` Attribute
+++++++++++++++++++++++++++++++++
+
+Possible values: integer (default: ``90``)
+
+The lower bound of what should be considered "high coverage".
+
+
+.. _appendixes.configuration.coverage.report.php:
+
+The ``<php>`` Element
+*********************
+
+Parent element: ``<report>``
+
+Configures a code coverage report in PHP format.
+
+The ``outputFile`` Attribute
+++++++++++++++++++++++++++++
+
+Possible values: string
+
+The file to which the PHP report is written.
+
+
+.. _appendixes.configuration.coverage.report.text:
+
+The ``<text>`` Element
+**********************
+
+Parent element: ``<report>``
+
+Configures a code coverage report in text format.
+
+The ``outputFile`` Attribute
+++++++++++++++++++++++++++++
+
+Possible values: string
+
+The file to which the text report is written.
+
+The ``showUncoveredFiles`` Attribute
+++++++++++++++++++++++++++++++++++++
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+The ``showOnlySummary`` Attribute
++++++++++++++++++++++++++++++++++
+
+Possible values: ``true`` or ``false`` (default: ``false``)
+
+
+.. _appendixes.configuration.coverage.report.xml:
+
+The ``<xml>`` Element
+*********************
+
+Parent element: ``<report>``
+
+Configures a code coverage report in PHPUnit XML format.
+
+The ``outputDirectory`` Attribute
++++++++++++++++++++++++++++++++++
+
+Possible values: string
+
+The directory to which the PHPUnit XML report is written.
+
+
+.. _appendixes.configuration.logging:
+
+The ``<logging>`` Element
+#########################
+
+Parent element: ``<phpunit>``
+
+The ``<logging>`` element and its children can be used to configure the logging of the test execution.
+
+.. code-block:: xml
+
+    <logging>
+        <junit outputFile="junit.xml"/>
+        <teamcity outputFile="teamcity.txt"/>
+        <testdoxHtml outputFile="testdox.html"/>
+        <testdoxText outputFile="testdox.txt"/>
+        <testdoxXml outputFile="testdox.xml"/>
+        <text outputFile="logfile.txt"/>
+    </logging>
+
+
+.. _appendixes.configuration.logging.junit:
+
+The ``<junit>`` Element
+-----------------------
+
+Parent element: ``<logging>``
+
+Configures a test result logfile in JUnit XML format.
+
+The ``outputFile`` Attribute
+****************************
+
+Possible values: string
+
+The file to which the test result logfile in JUnit XML format is written.
+
+
+.. _appendixes.configuration.logging.teamcity:
+
+The ``<teamcity>`` Element
+--------------------------
+
+Parent element: ``<logging>``
+
+Configures a test result logfile in TeamCity format.
+
+The ``outputFile`` Attribute
+****************************
+
+Possible values: string
+
+The file to which the test result logfile in TeamCity format is written.
+
+
+.. _appendixes.configuration.logging.testdoxHtml:
+
+The ``<testdoxHtml>`` Element
+-----------------------------
+
+Parent element: ``<logging>``
+
+Configures a test result logfile in TestDox HTML format.
+
+The ``outputFile`` Attribute
+****************************
+
+Possible values: string
+
+The file to which the test result logfile in TestDox HTML format is written.
+
+
+.. _appendixes.configuration.logging.testdoxText:
+
+The ``<testdoxText>`` Element
+-----------------------------
+
+Parent element: ``<logging>``
+
+Configures a test result logfile in TestDox text format.
+
+The ``outputFile`` Attribute
+****************************
+
+Possible values: string
+
+The file to which the test result logfile in TestDox text format is written.
+
+
+.. _appendixes.configuration.logging.testdoxXml:
+
+The ``<testdoxXml>`` Element
+----------------------------
+
+Parent element: ``<logging>``
+
+Configures a test result logfile in TestDox XML format.
+
+The ``outputFile`` Attribute
+****************************
+
+Possible values: string
+
+The file to which the test result logfile in TestDox XML format is written.
+
+
+.. _appendixes.configuration.logging.text:
+
+The ``<text>`` Element
+----------------------
+
+Parent element: ``<logging>``
+
+Configures a test result logfile in text format.
+
+The ``outputFile`` Attribute
+****************************
+
+Possible values: string
+
+The file to which the test result logfile in text format is written.
+
 
 .. _appendixes.configuration.groups:
 
-グループ
-########
+The ``<groups>`` Element
+########################
 
-``<groups>`` 要素とその子要素である
-``<include>``、
-``<exclude>`` および
-``<group>`` を使って、
-``@group`` アノテーション
-(:ref:`appendixes.annotations.group` を参照ください)
-でマークされたテストグループから実行する (しない) ものを選びます。
+Parent element: ``<phpunit>``
 
-.. code-block:: bash
+The ``<groups>`` element and its ``<include>``, ``<exclude>``, and ``<group>`` children can be used to select groups of tests marked with the ``@group`` annotation (documented in :ref:`appendixes.annotations.group`) that should (not) be run:
+
+.. code-block:: xml
 
     <groups>
       <include>
@@ -157,123 +924,34 @@ PHPUnit のコア機能を設定します。
       </exclude>
     </groups>
 
-上の XML 設定ファイルは、 TextUI テストランナーを以下の引数で起動します。
+The example shown above is equivalent to invoking the PHPUnit test runner with ``--group name --exclude-group name``.
 
--
+.. _appendixes.configuration.testdoxGroups:
 
-  ``--group name``
+The ``<testdoxGroups>`` Element
+###############################
 
--
+Parent element: ``<phpunit>``
 
-  ``--exclude-group name``
+... TBD ...
 
-.. _appendixes.configuration.whitelisting-files:
+.. _appendixes.configuration.listeners:
 
-コードカバレッジ対象のファイルのホワイトリスト
-##############################################
+The ``<listeners>`` Element
+###########################
 
-``<filter>`` 要素とその子要素を使って、
-コードカバレッジレポートのホワイトリストを設定します。
+Parent element: ``<phpunit>``
 
-.. code-block:: bash
+The ``<listeners>`` element and its ``<listener>`` children can be used to attach additional test listeners to the test execution.
 
-    <filter>
-      <whitelist processUncoveredFilesFromWhitelist="true">
-        <directory suffix=".php">/path/to/files</directory>
-        <file>/path/to/file</file>
-        <exclude>
-          <directory suffix=".php">/path/to/files</directory>
-          <file>/path/to/file</file>
-        </exclude>
-      </whitelist>
-    </filter>
+.. _appendixes.configuration.listeners.listener:
 
-.. _appendixes.configuration.logging:
+The ``<listener>`` Element
+--------------------------
 
-ログ出力
-########
+Parent element: ``<listeners>``
 
-``<logging>`` 要素とその子要素である
-``<log>`` を使って、
-テストの実行結果のログ出力を設定します。
-
-.. code-block:: bash
-
-    <logging>
-      <log type="coverage-html" target="/tmp/report" lowUpperBound="35"
-           highLowerBound="70"/>
-      <log type="coverage-clover" target="/tmp/coverage.xml"/>
-      <log type="coverage-php" target="/tmp/coverage.serialized"/>
-      <log type="coverage-text" target="php://stdout" showUncoveredFiles="false"/>
-      <log type="junit" target="/tmp/logfile.xml"/>
-      <log type="testdox-html" target="/tmp/testdox.html"/>
-      <log type="testdox-text" target="/tmp/testdox.txt"/>
-    </logging>
-
-上の XML 設定ファイルは、 TextUI テストランナーを以下の引数で起動します。
-
--
-
-  ``--coverage-html /tmp/report``
-
--
-
-  ``--coverage-clover /tmp/coverage.xml``
-
--
-
-  ``--coverage-php /tmp/coverage.serialized``
-
--
-
-  ``--coverage-text``
-
--
-
-  ``> /tmp/logfile.txt``
-
--
-
-  ``--log-junit /tmp/logfile.xml``
-
--
-
-  ``--testdox-html /tmp/testdox.html``
-
--
-
-  ``--testdox-text /tmp/testdox.txt``
-
-``lowUpperBound``、``highLowerBound``
-および ``showUncoveredFiles``
-属性には、TextUI テストランナーで対応するオプションがありません。
-
--
-
-  ``lowUpperBound``: カバー率がこの値に満たないときに、カバー率が "低い" とみなします。
-
--
-
-  ``highLowerBound``: カバー率がこの値を超えるときに、カバー率が "高い" とみなします。
-
--
-
-  ``showUncoveredFiles``: ``--coverage-text`` の出力で、カバレッジ情報だけではなくホワイトリストの全ファイル一覧も表示します。
-
--
-
-  ``showOnlySummary``: Show only the summary in ``--coverage-text`` output.
-
-.. _appendixes.configuration.test-listeners:
-
-テストリスナー
-##############
-
-``<listeners>`` 要素とその子要素である
-``<listener>`` を使って、
-テスト実行時にテストリスナーをアタッチします。
-
-.. code-block:: bash
+.. code-block:: xml
 
     <listeners>
       <listener class="MyListener" file="/optional/path/to/MyListener.php">
@@ -292,11 +970,10 @@ PHPUnit のコア機能を設定します。
       </listener>
     </listeners>
 
-上の XML 設定は、
-``$listener`` オブジェクト (以下を参照ください)
-をテストの実行時にアタッチします。
+The XML configuration above corresponds to attaching the
+``$listener`` object (see below) to the test execution:
 
-.. code-block:: bash
+.. code-block:: php
 
     $listener = new MyListener(
         ['Sebastian'],
@@ -307,72 +984,316 @@ PHPUnit のコア機能を設定します。
         new stdClass
     );
 
+.. admonition:: Note
+
+    Please note that the ``PHPUnit\Framework\TestListener`` interface is
+    deprecated and will be removed in the future. TestRunner extensions
+    should be used instead of test listeners.
+
 .. _appendixes.configuration.extensions:
 
-TestRunner エクステンションの組み込み
-#####################################
+The ``<extensions>`` Element
+############################
 
-``<extensions>`` 要素とその子要素である ``<extension>`` を使って
-カスタムの TestRunner エクステンションを組み込みます。
+Parent element: ``<phpunit>``
 
-:numref:`configuration.examples.RegisterExtension` にエクステンションを
-組み込む方法を示します。
+The ``<extensions>`` element and its ``<extension>`` children can be used to register test runner extensions.
+
+.. _appendixes.configuration.extensions.extension:
+
+The ``<extension>`` Element
+---------------------------
+
+Parent element: ``<extensions>``
 
 .. code-block:: xml
-    :caption: TestRunner エクステンションの組み込み
-    :name: configuration.examples.RegisterExtension
 
-      <?xml version="1.0" encoding="UTF-8"?>
-      <phpunit xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://schema.phpunit.de/7.1/phpunit.xsd">
-          <extensions>
-              <extension class="Vendor\MyExtension"/>
-          </extensions>
-      </phpunit>
+    <extensions>
+        <extension class="Vendor\MyExtension"/>
+    </extensions>
 
-.. _appendixes.configuration.php-ini-constants-variables:
+.. _appendixes.configuration.extensions.extension.arguments:
 
-PHP INI 項目や定数、グローバル変数の設定
-########################################
+The ``<arguments>`` Element
+***************************
 
-``<php>`` 要素とその子要素を使って、
-PHP の設定や定数、グローバル変数を設定します。また、
-``include_path`` の先頭にパスを追加することもできます。
+Parent element: ``<extension>``
 
-.. code-block:: bash
+The ``<arguments>`` element can be used to configure a single ``<extension>``.
+
+Accepts a list of elements of types, which are then used to configure individual
+extensions. The arguments are passed to the extension class' ``__constructor``
+method in the order they are defined in the configuration.
+
+Available types:
+
+- ``<boolean>``
+- ``<integer>``
+- ``<string>``
+- ``<double>`` (float)
+- ``<array>``
+- ``<object>``
+
+.. code-block:: xml
+
+    <extension class="Vendor\MyExtension">
+        <arguments>
+            <integer>1</integer>
+            <integer>2</integer>
+            <integer>3</integer>
+            <string>hello world</string>
+            <boolean>true</boolean>
+            <double>1.23</double>
+            <array>
+                <element index="0">
+                    <string>value1</string>
+                </element>
+                <element index="1">
+                    <string>value2</string>
+                </element>
+            </array>
+            <object class="Vendor\MyPhpClass">
+                <string>constructor arg 1</string>
+                <string>constructor arg 2</string>
+            </object>
+        </arguments>
+    </extension>
+
+
+.. _appendixes.configuration.php:
+
+The ``<php>`` Element
+#####################
+
+Parent element: ``<phpunit>``
+
+The ``<php>`` element and its children can be used to configure PHP settings, constants, and global variables. It can also be used to prepend the ``include_path``.
+
+.. _appendixes.configuration.php.includePath:
+
+The ``<includePath>`` Element
+-----------------------------
+
+Parent element: ``<php>``
+
+This element can be used to prepend a path to the ``include_path``.
+
+.. _appendixes.configuration.php.ini:
+
+The ``<ini>`` Element
+---------------------
+
+Parent element: ``<php>``
+
+This element can be used to set a PHP configuration setting.
+
+.. code-block:: xml
 
     <php>
-      <includePath>.</includePath>
       <ini name="foo" value="bar"/>
-      <const name="foo" value="bar"/>
-      <var name="foo" value="bar"/>
-      <env name="foo" value="bar"/>
-      <post name="foo" value="bar"/>
-      <get name="foo" value="bar"/>
-      <cookie name="foo" value="bar"/>
-      <server name="foo" value="bar"/>
-      <files name="foo" value="bar"/>
-      <request name="foo" value="bar"/>
     </php>
 
-上の XML 設定は、次の PHP コードに対応します。
+The XML configuration above corresponds to the following PHP code:
 
-.. code-block:: bash
+.. code-block:: php
 
     ini_set('foo', 'bar');
-    define('foo', 'bar');
-    $GLOBALS['foo'] = 'bar';
-    $_ENV['foo'] = 'bar';
-    $_POST['foo'] = 'bar';
-    $_GET['foo'] = 'bar';
-    $_COOKIE['foo'] = 'bar';
-    $_SERVER['foo'] = 'bar';
-    $_FILES['foo'] = 'bar';
-    $_REQUEST['foo'] = 'bar';
 
-デフォルトでは、既存の環境変数は上書きしません。
-設定済みの環境変数を上書きしたい場合ば ``force`` 属性を使いましょう。
+.. _appendixes.configuration.php.const:
+
+The ``<const>`` Element
+-----------------------
+
+Parent element: ``<php>``
+
+This element can be used to set a global constant.
+
+.. code-block:: xml
+
+    <php>
+      <const name="foo" value="bar"/>
+    </php>
+
+The XML configuration above corresponds to the following PHP code:
+
+.. code-block:: php
+
+    define('foo', 'bar');
+
+.. _appendixes.configuration.php.var:
+
+The ``<var>`` Element
+---------------------
+
+Parent element: ``<php>``
+
+This element can be used to set a global variable.
+
+.. code-block:: xml
+
+    <php>
+      <var name="foo" value="bar"/>
+    </php>
+
+The XML configuration above corresponds to the following PHP code:
+
+.. code-block:: php
+
+    $GLOBALS['foo'] = 'bar';
+
+.. _appendixes.configuration.php.env:
+
+The ``<env>`` Element
+---------------------
+
+Parent element: ``<php>``
+
+This element can be used to set a value in the super-global array ``$_ENV``.
+
+.. code-block:: xml
+
+    <php>
+      <env name="foo" value="bar"/>
+    </php>
+
+The XML configuration above corresponds to the following PHP code:
+
+.. code-block:: php
+
+    $_ENV['foo'] = 'bar';
+
+By default, environment variables are not overwritten if they exist already.
+To force overwriting existing variables, use the ``force`` attribute:
 
 .. code-block:: xml
 
     <php>
       <env name="foo" value="bar" force="true"/>
+    </php>
+
+.. _appendixes.configuration.php.get:
+
+The ``<get>`` Element
+---------------------
+
+Parent element: ``<php>``
+
+This element can be used to set a value in the super-global array ``$_GET``.
+
+.. code-block:: xml
+
+    <php>
+      <get name="foo" value="bar"/>
+    </php>
+
+The XML configuration above corresponds to the following PHP code:
+
+.. code-block:: php
+
+    $_GET['foo'] = 'bar';
+
+.. _appendixes.configuration.php.post:
+
+The ``<post>`` Element
+----------------------
+
+Parent element: ``<php>``
+
+This element can be used to set a value in the super-global array ``$_POST``.
+
+.. code-block:: xml
+
+    <php>
+      <post name="foo" value="bar"/>
+    </php>
+
+The XML configuration above corresponds to the following PHP code:
+
+.. code-block:: php
+
+    $_POST['foo'] = 'bar';
+
+.. _appendixes.configuration.php.cookie:
+
+The ``<cookie>`` Element
+------------------------
+
+Parent element: ``<php>``
+
+This element can be used to set a value in the super-global array ``$_COOKIE``.
+
+.. code-block:: xml
+
+    <php>
+      <cookie name="foo" value="bar"/>
+    </php>
+
+The XML configuration above corresponds to the following PHP code:
+
+.. code-block:: php
+
+    $_COOKIE['foo'] = 'bar';
+
+.. _appendixes.configuration.php.server:
+
+The ``<server>`` Element
+------------------------
+
+Parent element: ``<php>``
+
+This element can be used to set a value in the super-global array ``$_SERVER``.
+
+.. code-block:: xml
+
+    <php>
+      <server name="foo" value="bar"/>
+    </php>
+
+The XML configuration above corresponds to the following PHP code:
+
+.. code-block:: php
+
+    $_SERVER['foo'] = 'bar';
+
+.. _appendixes.configuration.php.files:
+
+The ``<files>`` Element
+-----------------------
+
+Parent element: ``<php>``
+
+This element can be used to set a value in the super-global array ``$_FILES``.
+
+.. code-block:: xml
+
+    <php>
+      <files name="foo" value="bar"/>
+    </php>
+
+The XML configuration above corresponds to the following PHP code:
+
+.. code-block:: php
+
+    $_FILES['foo'] = 'bar';
+
+.. _appendixes.configuration.php.request:
+
+The ``<request>`` Element
+-------------------------
+
+Parent element: ``<php>``
+
+This element can be used to set a value in the super-global array ``$_REQUEST``.
+
+.. code-block:: xml
+
+    <php>
+      <request name="foo" value="bar"/>
+    </php>
+
+The XML configuration above corresponds to the following PHP code:
+
+.. code-block:: php
+
+    $_REQUEST['foo'] = 'bar';
+
