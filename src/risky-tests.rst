@@ -14,15 +14,14 @@ PHPUnit は、テストを実行する際に、以下のような追加のチェ
 ##############
 
 PHPUnit はデフォルトで、何も確かめていないテストを検出します。
-このチェックを無効にするには、コマンドラインオプション
+このチェックを無効にするには、:ref:`コマンドライン <textui.clioptions>`オプション
 ``--dont-report-useless-tests``
-を使うか、あるいは PHPUnit の XML 設定ファイルで
+を使うか、あるいは PHPUnit の:ref:`設定ファイル <appendixes.configuration>`で
 ``beStrictAboutTestsThatDoNotTestAnything="false"``
 を設定します。
 
 何もアサーションを実行していないテストは、このチェックを有効にしておくと、
-危険であるとマークされます。モックオブジェクトでの例外や、
-@expectedException などのアノテーションは、アサーションとみなします。
+危険であるとマークされます。モックオブジェクトでの例外はアサーションとみなします。
 
 .. _risky-tests.unintentionally-covered-code:
 
@@ -30,15 +29,21 @@ PHPUnit はデフォルトで、何も確かめていないテストを検出し
 ####################################
 
 PHPUnit は、意図せずカバーされているコードを検出することができます。
-このチェックを有効にするには、コマンドラインオプション
+このチェックを有効にするには、:ref:`コマンドライン <textui.clioptions>`オプション
 ``--strict-coverage``
-を使うか、あるいは PHPUnit の XML 設定ファイルで
+を使うか、あるいは PHPUnit の:ref:`設定ファイル <appendixes.configuration>`で
 ``beStrictAboutCoversAnnotation="true"``
 を設定します。
 
-@covers アノテーションつきのテストが、
-@covers や @uses に記されていないコードを実行している場合に、
+:ref:`@covers <appendixes.annotations.covers>` アノテーションつきのテストが、
+:ref:`@covers <appendixes.annotations.covers>` や :ref:`@uses <appendixes.annotations.uses>` に記されていないコードを実行している場合に、
 このチェックを有効にしておくと、危険であるとマークされます。
+
+# todo: ここがわからないので、Annotation周りのドキュメントを読んでから戻ってくる
+Furthermore, by setting ``forceCoversAnnotation="true"`` in PHPUnit's
+:ref:`configuration file <appendixes.configuration>`, a test can be marked as
+risky when it does not have a :ref:`@covers <appendixes.annotations.covers>`
+annotation.
 
 .. _risky-tests.output-during-test-execution:
 
@@ -46,9 +51,9 @@ PHPUnit は、意図せずカバーされているコードを検出すること
 ####################
 
 PHPUnit は、テストの最中の出力を検出することができます。
-このチェックを有効にするには、コマンドラインオプション
+このチェックを有効にするには、:ref:`コマンドライン <textui.clioptions>`オプション
 ``--disallow-test-output``
-を使うか、あるいは PHPUnit の XML 設定ファイルで
+を使うか、あるいは PHPUnit の:ref:`設定ファイル <appendixes.configuration>`で
 ``beStrictAboutOutputDuringTests="true"``
 を設定します。
 
@@ -64,26 +69,26 @@ PHPUnit は、テストの最中の出力を検出することができます。
 ``PHP_Invoker`` パッケージがインストールされており、
 かつ ``pcntl`` 拡張モジュールが利用可能な場合は、
 テストの実行時間に制限を設けることができます。
-この時間制限を有効にするには、コマンドラインオプション
+この時間制限を有効にするには、:ref:`コマンドライン <textui.clioptions>`オプション
 ``--enforce-time-limit``
-を使うか、あるいは PHPUnit の XML 設定ファイルで
+を使うか、あるいは PHPUnit の:ref:`設定ファイル <appendixes.configuration>`で
 ``beStrictAboutTestSize="true"``
 を設定します。
 
 ``@large`` とマークされたテストは、
 実行時間が 60 秒を超えたら失敗します。
-このタイムアウト時間は、XML 設定ファイルの
+このタイムアウト時間は、:ref:`設定ファイル <appendixes.configuration>`の
 ``timeoutForLargeTests`` 属性で変更できます。
 
 ``@medium`` とマークされたテストは、
 実行時間が 10 秒を超えたら失敗します。
-このタイムアウト時間は、XML 設定ファイルの
+このタイムアウト時間は、:ref:`設定ファイル <appendixes.configuration>`の
 ``timeoutForMediumTests`` 属性で変更できます。
 
 ``@medium`` とも ``@large`` ともマークされていないテストは、
 ``@small`` とマークされたものとみなします。
 このテストは、実行時間が 1 秒を超えたら失敗します。
-このタイムアウト時間は、XML 設定ファイルの
+このタイムアウト時間は、:ref:`設定ファイル <appendixes.configuration>`の
 ``timeoutForSmallTests`` 属性で変更できます。
 
 .. _risky-tests.global-state-manipulation:
@@ -92,8 +97,8 @@ PHPUnit は、テストの最中の出力を検出することができます。
 ######################
 
 PHPUnit は、グローバルな状態を変更するテストを厳格にチェックすることができます。
-このチェックを有効にするには、コマンドラインで ``--strict-global-state``
-オプションを指定するか、PHPUnit の XML 設定ファイルで
+このチェックを有効にするには、:ref:`コマンドライン <textui.clioptions>`で ``--strict-global-state``
+オプションを指定するか、PHPUnit の:ref:`設定ファイル <appendixes.configuration>`で
 ``beStrictAboutChangesToGlobalState="true"``
 を指定します。
 
